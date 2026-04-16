@@ -1,0 +1,40 @@
+.ui-btn {
+  @include btn-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--br);
+  padding: 18px 15px 16px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 11px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-align: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color var(--transition-300);
+
+  &:focus-visible,
+  &:hover,
+  &:active {
+    outline: none;
+  }
+
+  &--pink {
+    background-color: var(--accent-pink);
+
+    &:focus-visible,
+    &:active {
+      background-color: var(--accent-blue);
+    }
+    @include hover {
+      background-color: var(--accent-blue);
+    }
+  }
+
+  &--blue {
+    background-color: var(--accent-blue);
+  }
+}

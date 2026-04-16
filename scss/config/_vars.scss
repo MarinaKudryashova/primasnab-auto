@@ -1,0 +1,45 @@
+// Основные цвета бренда
+// Нейтральные цвета
+// Типографика
+
+:root {
+  /*  */
+  /* ------------------------------------ */
+  --br: 15px;
+
+  /* Fonts */
+  /* ------------------------------------ */
+  --font-family: "Discovery", sans-serif;
+  --second-family: "Banana Brick", sans-serif;
+
+  /* Colors */
+  /* ------------------------------------ */
+  --accent-blue: #5aa7b9;
+  --accent-pink: #c64994;
+  --black: #161616;
+  --white: #fff;
+  --white-60: rgba(255, 255, 255, 0.6);
+
+  --body-bg: var(--black);
+  --text: var(--white);
+
+  // --accent-light: #ffcc3f;
+  // --grey: #9c9c9c;
+  // --grey-2: #919191;
+  // --grey-3: #6b6b6b;
+  // --border-tabs: #e2e2e2;
+
+  // --bg-dark: rgba(20, 20, 20, 0.32);
+  // --bg-light: #f3f3f3;
+  // --bg-main: #0b0b0b;
+
+  /* Offsets */
+  /* ------------------------------------ */
+  --mb-title: 16px;
+  --mb-section: 140px;
+
+  /* Animaition */
+  /* ------------------------------------ */
+  --transition-300: 0.3s ease-in-out;
+  --transition-500: 0.5s linear;
+}

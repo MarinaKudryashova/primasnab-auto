@@ -1,0 +1,25 @@
+.sec-title {
+  margin-top: 0;
+  margin-bottom: var(--mb-title);
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 100%;
+  text-align: left;
+  color: var(--white);
+
+  &--center {
+    text-align: center;
+  }
+  &--pink {
+    color: var(--accent-pink);
+  }
+  &--blue {
+    color: var(--accent-blue);
+  }
+
+  & b {
+    font-weight: 400;
+    color: var(--white);
+  }
+}

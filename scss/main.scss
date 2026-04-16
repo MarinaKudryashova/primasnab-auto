@@ -1,0 +1,30 @@
+// Конфигурация
+@import "config/vars";
+@import "config/mixins";
+@import "config/functions";
+@import "config/settings";
+@import "config/fonts";
+
+// Глобальные стили
+@import "global/visually-hidden";
+@import "global/container";
+
+// Компоненты
+@import "components/nav";
+@import "components/burger";
+@import "components/ui-btn";
+@import "components/ui-link";
+@import "components/messanges";
+@import "components/sec-offset";
+@import "components/sec-title";
+// @import "components/social";
+// @import "components/textcontent";
+
+// Секции
+@import "section/header";
+
+@import "section/faq";
+// @import "section/footer";
+
+// WooCommerce стили (если нужно)
+// @import 'woocommerce/main';
