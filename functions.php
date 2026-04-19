@@ -70,30 +70,30 @@ add_action( 'init', 'primasnab_load_textdomain' );
  *
  * @global int $content_width
  */
-function primasnab_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'primasnab_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'primasnab_content_width', 0 );
+// function primasnab_content_width() {
+// 	$GLOBALS['content_width'] = apply_filters( 'primasnab_content_width', 640 );
+// }
+// add_action( 'after_setup_theme', 'primasnab_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function primasnab_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'primasnab' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'primasnab' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'primasnab_widgets_init' );
+// function primasnab_widgets_init() {
+// 	register_sidebar(
+// 		array(
+// 			'name'          => esc_html__( 'Sidebar', 'primasnab' ),
+// 			'id'            => 'sidebar-1',
+// 			'description'   => esc_html__( 'Add widgets here.', 'primasnab' ),
+// 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+// 			'after_widget'  => '</section>',
+// 			'before_title'  => '<h2 class="widget-title">',
+// 			'after_title'   => '</h2>',
+// 		)
+// 	);
+// }
+// add_action( 'widgets_init', 'primasnab_widgets_init' );
 
 /**
  * ОТКЛЮЧЕНИЕ КОММЕНТАРИЕВ ПОЛНОСТЬЮ
@@ -165,19 +165,21 @@ add_action( 'wp_enqueue_scripts', 'primasnab_styles_and_scripts' );
 /**
  * THEME EXTRAS
  */
-require_once get_template_directory() . '/inc/thumbnail.php'; // Подключаем функционал управления миниатюрами записей из общего списка записей в админ-панели WordPress
+// require_once get_template_directory() . '/inc/thumbnail.php'; // Подключаем функционал управления миниатюрами записей из общего списка записей в админ-панели WordPress
 require_once get_template_directory() . '/inc/theme-svg.php'; // Добавляет поддержку SVG изображений в медиабиблиотеку
 require_once get_template_directory() . '/inc/disable_default_image_sizes.php'; // Отключаем только конкретные стандартные размеры изображений
 require_once get_template_directory() . '/inc/the_picture_element.php'; // Отключаем только конкретные стандартные размеры изображений
 require_once get_template_directory() . '/inc/post-options.php';
 require_once get_template_directory() . '/inc/BEM_Walker_Nav_Menu.php';
-require_once get_template_directory() . '/inc/Footer_Menu_Walker.php';
+// require_once get_template_directory() . '/inc/Footer_Menu_Walker.php';
+
 // require_once get_template_directory() . '/inc/theme-form-cf7.php';
 
 /**
  * Post types & taxonomies
  */
 require_once get_template_directory() . '/inc/template-types/type-faq.php'; // Подключаем функционал кастомного типа записи FAQ
+require_once get_template_directory() . '/inc/template-types/type-reviews.php'; // Подключаем функционал кастомного типа записи Отзывы
 // require_once get_template_directory() . '/inc/template-types/type-licenses.php'; // Подключаем функционал кастомного типа записи Лицензии
 
 require_once get_template_directory() . '/inc/template-types/rename_product_brands.php'; // Переименовываем Woocommerce таксономии "Бренды" в "Марки"
@@ -212,4 +214,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

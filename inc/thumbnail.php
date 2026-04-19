@@ -30,8 +30,8 @@ class WPSL_Thumb {
 	 * Post types
 	 */
 	public function post_types() {
-		//$post_types = get_post_types( array( 'public' => true ) );
-		$post_types = array( 'post', 'infacade' );
+		$post_types = get_post_types( array( 'public' => true ) );
+		// $post_types = array( 'post', 'page' );
 		return $post_types;
 	}
 
@@ -104,7 +104,7 @@ class WPSL_Thumb {
 				</div>
 				<a href="<?php echo get_edit_post_link( $post_id ); ?>" data-nonce="<?php echo $nonce; ?>" class="remove-image"><i class="dashicons dashicons-no"></i></a>
 			</div>
-			<?
+			<?php
 		}
 	}
 	
@@ -143,9 +143,9 @@ class WPSL_Thumb {
 					 * text. We're also not allowing the user to select more than one image.
 					 */
 					file_frame = wp.media.frames.file_frame = wp.media({
-						title:    '<?php _e( 'Browse or upload an image', 'plugin_name' ); ?>',
+						title:    '<?php _e( 'Browse or upload an image', 'primasnab' ); ?>',
 						button:   {
-							text: '<?php _e( 'Set thumbnail', 'plugin_name' ); ?>'
+							text: '<?php _e( 'Set thumbnail', 'primasnab' ); ?>'
 						},
 						multiple: false
 					});

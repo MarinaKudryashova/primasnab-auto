@@ -1,40 +1,58 @@
 .ui-btn {
+  --btn-bg: var(--accent-blue);
+  --btn-bg-hover: var(--accent-pink);
+
   @include btn-reset;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   border-radius: var(--br);
-  padding: 18px 15px 16px;
+  padding: 1.05em 1em 0.95em;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 15px;
-  line-height: 11px;
+  line-height: 1;
+  // line-height: 11px;
   letter-spacing: 0;
   white-space: nowrap;
   text-align: center;
   color: var(--white);
+  background-color: var(--btn-bg);
   cursor: pointer;
-  transition: background-color var(--transition-300);
+  transition:
+    background-color var(--transition-300),
+    transform var(--transition-300);
 
-  &:focus-visible,
-  &:hover,
-  &:active {
+  &:focus {
     outline: none;
   }
 
-  &--pink {
-    background-color: var(--accent-pink);
+  &:focus-visible {
+    background-color: var(--btn-bg-hover);
+  }
+  @include hover {
+    background-color: var(--btn-bg-hover);
+  }
+  &:active {
+    transform: scale(99%);
+  }
 
-    &:focus-visible,
-    &:active {
-      background-color: var(--accent-blue);
-    }
-    @include hover {
-      background-color: var(--accent-blue);
-    }
+  & svg {
+    flex: none;
+    width: auto;
+    height: 1.3cap;
+    fill: currentColor;
+    user-select: none;
+  }
+
+  &--pink {
+    --btn-bg: var(--accent-pink);
+    --btn-bg-hover: var(--accent-blue);
   }
 
   &--blue {
-    background-color: var(--accent-blue);
+    --btn-bg: var(--accent-blue);
+    --btn-bg-hover: var(--accent-pink);
   }
 }

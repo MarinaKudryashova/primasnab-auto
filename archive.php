@@ -10,14 +10,18 @@
 get_header();
 ?>
 
-	<<main class="main">
+	<main class="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				
+				$archive_desc = get_the_archive_description();
+				if ( ! empty( $archive_desc ) && is_string( $archive_desc ) ) {
+						echo '<div class="archive-description">' . $archive_desc . '</div>';
+				}
 				?>
 			</header><!-- .page-header -->
 
