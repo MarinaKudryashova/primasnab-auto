@@ -1,0 +1,88 @@
+.sec-slider {
+  &[data-id="sec-cases"] {
+    margin-bottom: 125px;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 40px;
+
+    #sec-case & {
+      margin-bottom: 46px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__btn-prev,
+  &__btn-next {
+    @include btn-reset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 15px;
+    padding: 13px 12px 12px;
+    width: 45px;
+    height: 45px;
+    color: var(--white);
+    background-color: var(--accent-blue);
+    cursor: pointer;
+    transition:
+      box-shadow var(--transition-300),
+      transform var(--transition-300);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible,
+    &:hover {
+      box-shadow: 0 0 11px 0 var(--accent-blue);
+    }
+    &:active {
+      transform: scale(97%);
+    }
+  }
+
+  &__icon {
+    fill: none;
+    stroke-width: 3px;
+    stroke: currentColor;
+    width: 9px;
+    height: 18px;
+    user-select: none;
+  }
+
+  &__content {
+    padding: 15px;
+    margin: -15px;
+
+    & .swiper-slide {
+      display: flex;
+      height: auto;
+    }
+  }
+}
+// .container {
+// }
+// .sec-title {
+// }
+// .swiper {
+// }
+// .swiper-wrapper {
+// }
+// .swiper-slide {
+// }

@@ -1,8 +1,7 @@
-<?php $page_id = $args ?>
-
 <?php
-$block_title = get_field('faq_title_main');
-$block_list = get_field('faq_list_main');
+  $page_id = $args["id"];
+  $block_title = get_field('faq_title_main');
+  $block_list = get_field('faq_list_main');
 ?>
 
 <section class="faq sec-offset" itemscope itemtype="https://schema.org/FAQPage">
@@ -20,7 +19,6 @@ $block_list = get_field('faq_list_main');
               $item_class .= ' is-open';
             }
           ?>
-
           <div class="<?php echo $item_class; ?>" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <button class="accordion__control" aria-expanded="false">
               <span class="accordion__title" itemprop="name"><?php echo esc_html($faq->post_title); ?></span>
