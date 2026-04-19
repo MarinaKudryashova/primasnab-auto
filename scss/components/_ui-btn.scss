@@ -1,26 +1,39 @@
 .ui-btn {
   --btn-bg: var(--accent-blue);
   --btn-bg-hover: var(--accent-pink);
+  --btn-border-widht: 1px;
+  --btn-border-style: solid;
+  --btn-border-color: var(--btn-bg);
+  --btn-border-color-hover: var(--btn-bg-hover);
+  --btn-ff: var(--font-family);
+  --btn-fw: 400;
+  --btn-fz: 15px;
+  --btn-lh: 1;
+  --btn-color: var(--white);
 
   @include btn-reset;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  border-width: var((--btn-border-widht));
+  border-style: var(--btn-border-style);
+  border-color: var(--btn-border-color);
   border-radius: var(--br);
   padding: 1.05em 1em 0.95em;
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1;
+  font-family: var(--btn-ff);
+  font-weight: var(--btn-fw);
+  font-size: var(--btn-fz);
+  line-height: var(--btn-lh);
   // line-height: 11px;
   letter-spacing: 0;
   white-space: nowrap;
   text-align: center;
-  color: var(--white);
+  color: var(--btn-color);
   background-color: var(--btn-bg);
   cursor: pointer;
   transition:
+    border-color var(--transition-300),
     background-color var(--transition-300),
     transform var(--transition-300);
 
@@ -30,9 +43,11 @@
 
   &:focus-visible {
     background-color: var(--btn-bg-hover);
+    border-color: var(--btn-bg-hover);
   }
   @include hover {
     background-color: var(--btn-bg-hover);
+    border-color: var(--btn-bg-hover);
   }
   &:active {
     transform: scale(99%);
@@ -54,5 +69,10 @@
   &--blue {
     --btn-bg: var(--accent-blue);
     --btn-bg-hover: var(--accent-pink);
+  }
+  &--ghost {
+    --btn-bg: transparent;
+    --btn-bg-hover: var(--accent-blue);
+    --btn-border-color: var(--btn-color);
   }
 }
