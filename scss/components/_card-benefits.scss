@@ -1,0 +1,75 @@
+.card-benefits {
+  position: relative;
+  --card-benefits-color: var(--accent-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 20px;
+  border: 1px solid var(--white);
+  padding: 27px 26px 26px;
+  background-color: var(--black);
+  box-shadow: 0 0 22px 0 var(--card-benefits-color);
+
+  &__name {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    text-align: center;
+    color: var(--card-benefits-color);
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--white);
+  }
+
+  /* стили когда значение "left" */
+  &[data-icon-pos="left"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+    background-image: var(--card-benefits-icon-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+  }
+  /* стили когда значение "right" */
+  &[data-icon-pos="right"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 45px;
+    width: 50px;
+    height: 50px;
+    background-image: var(--card-benefits-icon-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+  }
+  /* стили когда значение "double" */
+  &[data-icon-pos="double"]::before,
+  &[data-icon-pos="double"]::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: var(--card-benefits-icon-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &[data-icon-pos="double"]::before {
+    left: 10px;
+    bottom: 10px;
+  }
+  &[data-icon-pos="double"]::after {
+    right: 10px;
+    top: 10px;
+  }
+}
