@@ -33,7 +33,7 @@
 
 	<?php //get_template_part("template-parts/message"); ?>
 	<?php //get_template_part("template-parts/modal"); ?>
-	<?php //get_template_part("template-parts/cookie-notice"); ?>
+	<?php get_template_part("template-parts/components/cookie-notice"); ?>
 
 </body>
 </html>

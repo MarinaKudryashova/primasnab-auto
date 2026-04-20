@@ -1,0 +1,11 @@
+.promo {
+  &__benefits {
+    @include list-reset;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  &__benefits-item {
+    width: calc(100% / 4 - 20px * 3 / 4);
+  }
+}
