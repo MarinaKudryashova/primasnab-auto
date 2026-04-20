@@ -6,5 +6,5 @@ import "./components/sec-slider";
 // import "./components/topbtn";
 // import "./components/message";
 // import "./components/showmore";
-// import "./components/cookie-notice";
+import "./components/cookie-notice";
 // import "./components/modal";

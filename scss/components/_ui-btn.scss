@@ -1,6 +1,7 @@
 .ui-btn {
   --btn-bg: var(--accent-blue);
   --btn-bg-hover: var(--accent-pink);
+  --btn-border-radius: 15px;
   --btn-border-widht: 1px;
   --btn-border-style: solid;
   --btn-border-color: var(--btn-bg);
@@ -19,7 +20,7 @@
   border-width: var((--btn-border-widht));
   border-style: var(--btn-border-style);
   border-color: var(--btn-border-color);
-  border-radius: var(--br);
+  border-radius: var(--btn-border-radius);
   padding: 1.05em 1em 0.95em;
   font-family: var(--btn-ff);
   font-weight: var(--btn-fw);

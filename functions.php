@@ -194,6 +194,7 @@ require_once get_template_directory() . '/inc/template-types/rename-product-tags
  */
 require_once get_template_directory() . '/inc/woocommerce/add-product-admin-columns.php';
 require_once get_template_directory() . '/inc/woocommerce/add-product-admin-filters.php';
+require_once get_template_directory() . '/inc/woocommerce/change_rub_currency_symbol.php'; //В WooCommerce меняем символ рубля с ₽ на р
 
 
 /**

@@ -20,14 +20,19 @@
 @import "components/ui-card";
 // @import "components/social";
 // @import "components/textcontent";
+@import "components/cookie-notice";
 
 // Секции
 @import "section/header";
+@import "section/promo";
+@import "components/card-benefits";
+
 @import "section/direction";
-@import "section/sec-slider";
-@import "components/card-case";
 @import "section/sec-catalog";
 @import "components/product-card";
+@import "section/sec-slider";
+@import "components/card-case";
+@import "section/why-benefits";
 
 @import "section/faq";
 // @import "section/footer";
