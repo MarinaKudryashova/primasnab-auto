@@ -1,7 +1,8 @@
 <?php
   $page_id = $args["id"];
-  $block_title = get_field('howwork_title');
-  $block_list = get_field('howwork_list');
+  
+  $block_title = get_field('howwork_title', $page_id);
+  $block_list = get_field('howwork_list', $page_id);
 ?>
 <section class="how-work sec-offset">
   <div class="container">

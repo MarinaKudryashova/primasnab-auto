@@ -46,18 +46,17 @@
 
   &__img {
     display: flex;
-    border-width: var(--card-border-width);
-    border-style: var(--card-border-style);
-    border-color: var(--card-border-color);
-    border-radius: var(--card-br);
-    overflow: hidden;
 
     & img {
-      border-radius: inherit;
+      border-width: var(--card-border-width);
+      border-style: var(--card-border-style);
+      border-color: var(--card-border-color);
+      border-radius: var(--card-br);
       width: 100%;
       object-fit: cover;
       object-position: center;
       aspect-ratio: 630 / 350;
+      overflow: clip;
     }
   }
 
