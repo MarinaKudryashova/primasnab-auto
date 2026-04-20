@@ -9,6 +9,7 @@
 
   $slider_title = get_field($title_field, $page_id);
   $slider_list  = get_field($list_field, $page_id);
+
 ?>
 
 <?php if(is_array($slider_list)) : ?>
