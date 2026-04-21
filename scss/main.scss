@@ -18,6 +18,8 @@
 @import "components/sec-offset";
 @import "components/sec-title";
 @import "components/ui-card";
+@import "components/contacts";
+@import "components/topbtn";
 // @import "components/social";
 // @import "components/textcontent";
 @import "components/cookie-notice";
@@ -36,7 +38,8 @@
 @import "components/card-reviews";
 @import "section/faq";
 
-// @import "section/footer";
+@import "components/footer-menu";
+@import "section/footer";
 
 // WooCommerce стили (если нужно)
 // @import 'woocommerce/main';
