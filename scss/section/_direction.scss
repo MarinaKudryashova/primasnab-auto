@@ -1,14 +1,25 @@
 .direction {
+  --flag-size: 77px;
+
   &__list {
     @include list-reset;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 20px;
+    gap: 40px 20px;
   }
 
   &__item {
     width: calc(100% / 4 - 20px * 3 / 4);
+
+    @include desktop {
+      width: calc(100% / 2 - 20px * 1 / 2);
+    }
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__heading {
@@ -17,6 +28,14 @@
     align-items: center;
     width: fit-content;
     margin-bottom: 20px;
+
+    @include desktop {
+      width: calc(100% - var(--flag-size));
+    }
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__country {
@@ -25,15 +44,30 @@
     --btn-lh: 110%;
 
     padding: 10px 15px;
+
+    @include desktop {
+      width: 100%;
+    }
+
+    @include mobile {
+      --btn-fz: 18px;
+      --btn-lh: 138%;
+    }
   }
 
   &__flag {
     position: absolute;
     top: 50%;
     right: 15px;
+    width: var(--flag-size);
+    aspect-ratio: 1 / 1;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translate(100%, -50%) rotate(34deg);
+
+    @include mobile {
+      transform: translate(20px, -50%) rotate(34deg);
+    }
   }
 
   &__tags {
@@ -41,6 +75,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+
+    @include desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
   &__tag {
