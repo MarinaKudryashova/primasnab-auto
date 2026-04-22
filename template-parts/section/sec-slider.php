@@ -38,7 +38,7 @@
     </div>
     <div class="swiper sec-slider__content">
       <div class="swiper-wrapper">
-        <?php foreach($slider_list as $slide) : ?>
+        <?php foreach($slider_list as $index => $slide) : ?>
         <div class="swiper-slide">
           <?php
             switch ($sec_name) {
@@ -47,6 +47,12 @@
                 break;
               case 'sec-reviews':
                 get_template_part('template-parts/components/card-reviews', null, ['id' => $page_id, 'block' => $sec_name, 'slide' => $slide]);
+                break;
+              case 'company-media':
+                // echo '<pre>';
+                // var_dump($page_id, $sec_name, $slide);
+                // echo '</pre>';
+                get_template_part('template-parts/components/card-media', null, ['id' => $page_id, 'block' => $sec_name, 'slide' => $slide]);
                 break;
             }
           ?>
