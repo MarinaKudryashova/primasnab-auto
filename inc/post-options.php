@@ -33,12 +33,12 @@ function custom_acf_options() {
 			"menu_slug"   => "site_settings_forms",
 		));
 
-		acf_add_options_sub_page(array(
-			"page_title"  => __("Футер", 'primasnab'),
-			"menu_title"  => __("Футер", 'primasnab'),
-			"parent_slug" => "site_settings",
-			"menu_slug"   => "site_settings_footer",
-		));
+		// acf_add_options_sub_page(array(
+		// 	"page_title"  => __("Футер", 'primasnab'),
+		// 	"menu_title"  => __("Футер", 'primasnab'),
+		// 	"parent_slug" => "site_settings",
+		// 	"menu_slug"   => "site_settings_footer",
+		// ));
 
 		acf_add_options_sub_page(array(
 			"page_title"  => "Cookie",
