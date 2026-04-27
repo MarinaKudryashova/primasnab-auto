@@ -7,13 +7,14 @@ if (!$car) {
 }
 
 // Заголовок
-$car_title = $car->name;
+$car_title = $car->get_name();
 
 // Год выпуска
 $car_year = $car->get_attribute( 'pa_car-year' );
 
 // Страна
-$car_country_id = $car->category_ids[0];
+$car_category_ids = $car->get_category_ids();
+$car_country_id = !empty($car_category_ids) ? $car_category_ids[0] : 0;
 $car_country = get_term( $car_country_id, 'product_cat' );
 $car_country_name = $car_country -> name;
 
@@ -45,7 +46,7 @@ $car_fallback_img_id = attachment_url_to_postid($car_fallback_img_url);
   <?php else : ?>
   <div class="product-card__view">
     <img class="product-card__img" src="<?php echo esc_url($car_fallback_img_url); ?>" itemprop="image"
-      alt="<?php echo esc_attr_e('Изображения товара нет', 'primasnab') ?>" width="400" height="350">
+      alt="<?php echo esc_attr('Изображения товара нет', 'primasnab') ?>" width="400" height="350">
   </div>
   <?php endif; ?>
 
