@@ -13,17 +13,21 @@
   &__title-wrapper {
     background-color: black;
     margin-bottom: 37px;
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   &__title {
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 100%;
-    color: var(--white);
     z-index: 1;
     padding: 12px 35px 16px;
     margin: 0;
     text-align: start;
+
+    @include mobile {
+      padding: 20px 10px 20px 20px;
+    }
   }
 
   &__form {
@@ -37,6 +41,10 @@
 
   &__field {
     min-width: 233px;
+
+    @include mobile {
+      min-width: 100%;
+    }
   }
 
   &__field input {
@@ -61,23 +69,18 @@
   }
 
   &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
     padding: 13px 60px;
-    border: none;
-    border-radius: 15px;
-    background-color: var(--accent-blue);
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 15px;
-    color: var(--white);
-    cursor: pointer;
+
     transition:
       background-color var(--transition-300),
       transform var(--transition-300),
       box-shadow var(--transition-300);
+
+    @include mobile {
+      font-size: 13px;
+      padding: 13px 63px;
+      width: 100%;
+    }
   }
 
   &__btn:hover {
@@ -141,6 +144,17 @@
     font-size: 13px;
     line-height: 1.5;
     color: var(--white);
+
+    @include mobile {
+      font-size: 10px;
+      max-width: 143px;
+    }
+  }
+
+  &__checkbox-link {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
 
   &__checkbox input {
