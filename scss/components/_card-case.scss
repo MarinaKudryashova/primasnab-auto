@@ -5,6 +5,11 @@
   --card-shadow: 0;
   transition: box-shadow var(--transition-300);
 
+  @include mobile {
+    --card-py: 15px;
+    --card-px: 15px;
+  }
+
   .swiper-slide-prev &__title {
     transform: scale(0.9) rotate(7.28deg);
   }
@@ -39,8 +44,18 @@
     transform: rotate(7.28deg);
     transition: transform var(--transition-300);
 
+    @include mobile {
+      top: -11px;
+      right: -26px;
+      font-size: 20px;
+    }
+
     span {
       max-width: 320px;
+
+      @include mobile {
+        max-width: 270px;
+      }
     }
   }
 
@@ -57,6 +72,10 @@
       object-position: center;
       aspect-ratio: 630 / 350;
       overflow: clip;
+
+      @include mobile {
+        aspect-ratio: 305 / 350;
+      }
     }
   }
 
@@ -72,6 +91,10 @@
     font-size: 15px;
     line-height: 130%;
     color: inherit;
+
+    @include mobile {
+      font-size: 12px;
+    }
 
     & p {
       margin: 0;
