@@ -24,6 +24,11 @@
 
     img {
       aspect-ratio: 242 / 80;
+
+      @include mobile {
+        aspect-ratio: 365 / 120;
+        width: 100%;
+      }
     }
 
     &--desktop {
@@ -94,6 +99,7 @@
 
     @include mobile {
       grid-column: 2 span;
+      padding-top: 0;
     }
   }
 
