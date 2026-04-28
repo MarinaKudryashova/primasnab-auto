@@ -8,6 +8,10 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 40px 20px;
+
+    @include mobile {
+      gap: 30px;
+    }
   }
 
   &__item {
@@ -34,6 +38,7 @@
     }
 
     @include mobile {
+      margin-bottom: 10px;
       width: 100%;
     }
   }
@@ -79,6 +84,9 @@
     @include desktop {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+    @include mobile {
+      gap: 9px;
     }
   }
 

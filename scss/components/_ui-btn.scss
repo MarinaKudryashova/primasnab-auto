@@ -75,7 +75,7 @@
     --btn-bg: var(--accent-blue);
     --btn-bg-hover: var(--accent-pink);
   }
-  
+
   &--ghost {
     --btn-bg: transparent;
     --btn-bg-hover: var(--accent-blue);
@@ -85,6 +85,7 @@
 
     @include mobile {
       --btn-fz: 12px;
+      padding: 0.67em 1em 0.62em;
     }
   }
 }
