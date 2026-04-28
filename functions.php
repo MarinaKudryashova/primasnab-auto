@@ -172,8 +172,7 @@ require_once get_template_directory() . '/inc/the_picture_element.php'; // От�
 require_once get_template_directory() . '/inc/post-options.php';
 require_once get_template_directory() . '/inc/BEM_Walker_Nav_Menu.php';
 require_once get_template_directory() . '/inc/Footer_Menu_Walker.php';
-
-require_once get_template_directory() . '/inc/theme-form-cf7.php';
+require_once get_template_directory() . '/inc/theme-form-cf7.php';// модифицирует поведение Contact Form 7
 
 /**
  * Post types & taxonomies
