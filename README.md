@@ -255,3 +255,52 @@ ISC
 2. Все ли зависимости установлены (`npm install`)
 3. Правильно ли настроен proxy в BrowserSync
 4. Нет ли синтаксических ошибок в SCSS/JS
+
+Что загружать на хостинг
+Загружаем эти папки и файлы:
+
+✅ css — скомпилированный CSS
+✅ js — собранный JavaScript
+✅ img — оптимизированные изображения
+✅ fonts — шрифты
+✅ favicon — иконки браузера
+✅ languages — файлы локализации
+✅ inc — PHP функции и обработчики
+✅ template-parts — PHP компоненты шаблона
+✅ Все .php файлы (functions.php, index.php, footer.php и т.д.)
+✅ theme.json — конфигурация темы
+✅ style.css — основной стиль темы
+НЕ загружаем (только для разработки):
+
+❌ node_modules — зависимости npm (занимает ~500 МБ)
+❌ package.json и package-lock.json — конфиги npm
+❌ composer.json и composer.lock — конфиги Composer
+❌ gulpfile.js — сборщик Gulp
+❌ scss — исходные SCSS файлы
+❌ js-src — исходные JS файлы
+❌ phpcs.xml.dist — конфиг PHP CodeSniffer
+❌ README.md, LICENSE — документация
+❌ old, test — старые и тестовые файлы
+❌ Все файлы *.map (sourcemaps)
+❌ .git, .gitignore, .editorconfig и прочие конфиги
+
+## 📦 Структура на продакшене (после gulp build)
+wp-content/themes/primasnab/
+├── css/
+│ ├── main.css # ✅ Минифицированный CSS
+│ └── vendor.css # ✅ Минифицированный CSS сторонних библиотек
+├── js/
+│ ├── main.min.js # ✅ Минифицированный JavaScript
+│ └── navigation.js # ✅ Дополнительные скрипты
+├── img/ # ✅ Сжатые изображения + WebP варианты
+├── fonts/ # ✅ Шрифты
+├── languages/ # ✅ .po/.mo файлы перевода
+├── inc/ # ✅ PHP обработчики
+├── template-parts/ # ✅ Шаблоны компонентов
+├── functions.php # ✅ Главный файл функций
+├── style.css # ✅ Информация о теме
+├── index.php # ✅ Главный шаблон
+├── single.php # ✅ Шаблон записи
+├── page.php # ✅ Шаблон страницы
+├── archive.php # ✅ Шаблон архива
+└── ... остальные PHP файлы

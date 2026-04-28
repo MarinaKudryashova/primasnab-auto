@@ -8,5 +8,12 @@
 
   &__item {
     width: calc(100% / 4 - 20px * 3 / 4);
+
+    @include desktop {
+      width: calc(100% / 2 - 20px * 1 / 2);
+    }
+    @include mobile {
+      width: 100%;
+    }
   }
 }

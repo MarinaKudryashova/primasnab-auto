@@ -11,6 +11,15 @@
   text-align: var(--title-position);
   color: var(--title-color);
 
+  @include mobile {
+    font-size: 30px;
+  }
+
+  @include mobile-xs {
+    --title-mb: 34px;
+    font-size: 24px;
+  }
+
   &--center {
     --title-position: center;
   }

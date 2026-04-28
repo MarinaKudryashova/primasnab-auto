@@ -18,6 +18,8 @@
 @import "components/sec-offset";
 @import "components/sec-title";
 @import "components/ui-card";
+@import "components/contacts";
+@import "components/topbtn";
 // @import "components/social";
 // @import "components/textcontent";
 @import "components/cookie-notice";
@@ -33,9 +35,13 @@
 @import "section/sec-slider";
 @import "components/card-case";
 @import "section/why-benefits";
-
+@import "components/card-reviews";
+@import "components/card-media";
 @import "section/faq";
-// @import "section/footer";
+@import "section/banner-quote-form";
+
+@import "components/footer-menu";
+@import "section/footer";
 
 // WooCommerce стили (если нужно)
 // @import 'woocommerce/main';

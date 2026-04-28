@@ -14,6 +14,10 @@
 
     &:not(:last-child) {
       margin-bottom: 16px;
+
+      @include mobile {
+        margin-bottom: 10px;
+      }
     }
 
     &.is-open {
@@ -51,9 +55,10 @@
     // @include tablet {
     //   padding: 16px 24px;
     // }
-    // @include mobile {
-    //   gap: 8px;
-    // }
+    @include mobile {
+      gap: 8px;
+      padding: 10px 10px 10px 20px;
+    }
 
     &:focus {
       outline: none;
@@ -87,6 +92,11 @@
       transform var(--transition-300),
       background-color var(--transition-300),
       color var(--transition-300);
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+    }
 
     .is-open & {
       background-color: var(--accent-pink);
@@ -127,6 +137,10 @@
     //   padding: 0 24px;
     // }
 
+      @include mobile {
+        padding: 0 20px;
+      }
+
     .is-open & {
       padding-bottom: 40px;
       opacity: 1;
@@ -137,6 +151,10 @@
       // @include tablet {
       //   padding-bottom: 16px;
       // }
+
+      @include mobile {
+        margin-bottom: 20px;
+      }
     }
   }
 
