@@ -18,10 +18,15 @@
   @include mobile-xs {
     --title-mb: 34px;
     font-size: 24px;
+    --title-mb: 32px; 
   }
 
   &--center {
     --title-position: center;
+
+    @include mobile {
+      --title-position: left;
+    }
   }
 
   &--pink {

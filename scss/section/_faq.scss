@@ -72,6 +72,10 @@
     text-align: left;
     color: inherit;
 
+    @include mobile {
+      font-size: 18px;
+    }
+
     // @include tablet {
     //   font-size: 20px;
     // }
@@ -165,6 +169,11 @@
     font-size: 18px;
     line-height: 130%;
     color: inherit;
+
+    @include mobile {
+      font-size: 12px;
+      max-width: 520px;
+    }
 
     // @include tablet  {
     //   font-size: 14px;

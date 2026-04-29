@@ -4,6 +4,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
+    @include mobile {
+      gap: 8px;
+    }
   }
 
   &__item {

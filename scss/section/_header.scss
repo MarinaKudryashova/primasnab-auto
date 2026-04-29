@@ -16,6 +16,10 @@
     padding-bottom: calc(var(--padding-md-y) - 1px);
   }
 
+  @include mobile {
+    --padding-md-y: 10px;
+  }
+
   &__container {
     display: flex;
     align-items: center;
@@ -26,11 +30,18 @@
 
   &__logo {
     flex-shrink: 0;
+    height: 44px; //не знаю насколько корректно, но нужно было для пиксель перфекта
+
     & img {
       aspect-ratio: 152 / 50;
 
       @media (max-width: (1300px)) {
         width: 142px;
+      }
+
+      @include mobile {
+        width: 132px;
+        aspect-ratio: 132 / 44;
       }
     }
   }
@@ -103,6 +114,10 @@
     @media (max-width: (1300px)) {
       gap: 8px;
       padding-left: 0;
+    }
+
+    @include mobile {
+      gap: 20px;
     }
   }
 

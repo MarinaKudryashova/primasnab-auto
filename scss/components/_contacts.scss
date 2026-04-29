@@ -13,10 +13,19 @@
   font-size: var(--contacts-fs);
   line-height: var(--contacts-lh);
 
+  @include mobile {
+    --contacts-gap: 5px;
+  }
+
   &__title {
     margin: 0;
     color: var(--contacts-title);
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
+
   &__value {
     display: flex;
     flex-direction: column;
