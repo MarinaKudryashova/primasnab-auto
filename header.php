@@ -55,7 +55,7 @@ $messanges = get_field('messengers_list', 'options'); /*-- Мессенджер�
 			<div class="header__container container" >
 				<?php /*-- Логотип --*/ ?>
 				<a href="<?php bloginfo('url'); ?>" class="header__logo logo">
-					<img class="logo__img" src="<?php echo get_field('site_logo', 'option') ?>" alt="Logo <?php bloginfo('name'); ?>" width="152" height="50">
+					<img class="logo__img" src="<?php echo get_field('site_logo', 'options') ?>" alt="Logo <?php bloginfo('name'); ?>" width="152" height="50">
 				</a>
 				<?php /*-- Навигация --*/ ?>
 				<div class="header__nav">
