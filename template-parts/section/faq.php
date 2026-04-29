@@ -18,9 +18,11 @@
             if ($is_first) {
               $item_class .= ' is-open';
             }
+            $aria_expanded = $is_first ? 'true' : 'false';
+            $aria_hidden = $is_first ? 'false' : 'true';
           ?>
           <div class="<?php echo $item_class; ?>" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <button class="accordion__control" aria-expanded="false">
+            <button class="accordion__control" aria-expanded="<?php echo esc_attr($aria_expanded); ?>">
               <span class="accordion__title" itemprop="name"><?php echo esc_html($faq->post_title); ?></span>
               <span class="accordion__icon">
                 <svg>
@@ -28,7 +30,7 @@
                 </svg>
               </span>
             </button>
-            <div class="accordion__content" aria-hidden="true" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+            <div class="accordion__content" aria-hidden="<?php echo esc_attr($aria_hidden); ?>" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
               <p class="accordion__text" itemprop="text"><?php echo esc_html($faq->post_content); ?></p>
             </div>
           </div>
