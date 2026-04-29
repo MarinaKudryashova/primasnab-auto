@@ -48,12 +48,24 @@
     transform: rotate(7.28deg);
     transition: transform var(--transition-300);
 
+    @include desktop {
+      width: 65%;
+      padding: 10px 15px;
+      font-size: 20px;
+    }
+
+    @include tablet-lg {
+      width: 90%;
+    }
+
+    @include tablet-md {
+      width: 65%;
+    }
+
     @include mobile {
       width: fit-content;
-      padding: 10px 15px;
       top: -13px;
       right: -23px;
-      font-size: 20px;
       line-height: 121%;
     }
 

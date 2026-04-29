@@ -11,6 +11,18 @@
   text-align: var(--title-position);
   color: var(--title-color);
 
+  @include desktop {
+    font-size: 48px;
+  }
+
+  @include tablet {
+    font-size: 40px;
+  }
+
+  @include tablet-md {
+    font-size: 36px;
+  }
+
   @include mobile {
     font-size: 30px;
   }
