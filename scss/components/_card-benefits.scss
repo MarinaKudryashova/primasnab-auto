@@ -10,7 +10,7 @@
   background-color: var(--black);
   box-shadow: 0 0 22px 0 var(--card-benefits-color);
 
-  @include mobile {
+  @include tablet-md {
     padding: 16px;
   }
 

@@ -2,6 +2,10 @@
   --sec-mb: 140px;
   margin-bottom: var(--sec-mb);
 
+  @include tablet-md {
+    --sec-mb: 100px;
+  }
+
   @include mobile {
     --sec-mb: 70px;
   }
