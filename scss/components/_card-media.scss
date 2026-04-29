@@ -17,6 +17,10 @@
     background-color: var(--media-bg);
     box-shadow: var(--media-shadow);
 
+    @include mobile {
+      margin-bottom: 20px;
+    }
+
     & iframe {
       border: none;
       border-radius: inherit;
@@ -42,6 +46,10 @@
       object-position: center;
       aspect-ratio: 440 / 300;
       overflow: clip;
+
+      @include mobile {
+        aspect-ratio: 335 / 250;
+      }
     }
 
     & .video__play {
@@ -59,5 +67,9 @@
     font-size: 24px;
     line-height: 110%;
     color: var(--white);
+
+    @include mobile {
+      font-size: 18px;
+    }
   }
 }

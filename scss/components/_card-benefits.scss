@@ -10,6 +10,10 @@
   background-color: var(--black);
   box-shadow: 0 0 22px 0 var(--card-benefits-color);
 
+  @include mobile {
+    padding: 16px;
+  }
+
   &__name {
     font-family: var(--second-family);
     font-weight: 400;
@@ -17,6 +21,10 @@
     line-height: 110%;
     text-align: center;
     color: var(--card-benefits-color);
+
+    @include mobile {
+      font-size: 18px;
+    }
   }
 
   &__text {
@@ -25,6 +33,10 @@
     line-height: 130%;
     text-align: center;
     color: var(--white);
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   /* стили когда значение "left" */

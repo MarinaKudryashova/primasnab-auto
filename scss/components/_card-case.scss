@@ -21,6 +21,10 @@
   &__heading {
     position: relative;
     margin-bottom: 28px;
+
+    @include mobile {
+      margin-bottom: 21px;
+    }
   }
 
   &__title {
@@ -45,9 +49,12 @@
     transition: transform var(--transition-300);
 
     @include mobile {
-      top: -11px;
-      right: -26px;
+      width: fit-content;
+      padding: 10px 15px;
+      top: -13px;
+      right: -23px;
       font-size: 20px;
+      line-height: 121%;
     }
 
     span {
@@ -101,6 +108,10 @@
 
       &:not(:last-child) {
         margin-bottom: 22px;
+
+        @include mobile {
+          margin-bottom: 16px;
+        }
       }
     }
   }

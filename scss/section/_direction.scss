@@ -52,6 +52,7 @@
     @include mobile {
       --btn-fz: 18px;
       --btn-lh: 138%;
+      padding: 10px 16.5px;
     }
   }
 
@@ -66,7 +67,7 @@
     transform: translate(100%, -50%) rotate(34deg);
 
     @include mobile {
-      transform: translate(20px, -50%) rotate(34deg);
+      transform: translate(25px, -57%) rotate(34deg);
     }
   }
 
@@ -75,6 +76,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    border-radius: 12px;
 
     @include desktop {
       flex-direction: row;
