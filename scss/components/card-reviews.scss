@@ -11,6 +11,10 @@
       object-position: center;
       aspect-ratio: 400 / 477;
       overflow: clip;
+
+      @include mobile {
+        aspect-ratio: 305 / 477;
+      }
     }
   }
 

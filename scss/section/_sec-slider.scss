@@ -1,6 +1,10 @@
 .sec-slider {
   &[data-id="sec-cases"] {
     margin-bottom: 125px;
+
+    @include mobile {
+      margin-bottom: 70px;
+    }
   }
 
   &[data-id="company-media"] {
