@@ -19,6 +19,7 @@
 
     <?php if($slide_img) : ?>
       <picture class="card-case__img">
+        <source media="(max-width: 576px)" srcset="<?php echo esc_url(get_template_directory_uri()); ?>/img/case-1-mobile.webp" type="image/webp">
         <source srcset="<?php echo esc_url($slide_img ["webp_1x"]); ?>" type="image/webp">
         <img loading="lazy" src="<?php echo esc_url($slide_img["original_1x"]); ?>" width="630" height="350" alt="" aria-hidden="true">
       </picture>
