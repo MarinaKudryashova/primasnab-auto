@@ -53,6 +53,14 @@
     & span {
       color: var(--accent-pink);
     }
+
+    @include tablet-md {
+      font-size: 20px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+    }
   }
 
   &__category {
@@ -72,6 +80,10 @@
     font-size: 24px;
     line-height: 100%;
     color: currentColor;
+
+    @include tablet-md {
+      font-size: 22px;
+    }
 
     @include mobile {
       font-size: 20px;

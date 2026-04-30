@@ -58,8 +58,7 @@
     @include mobile {
       grid-column: 2 span;
       order: 2;
-      flex-direction: column-reverse;
-      gap: 30px;
+      gap: 5px;
     }
   }
 
@@ -72,7 +71,7 @@
     color: var(--white-60);
 
     @include mobile {
-      font-size: 10px;
+      max-width: 100%;
       color: var(--white);
     }
   }
@@ -82,7 +81,7 @@
     max-width: 240px;
 
     @include mobile {
-      max-width: 100%;
+      max-width: 85%;
     }
 
     &.footer-menu {
@@ -99,10 +98,6 @@
       font-weight: 400;
       font-size: 13px;
       line-height: 105%;
-
-      @include mobile {
-        font-size: 10px;
-      }
     }
   }
 

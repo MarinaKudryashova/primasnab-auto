@@ -12,6 +12,7 @@
 
   @include tablet-md {
     padding: 16px;
+    gap: 0;
   }
 
   &__name {
@@ -21,6 +22,10 @@
     line-height: 110%;
     text-align: center;
     color: var(--card-benefits-color);
+
+    @include tablet-md {
+      font-size: 20px;
+    }
 
     @include mobile {
       font-size: 18px;
