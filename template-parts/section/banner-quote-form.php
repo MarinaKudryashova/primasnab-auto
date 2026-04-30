@@ -5,7 +5,7 @@
   // Получаем поля из админки
   $title = get_field($sec_name . '_title', $page_id);
   $image = get_field($sec_name . '_image', $page_id);
-  $form_shortcode = get_field($sec_name . '_form', $page_id);
+  $form_shortcode = get_field('shortkod_form', $page_id);
 
   // Если нет заголовка, нет формы и нет картинки - ничего не выводится
 if(empty($title) && empty($form_shortcode) && empty($image)) {
