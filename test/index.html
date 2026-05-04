@@ -1,404 +1,284 @@
 <!doctype html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Баннер "Запросить расчет" - Верстка</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Баннер "Запросить расчет" - Верстка</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/vendor.css" />
 
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../css/vendor.css" />
-
-  <style>
-    body {
-      background-color: #161616;
-      padding: 50px 0;
-      font-family: var(--font-family, "Discovery", sans-serif);
-    }
-
-    :root {
-      --font-family: "Discovery", sans-serif;
-      --second-family: "Banana Brick", sans-serif;
-      --accent-blue: #5aa7b9;
-      --accent-pink: #c64994;
-      --black: #161616;
-      --white: #fff;
-      --white-60: rgba(255, 255, 255, 0.6);
-      --transition-300: 0.3s ease-in-out;
-    }
-
-    .banner-quote-form {
-      position: relative;
-    }
-
-    .banner-quote-form__wrap {
-      border: 1px solid #ffffff;
-      box-shadow: 0px 0px 21.8px 0px var(--accent-pink);
-      border-radius: 20px;
-      padding: 31px 1px 41px;
-      background-color: var(--accent-pink);
-    }
-
-    @media (max-width: 576px) {
-      .banner-quote-form__wrap {
-        min-height: 606px;
-      }
-    }
-
-    .banner-quote-form__title-wrapper {
-      background-color: black;
-      margin-bottom: 32px;
-    }
-
-    .banner-quote-form__title {
-      max-width: 943px;
-      z-index: 1;
-      padding: 31px 35px 16px;
-      margin: 0;
-      text-align: start;
-    }
-
-    @media (max-width: 992px) {
-      .banner-quote-form__title {
-        max-width: 743px;
-        font-size: 49px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .banner-quote-form__title {
-        font-size: 41px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .banner-quote-form__title {
-        padding: 20px 10px 20px 20px;
-        font-size: 36px;
+    <style>
+      body {
+        background-color: #161616;
+        padding: 50px 0;
+        font-family: var(--font-family, "Discovery", sans-serif);
       }
 
-      .banner-quote-form__title-wrapper {
-        margin-bottom: 20px;
+      :root {
+        --font-family: "Discovery", sans-serif;
+        --second-family: "Banana Brick", sans-serif;
+        --accent-blue: #5aa7b9;
+        --accent-pink: #c64994;
+        --black: #161616;
+        --white: #fff;
+        --white-60: rgba(255, 255, 255, 0.6);
+        --transition-300: 0.3s ease-in-out;
       }
-    }
 
-    @media (max-width: 375px) {
-      .banner-quote-form__title {
+      .social-follow__wrap {
+        display: flex;
+        /* gap: 55px; */
+      }
+
+      .social-follow__content {
+        margin-right: 0;
+        margin-top: 40px;
+      }
+
+      .social-follow__title {
+        --title-mb: 14px;
+      }
+
+      .social-follow__descr {
+        margin: 0;
+        margin-bottom: auto;
+        font-family: var(--font-family);
+        font-weight: 400;
         font-size: 24px;
-      }
-    }
-
-    .banner-quote-form__form {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-      flex-wrap: wrap;
-      width: 100%;
-      max-width: 753px;
-      margin-left: 31px;
-    }
-
-    .banner-quote-form__field {
-      min-width: 233px;
-    }
-
-    @media (max-width: 576px) {
-      .banner-quote-form__field {
-        min-width: 100%;
-      }
-    }
-
-    .banner-quote-form__field input {
-      width: 100%;
-      padding: 13px 20px;
-      border: 1px solid #5aa7b933;
-      border-radius: 15px;
-      background: rgba(22, 22, 22, 0.6);
-      font-family: var(--font-family);
-      font-size: 15px;
-      color: var(--white);
-      transition: border-color var(--transition-300);
-    }
-
-    @media (max-width: 576px) {
-      .banner-quote-form__field input {
-        font-size: 13px;
-      }
-    }
-
-    .banner-quote-form__field input:focus {
-      outline: none;
-      border-color: var(--accent-blue);
-    }
-
-    .banner-quote-form__field input::placeholder {
-      color: var(--white-60);
-    }
-
-    .banner-quote-form__btn {
-      padding: 13px 60px;
-      transition:
-        background-color var(--transition-300),
-        transform var(--transition-300),
-        box-shadow var(--transition-300);
-    }
-
-    @media (max-width: 1200px) {
-      .banner-quote-form__btn {
-        width: 477px;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .banner-quote-form__btn {
-        width: unset;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .banner-quote-form__btn {
-        font-size: 13px;
-        padding: 13px 63px;
-        width: 100%;
-      }
-    }
-
-    .banner-quote-form__btn:hover {
-      background-color: var(--accent-pink);
-      box-shadow: 0 0 0 2px #ffffff;
-    }
-
-    .banner-quote-form__checkbox {
-      margin-top: 11px;
-    }
-
-    .banner-quote-form__checkbox label {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .banner-quote-form__checkbox input {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-      cursor: pointer;
-    }
-
-    .banner-quote-form__checkbox label::before {
-      content: "";
-      flex-shrink: 0;
-      width: 17px;
-      height: 17px;
-      border: 1px solid #ffffff;
-      border-radius: 5px;
-      background-color: transparent;
-      transition: all var(--transition-300);
-      display: block;
-      margin-top: 2px;
-    }
-
-    .banner-quote-form__checkbox input:checked+.banner-quote-form__checkbox-text::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 4px;
-      width: 5px;
-      height: 9px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-
-    .banner-quote-form__checkbox-text {
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--white);
-    }
-
-    @media (max-width: 576px) {
-      .banner-quote-form__checkbox-text {
-        font-size: 10px;
-        max-width: 143px;
-      }
-    }
-
-    @media (max-width: 375px) {
-      .banner-quote-form__checkbox-text {
-        max-width: 100px;
-      }
-    }
-
-    .banner-quote-form__checkbox-link {
-      color: var(--white);
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
-
-    .banner-quote-form__image {
-      position: absolute;
-      top: 0;
-      right: 5%;
-      width: 31%;
-      min-width: 380px;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .banner-quote-form__img {
-      position: absolute;
-      bottom: 0%;
-      right: 0%;
-      width: 100%;
-      min-width: 260px;
-      height: auto;
-      max-width: none;
-    }
-
-    @media (max-width: 1200px) {
-      .banner-quote-form__form {
-        max-width: 55%;
+        line-height: 100%;
+        color: var(--white);
       }
 
-      .banner-quote-form__image {
-        width: 38%;
-        min-width: 330px;
-        right: 0%;
+      .social-follow__left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 55px;
+        margin-top: 22px;
       }
-    }
 
-    @media (max-width: 992px) {
-      .banner-quote-form__form {
+      .social-follow__left .messanges {
         flex-direction: column;
-        max-width: 50%;
+        align-items: flex-start;
+        gap: 20px;
       }
 
-      .banner-quote-form__image {
-        width: 42%;
-        min-width: 330px;
-        right: 4%;
+      .social-follow__image {
+        position: relative;
+        display: inline-block;
       }
 
-      .banner-quote-form__img {
-        right: -9%;
+      .social-follow__picture {
+        position: absolute;
+        width: 619px;
+        height: 619px;
+        top: -104px;
+        right: -39px;
+        transform: rotate(-5deg);
+        opacity: 1;
+        filter: drop-shadow(10px 10px 13px var(--accent-blue));
+        /* filter: drop-shadow(0 0 20px var(--accent-blue)); */
       }
-    }
 
-    @media (max-width: 576px) {
-      .banner-quote-form__form {
-        max-width: 90%;
-        margin: 20px;
+      .social-follow__right {
+        position: relative;
+        display: inline-block;
+        flex-shrink: 0; /* запрещаем сжатие */
+        width: 780px;
+        max-width: 100%;
       }
 
-      .banner-quote-form__image {
-        min-width: 250px;
-        right: 6%;
+      .social-follow__right-image {
+        border-radius: 40px;
+        width: 780px;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
       }
-    }
 
-    @media (max-width: 375px) {
-      .banner-quote-form__form {
-        max-width: 85%;
+      .social-follow__right-inner {
+        position: absolute;
+        bottom: 36px; /* отступ от низа картинки */
+        left: 50%; /* центрируем относительно картинки */
+        transform: translateX(-50%); /* точное центрирование */
+        width: 90%; /* ширина относительно картинки */
+        max-width: 721px;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        border: 1px solid var(--white);
+        background: rgba(22, 22, 22, 0.6);
+        z-index: 2;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <section class="banner-quote-form sec-offset">
-    <div class="container">
-      <div class="banner-quote-form__wrap">
-        <!-- <div class="banner-quote-form__block"> -->
-        <!-- Левая часть с формой -->
-        <div class="banner-quote-form__content">
-          <!-- Обёртка для заголовка с фоном на всю ширину -->
-          <div class="banner-quote-form__title-wrapper">
-            <h2 class="banner-quote-form__title sec-title" data-aos="fade-up">
-              Рассчитаем стоимость вашего автомобиля
-            </h2>
+      .social-follow__right-icon {
+        flex-shrink: 0;
+        margin-left: 20px;
+      }
+
+      .social-follow__right-text {
+        padding: 26px 0;
+        margin: 0;
+        font-weight: 400;
+        font-size: 24px;
+        color: var(--white);
+      }
+
+      .social-follow .messanges__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 11px;
+        width: 96px;
+        height: 96px;
+        background-color: var(--accent-pink);
+        transition: all var(--transition-300);
+        border: 2px solid var(--white);
+        box-shadow: 0 0 20px 0 var(--accent-blue);
+      }
+
+      .social-follow .messanges__link.messanges__link-circle {
+        border-radius: 100%;
+      }
+
+      .social-follow .messanges__link:hover {
+        background-color: var(--accent-blue);
+        /* transform: scale(1.05); */
+        box-shadow: 0 0 20px 0 var(--accent-blue);
+      }
+
+      .social-follow .messanges__icon {
+        width: 48px;
+        height: 48px;
+        filter: brightness(0) invert(1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="social-follow sec-offset">
+      <div class="container">
+        <div class="social-follow__wrap">
+          <!-- Левая часть мессенджерами -->
+
+          <div class="social-follow__content">
+            <div class="social-follow__content-up">
+              <h2 class="social-follow__title sec-title" data-aos="fade-up">
+                Мы в соцсетях
+              </h2>
+              <span class="social-follow__descr"
+                >Подписывайтесь и узнавайте первыми о новостях компании</span
+              >
+            </div>
+            <div class="social-follow__left">
+              <div class="social-follow__image">
+                <picture class="social-follow__picture">
+                  <img
+                    class="social-follow__picture"
+                    src="97ae8f1f00d1a6f97d7c83731d259adc3b2e8c1a.png"
+                    alt="Телефон"
+                    width="619"
+                    height="619"
+                  />
+                </picture>
+              </div>
+
+              <div class="social-follow__var">
+                <ul
+                  class="social-follow__messanger messanges"
+                  title="messanges"
+                >
+                  <li class="messanges__item">
+                    <a
+                      href="https://t.me/primasnabavto"
+                      target="_blank"
+                      class="messanges__link messanges__link-circle"
+                      aria-label="Свяжитесь с нами в Telegram"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/telegram.svg"
+                        class="messanges__icon"
+                        width="40"
+                        height="40"
+                        alt="иконка Telegram"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                  <li class="messanges__item">
+                    <a
+                      href="https://wa.me/79175487878"
+                      target="_blank"
+                      class="messanges__link"
+                      aria-label="Свяжитесь с нами в Whatsapp"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/whatsapp.svg"
+                        class="messanges__icon"
+                        width="40"
+                        height="40"
+                        alt="иконка Whatsapp"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                  <li class="messanges__item">
+                    <a
+                      href="https://t.me/primasnabavto"
+                      target="_blank"
+                      class="messanges__link"
+                      aria-label="Свяжитесь с нами в Telegram"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/telegram.svg"
+                        class="messanges__icon"
+                        width="40"
+                        height="40"
+                        alt="иконка Telegram"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <form class="banner-quote-form__form">
-            <div class="banner-quote-form__field">
-              <input type="tel" placeholder="Телефон" required />
-            </div>
+          <!-- Правая часть с картинкой -->
+          <div class="social-follow__right">
+            <img
+              class="social-follow__right-image"
+              src="social-follow.png"
+              alt="Двое мужчин разговаривают"
+              width="780"
+              height="784"
+              loading="lazy"
+            />
+            <div class="social-follow__right-inner">
+              <img
+                loading="lazy"
+                src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/post_contact.svg"
+                class="social-follow__right-icon"
+                width="69"
+                height="69"
+                alt="иконка конверта"
+                aria-hidden="true"
+              />
 
-            <div class="banner-quote-form__field">
-              <input type="text" placeholder="Комментарий" />
+              <p class="social-follow__right-text">
+                Автоновости, обзоры на&nbsp;саме крутые авто, полезная
+                информация в&nbsp;наших социальных сетях
+              </p>
             </div>
-            <button type="button" class="banner-quote-form__btn ui-btn ui-btn--blue" data-graph-path="modal-leadform">
-              Получить расчет
-            </button>
-            <div class="banner-quote-form__checkbox">
-              <label>
-                <input type="checkbox" required />
-                <span class="banner-quote-form__checkbox-text">
-                  Нажимая на кнопку, вы даёте
-                  <a class="banner-quote-form__checkbox-link" href="#">согласие на обработку персональных данных</a>
-                </span>
-              </label>
-            </div>
-          </form>
-        </div>
-
-        <!-- Правая часть с картинкой -->
-        <div class="banner-quote-form__image">
-          <img class="banner-quote-form__img" src="banner-image.png" alt="Мужчина с деньгами" width="412" height="405"
-            loading="lazy" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </body>
 
-  <section class="social-follow sec-offset">
-    <div class="container">
-      <div class="social-follow__wrap">
-        <!-- <div class="banner-quote-form__block"> -->
-        <!-- Левая часть с формой -->
-        <div class="bsocial-follow__content">
-          <!-- Обёртка для заголовка с фоном на всю ширину -->
-          <div class="social-follow__title-wrapper">
-            <h2 class="social-follow__title sec-title" data-aos="fade-up">
-              Мы в соцсетях
-            </h2>
-            <span class="social-follow__text">Подписывайтесь и узнавайте первыми о новостях компании</span>
-          </div>
-          <div class="social-follow__var">
-            <ul class="social-follow__messanger messanges" title="messanges">
-              <li class="messanges__item">
-                <a href="https://wa.me/79175487878" target="_blank" class="messanges__link"
-                  aria-label="Свяжитесь с нами в Whatsapp">
-                  <img loading="lazy"
-                    src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/whatsapp.svg"
-                    class="messanges__icon" width="40" height="40" alt="иконка Whatsapp" aria-hidden="true" />
-                </a>
-              </li>
-              <li class="messanges__item">
-                <a href="https://t.me/primasnabavto" target="_blank" class="messanges__link"
-                  aria-label="Свяжитесь с нами в Telegram">
-                  <img loading="lazy"
-                    src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/telegram.svg"
-                    class="messanges__icon" width="40" height="40" alt="иконка Telegram" aria-hidden="true" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Правая часть с картинкой -->
-        <div class="social-follow__image">
-          <img class="social-follow__img" src="social-follow.png" alt="Двое мужчин разговаривают" width="780"
-            height="784" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="display-none" style="display:none;"></div>
-</body>
-
-<script src="../js/main.min.js"></script>
-
+  <script src="../js/main.min.js"></script>
 </html>
