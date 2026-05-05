@@ -1,22 +1,25 @@
 .banner-quote-form {
+  // Позиционирование
   position: relative;
 
   &__wrap {
+    position: relative;
+
     border: 1px solid #ffffff;
-    box-shadow: 0px 0px 21.8px 0px var(--accent-pink);
     border-radius: 20px;
     padding: 35px 1px 39px;
+
     background-color: var(--accent-pink);
+    box-shadow: 0px 0px 21.8px 0px var(--accent-pink);
 
     @include mobile {
       min-height: 606px;
     }
   }
 
-  /* Фон только для заголовка - на всю ширину блока */
   &__title-wrapper {
-    background-color: black;
     margin-bottom: 37px;
+    background-color: black;
 
     @include mobile {
       margin-bottom: 20px;
@@ -25,10 +28,15 @@
 
   &__title {
     z-index: 1;
+
     padding: 12px 35px 16px;
     margin: 0;
-    text-align: start;
     max-width: 943px;
+
+    text-align: start;
+    font-size: 52px;
+    line-height: 100%;
+    color: var(--white);
 
     @include tablet {
       max-width: 800px;
@@ -45,7 +53,7 @@
 
     @include mobile {
       padding: 20px 10px 20px 20px;
-      font-size: 24px;
+      font-size: 6vw;
     }
 
     @include mobile-xs {
@@ -58,7 +66,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    // max-width: 753px;
     max-width: min(753px, 55%);
     margin-left: 36px;
 
@@ -98,35 +105,40 @@
     @include mobile {
       min-width: 100%;
     }
-  }
 
-  &__field input {
-    width: 100%;
-    padding: 13px 20px;
-    border: 1px solid #5aa7b933;
-    border-radius: 15px;
-    background: rgba(22, 22, 22, 0.6);
-    font-family: var(--font-family);
-    font-size: 15px;
-    color: var(--white);
-    transition: border-color var(--transition-300);
+    input {
+      width: 100%;
+      padding: 13px 20px;
+      border: 1px solid #5aa7b933;
+      border-radius: 15px;
+      background: rgba(22, 22, 22, 0.6);
 
-    @include mobile {
-      font-size: 13px;
+      font-family: var(--font-family);
+      font-size: 15px;
+      color: var(--white);
+
+      transition: border-color var(--transition-300);
+
+      @include mobile {
+        font-size: 13px;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+      }
+
+      &::placeholder {
+        color: var(--white-60);
+      }
     }
-  }
-
-  &__field input:focus {
-    outline: none;
-    border-color: var(--accent-blue);
-  }
-
-  &__field input::placeholder {
-    color: var(--white-60);
   }
 
   &__btn {
     padding: 0.875em 3.75em 0.75em;
+    background-color: var(--accent-blue);
+    font-size: 15px;
+    color: var(--white);
 
     transition:
       background-color var(--transition-300),
@@ -146,11 +158,11 @@
       padding: 13px 63px;
       width: 100%;
     }
-  }
 
-  &__btn:hover {
-    background-color: var(--accent-pink);
-    box-shadow: 0 0 0 2px #ffffff;
+    &:hover {
+      background-color: var(--accent-pink);
+      box-shadow: 0 0 0 2px #ffffff;
+    }
   }
 
   &__checkbox {
@@ -162,61 +174,53 @@
       position: relative;
     }
 
-    // Полностью скрываем стандартный чекбокс CF7
     input {
-      display: none;
       position: absolute;
-      left: -9999px;
+      // left: -9999px;
+
+      display: none;
     }
 
-    // Кастомный квадратик (только у внешнего label)
     > label::before {
       content: "";
       flex-shrink: 0;
+      display: inline-block;
       width: 17px;
       height: 17px;
+      margin-top: 2px;
       border: 1px solid #ffffff;
       border-radius: 5px;
+
       background-color: transparent;
+
       transition: all var(--transition-300);
-      display: inline-block;
-      margin-top: 2px;
     }
 
-    // Скрываем квадратик у вложенного label (от CF7)
-    label label::before {
-      display: none;
-    }
-
-    // Галочка при checked
     input:checked ~ .banner-quote-form__checkbox-text::before {
-      content: "";
       position: absolute;
       left: 6px;
       top: 6px;
+
+      content: "";
       width: 5px;
       height: 9px;
       border: solid white;
       border-width: 0 2px 2px 0;
+
       transform: rotate(45deg);
     }
   }
 
   &__checkbox-text {
+    display: inline-block;
     font-size: 13px;
     line-height: 1.5;
     color: var(--white);
-    display: inline-block; // ← добавить эту строку
     word-wrap: break-word;
 
     @include mobile {
       font-size: 10px;
       max-width: 143px;
-    }
-
-    @include mobile-xs {
-      font-size: 10px;
-      // max-width: 100px;
     }
   }
 
@@ -230,6 +234,7 @@
     position: absolute;
     top: 0;
     right: 5%;
+
     width: 31%;
     min-width: 380px;
     height: 100%;
@@ -249,21 +254,23 @@
 
     @include mobile {
       min-width: 250px;
-      right: 6%;
+      right: -2%;
+    }
+
+    @media (max-width: 390px) {
+      right: 1%;
     }
   }
 
   &__img {
     position: absolute;
     bottom: 0%;
-    // right: 0%;
     right: clamp(20px, 3vw, 40px);
-    height: auto;
+
     width: 100%;
-    // width: clamp(412px, 28.6vw, 460px);
-    min-width: 260px;
-    // max-width: none;
     max-width: 460px;
+    min-width: 260px;
+    height: auto;
 
     @include tablet-lg {
       right: -9%;
@@ -290,12 +297,12 @@
   position: absolute;
   bottom: -30px;
   left: 0;
+
   font-size: 11px;
   white-space: nowrap;
   color: var(--white);
+
   background: none;
-  padding: 0;
-  margin: 0;
 
   @include mobile {
     white-space: normal;

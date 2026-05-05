@@ -1,0 +1,257 @@
+.social-follow {
+  &__wrap {
+    display: flex;
+    /* gap: 55px; */
+
+    @include mobile {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__content {
+    margin-right: 0;
+    margin-top: 40px;
+
+    @include mobile {
+      height: 368px;
+    }
+  }
+
+  &__title {
+    --title-mb: 14px;
+  }
+
+  &__descr {
+    margin: 0;
+    margin-bottom: auto;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--white);
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 55px;
+    margin-top: 22px;
+
+    @include mobile {
+      order: 2;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  }
+
+  &__left .messanges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  &__image {
+    position: relative;
+    display: inline-block;
+
+    @include mobile {
+      width: 368px;
+      height: 368px;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    width: 619px;
+    height: 619px;
+    top: -220px;
+    right: -67px;
+    transform: rotate(-10deg);
+    opacity: 1;
+    filter: drop-shadow(4px 15px 25px var(--accent-blue));
+    /* filter: drop-shadow(0 0 20px var(--accent-blue)); */
+
+    @include mobile {
+      width: 367px;
+      height: 367px;
+    }
+
+    @include mobile-xs {
+      top: -30px;
+      right: -40px;
+    }
+  }
+
+  &__left-icon {
+    transform: translate(316px, 44px);
+    z-index: 10;
+    width: 182px;
+    height: 182px;
+    border-radius: 2401px;
+    background-color: var(--accent-blue);
+    border: 2.4px solid var(--accent-pink);
+    box-sizing: border-box;
+    object-fit: cover;
+    padding: 19px;
+
+    @include mobile {
+      width: 107px;
+      height: 107px;
+      padding: 5px;
+    }
+
+    @include mobile-xs {
+      transform: translate(194px, -154px);
+    }
+  }
+
+  &__var {
+    @include mobile {
+      display: none; // скрываем на мобилке
+    }
+  }
+
+  &__var--mobile {
+    display: none; // скрыт на десктопе
+
+    @include mobile {
+      display: block;
+      order: 4; // ← иконки после конверта
+      margin-top: 20px;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__right {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 780px;
+    max-width: 100%;
+
+    @include mobile {
+      display: none; // ← добавить
+    }
+  }
+
+  &__right-image {
+    border-radius: 40px;
+    width: 780px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    @include mobile {
+      display: none; // скрываем большое фото
+    }
+  }
+
+  &__right-inner {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 721px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid var(--white);
+    background: rgba(22, 22, 22, 0.6);
+    z-index: 2;
+
+    @include mobile {
+      display: none; // скрываем оригинальный на мобилке
+    }
+  }
+
+  &__right-inner--mobile {
+    display: none; // скрыт на десктопе
+
+    @include mobile {
+      display: flex;
+      order: 3;
+      margin-top: 42px;
+      position: static;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      transform: none;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+      padding: 15px;
+    }
+  }
+
+  &__right-icon {
+    flex-shrink: 0;
+    margin: 0 12px;
+
+    @include mobile {
+      margin: 0;
+      width: 51px;
+    }
+  }
+
+  &__right-text {
+    padding: 26px 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--white);
+
+    @include mobile {
+      font-size: 12px;
+      padding: 0;
+    }
+  }
+
+  & .messanges {
+    @include mobile {
+      gap: 24px;
+    }
+  }
+
+  & .messanges__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    box-shadow: 0 0 20px 0 var(--accent-pink);
+    transition: all var(--transition-300);
+    background-color: transparent;
+
+    @include mobile {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  & .messanges__icon {
+    filter: drop-shadow(0 0 8px var(--accent-pink));
+    transition: filter var(--transition-300);
+  }
+
+  /* Ховер — усиливаем свечение */
+  & .messanges__link:hover .messanges__icon {
+    filter: drop-shadow(0 0 20px var(--accent-pink));
+  }
+}
