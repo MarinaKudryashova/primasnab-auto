@@ -15,11 +15,12 @@
 
     @include mobile {
       height: 368px;
+      margin-top: unset;
     }
   }
 
   &__title {
-    --title-mb: 14px;
+    --title-mb: 20px;
   }
 
   &__descr {
@@ -33,6 +34,7 @@
 
     @include mobile {
       font-size: 18px;
+      line-height: 26px;
     }
   }
 
@@ -44,10 +46,8 @@
     margin-top: 22px;
 
     @include mobile {
-      order: 2;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 15px;
+      margin-right: unset;
+      margin-top: 19px;
     }
   }
 
@@ -85,7 +85,7 @@
 
     @include mobile-xs {
       top: -30px;
-      right: -40px;
+      right: 14px;
     }
   }
 
@@ -123,8 +123,7 @@
 
     @include mobile {
       display: block;
-      order: 4; // ← иконки после конверта
-      margin-top: 20px;
+      margin-top: 19px;
     }
   }
 
@@ -184,7 +183,7 @@
     @include mobile {
       display: flex;
       order: 3;
-      margin-top: 42px;
+      margin-top: 60px;
       position: static;
       left: auto;
       right: auto;
@@ -196,7 +195,7 @@
       position: relative;
       z-index: 10;
       backdrop-filter: blur(4px);
-      padding: 15px;
+      padding: 16px 15px 15px 15px;
     }
   }
 
