@@ -15,6 +15,10 @@
     gap: 0;
   }
 
+  &--reverse {
+    flex-direction: column-reverse;
+  }
+
   &__name {
     font-family: var(--second-family);
     font-weight: 400;

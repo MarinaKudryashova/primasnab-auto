@@ -11,7 +11,6 @@
     <style>
       body {
         background-color: #161616;
-        margin: 0;
         padding: 50px 0;
         font-family: var(--font-family, "Discovery", sans-serif);
       }
@@ -27,218 +26,285 @@
         --transition-300: 0.3s ease-in-out;
       }
 
-      .banner-quote-form {
-        position: relative;
+      .social-follow__wrap {
+        display: flex;
+        /* gap: 55px; */
       }
 
-      .banner-quote-form__wrap {
-        border: 1px solid #ffffff;
-        box-shadow: 0px 0px 21.8px 0px var(--accent-pink);
-        border-radius: 20px;
-        padding: 35px 1px 39px;
-        background-color: var(--accent-pink);
+      .social-follow__content {
+        margin-right: 0;
+        margin-top: 40px;
       }
 
-      /* Фон только для заголовка - на всю ширину блока */
-      .banner-quote-form__title-wrapper {
-        background-color: black;
-        margin-bottom: 37px;
+      .social-follow__title {
+        --title-mb: 14px;
       }
 
-      .banner-quote-form__title {
+      .social-follow__descr {
+        margin: 0;
+        margin-bottom: auto;
+        font-family: var(--font-family);
         font-weight: 400;
-        font-size: 60px;
+        font-size: 24px;
         line-height: 100%;
         color: var(--white);
-        z-index: 1;
-        padding: 12px 35px 16px;
-        margin: 0;
-        text-align: start;
       }
 
-      .banner-quote-form__form {
+      .social-follow__left {
         display: flex;
-        flex-direction: row;
-        gap: 10px;
-        flex-wrap: wrap;
-        max-width: 753px;
-        margin-left: 36px;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 55px;
+        margin-top: 22px;
       }
 
-      .banner-quote-form__field {
-        min-width: 233px;
+      .social-follow__left .messanges {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
       }
 
-      .banner-quote-form__field input {
+      .social-follow__image {
+        position: relative;
+        display: inline-block;
+      }
+
+      .social-follow__picture {
+        position: absolute;
+        width: 619px;
+        height: 619px;
+        top: -220px;
+        right: -67px;
+        transform: rotate(-10deg);
+        opacity: 1;
+        filter: drop-shadow(4px 15px 25px var(--accent-blue));
+        /* filter: drop-shadow(0 0 20px var(--accent-blue)); */
+      }
+
+      .social-follow__left-icon {
+        transform: translate(316px, 44px);
+        z-index: 10;
+        width: 182px;
+        height: 182px;
+        border-radius: 2401px;
+        background-color: var(--accent-blue);
+        border: 2.4px solid var(--accent-pink);
+        box-sizing: border-box;
+        object-fit: cover;
+        padding: 19px;
+      }
+
+      .social-follow__img {
+        display: block;
         width: 100%;
-        padding: 13px 20px;
-        border: 1px solid #5aa7b933;
-        border-radius: 15px;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .social-follow__right {
+        position: relative;
+        display: inline-block;
+        flex-shrink: 0; /* запрещаем сжатие */
+        width: 780px;
+        max-width: 100%;
+      }
+
+      .social-follow__right-image {
+        border-radius: 40px;
+        width: 780px;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .social-follow__right-inner {
+        position: absolute;
+        bottom: 36px; /* отступ от низа картинки */
+        left: 50%; /* центрируем относительно картинки */
+        transform: translateX(-50%); /* точное центрирование */
+        width: 90%; /* ширина относительно картинки */
+        max-width: 721px;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        border: 1px solid var(--white);
         background: rgba(22, 22, 22, 0.6);
-        font-family: var(--font-family);
-        font-size: 15px;
+        z-index: 2;
+      }
+
+      .social-follow__right-icon {
+        flex-shrink: 0;
+        margin: 0 12px;
+      }
+
+      .social-follow__right-text {
+        padding: 26px 0;
+        margin: 0;
+        font-weight: 400;
+        font-size: 24px;
         color: var(--white);
-        transition: border-color var(--transition-300);
       }
 
-      .banner-quote-form__field input:focus {
-        outline: none;
-        border-color: var(--accent-blue);
-      }
-
-      .banner-quote-form__field input::placeholder {
-        color: var(--white-60);
-      }
-
-      .banner-quote-form__btn {
+      .social-follow .messanges__link {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 13px 60px;
-        border: none;
-        border-radius: 15px;
-        background-color: var(--accent-blue);
-        font-family: var(--font-family);
-        font-weight: 400;
-        font-size: 15px;
-        color: var(--white);
-        cursor: pointer;
-        transition:
-          background-color var(--transition-300),
-          transform var(--transition-300),
-          box-shadow var(--transition-300);
-      }
-
-      .banner-quote-form__btn:hover {
-        background-color: var(--accent-pink);
-        box-shadow: 0 0 0 2px #ffffff;
-      }
-
-      .banner-quote-form__checkbox {
-        margin-top: 11px;
-        /* display: flex;
-        align-items: center;
-        gap: 10px;
-           cursor: pointer; */
-      }
-
-      .banner-quote-form__checkbox label {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        cursor: pointer;
-        position: relative;
-      }
-
-      /* Полностью скрываем стандартный чекбокс */
-      .banner-quote-form__checkbox input {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-        cursor: pointer;
-      }
-
-      /* Создаём кастомный чекбокс через псевдоэлемент label */
-      .banner-quote-form__checkbox label::before {
-        content: "";
-        flex-shrink: 0;
-        width: 17px;
-        height: 17px;
-        border: 1px solid #ffffff;
-        border-radius: 5px;
-        background-color: transparent;
+        width: 96px;
+        height: 96px;
+        box-shadow: 0 0 20px 0 var(--accent-pink);
         transition: all var(--transition-300);
-        display: block;
-        margin-top: 2px;
+        background-color: transparent;
       }
 
-      /* Галочка при checked */
-      .banner-quote-form__checkbox
-        input:checked
-        + .banner-quote-form__checkbox-text::before {
-        content: "";
-        position: absolute;
-        left: 6px;
-        top: 4px;
-        width: 5px;
-        height: 9px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+      .social-follow .messanges__icon {
+        filter: drop-shadow(0 0 8px var(--accent-pink));
+        transition: filter var(--transition-300);
       }
 
-      .banner-quote-form__checkbox-text {
-        font-size: 13px;
-        line-height: 1.5;
-        color: var(--white);
-      }
-
-      .banner-quote-form__checkbox input {
-        flex-shrink: 0;
-        margin-top: 2px;
-        width: 16px;
-        height: 16px;
-        cursor: pointer;
-      }
-
-      .banner-quote-form__img {
-        position: absolute;
-        top: -61px;
-        right: 40px;
+      /* Ховер — усиливаем свечение */
+      .social-follow .messanges__link:hover .messanges__icon {
+        filter: drop-shadow(0 0 20px var(--accent-pink));
       }
     </style>
   </head>
+
   <body>
-    <section class="banner-quote-form sec-offset">
+    <section class="social-follow sec-offset">
       <div class="container">
-        <div class="banner-quote-form__wrap">
-          <!-- <div class="banner-quote-form__block"> -->
-          <!-- Левая часть с формой -->
-          <div class="banner-quote-form__content">
-            <!-- Обёртка для заголовка с фоном на всю ширину -->
-            <div class="banner-quote-form__title-wrapper">
-              <h2 class="banner-quote-form__title sec-title" data-aos="fade-up">
-                Рассчитаем стоимость вашего автомобиля
+        <div class="social-follow__wrap">
+          <!-- Левая часть мессенджерами -->
+
+          <div class="social-follow__content">
+            <div class="social-follow__content-up">
+              <h2 class="social-follow__title sec-title" data-aos="fade-up">
+                Мы в соцсетях
               </h2>
+              <span class="social-follow__descr"
+                >Подписывайтесь и узнавайте первыми о новостях компании</span
+              >
+            </div>
+            <div class="social-follow__left">
+              <div class="social-follow__image">
+                <picture class="social-follow__picture">
+                  <img
+                    class="social-follow__img"
+                    src="banner-social-tel.png"
+                    alt="Телефон"
+                    width="619"
+                    height="619"
+                  />
+                </picture>
+              </div>
+
+              <div class="social-follow__var">
+                <ul
+                  class="social-follow__messanger messanges"
+                  title="messanges"
+                >
+                  <li class="messanges__item">
+                    <a
+                      href="https://t.me/primasnabavto"
+                      target="_blank"
+                      class="messanges__link"
+                      aria-label="Свяжитесь с нами в Telegram"
+                    >
+                      <img
+                        loading="lazy"
+                        src="Telegram-banner.svg"
+                        class="messanges__icon"
+                        width="95"
+                        height="96"
+                        alt="иконка Telegram"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                  <li class="messanges__item">
+                    <a
+                      href="https://wa.me/79175487878"
+                      target="_blank"
+                      class="messanges__link"
+                      aria-label="Свяжитесь с нами в Вконтакте"
+                    >
+                      <img
+                        loading="lazy"
+                        src="VK-banner.svg"
+                        class="messanges__icon"
+                        width="95"
+                        height="96"
+                        alt="иконка VK"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                  <li class="messanges__item">
+                    <a
+                      href="https://t.me/primasnabavto"
+                      target="_blank"
+                      class="messanges__link"
+                      aria-label="Смотретите нас на YouTube"
+                    >
+                      <img
+                        loading="lazy"
+                        src="YouTube-banner.svg"
+                        class="messanges__icon"
+                        width="95"
+                        height="96"
+                        alt="иконка YouTube"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <form class="banner-quote-form__form">
-              <div class="banner-quote-form__field">
-                <input type="tel" placeholder="Телефон" required />
-              </div>
-
-              <div class="banner-quote-form__field">
-                <input type="text" placeholder="Комментарий" />
-              </div>
-
-              <button class="banner-quote-form__btn" type="submit">
-                Получить расчет
-              </button>
-              <div class="banner-quote-form__checkbox">
-                <label>
-                  <input type="checkbox" required />
-                  <span class="banner-quote-form__checkbox-text">
-                    Нажимая на кнопку, вы даёте согласие на обработку
-                    персональных данных
-                  </span>
-                </label>
-              </div>
-            </form>
+            <img
+              loading="lazy"
+              src="icon-bell.svg"
+              class="social-follow__left-icon"
+              width="115"
+              height="115"
+              alt="иконка колокольчика"
+              aria-hidden="true"
+            />
           </div>
 
           <!-- Правая часть с картинкой -->
-          <div class="banner-quote-form__image">
+          <div class="social-follow__right">
             <img
-              class="banner-quote-form__img"
-              src="banner-image.png"
-              alt="Мужчина с деньгами"
+              class="social-follow__right-image"
+              src="social-follow.png"
+              alt="Двое мужчин разговаривают"
+              width="780"
+              height="784"
+              loading="lazy"
             />
+            <div class="social-follow__right-inner">
+              <!-- Старый путь (оставлен на случай, если понадобится):
+<img loading="lazy" src="https://primasnub.cosmo-design.ru/wp-content/themes/primasnab/img/icon/post_contact.svg" class="social-follow__right-icon" width="69" height="69" alt="иконка конверта" aria-hidden="true" />
+-->
+
+              <img
+                loading="lazy"
+                src="post_contact.svg"
+                class="social-follow__right-icon"
+                width="69"
+                height="69"
+                alt="иконка конверта"
+                aria-hidden="true"
+              />
+
+              <p class="social-follow__right-text">
+                Автоновости, обзоры на&nbsp;саме крутые авто, полезная
+                информация в&nbsp;наших социальных сетях
+              </p>
+            </div>
           </div>
-          <!-- </div> -->
         </div>
       </div>
     </section>
   </body>
+
+  <script src="../js/main.min.js"></script>
 </html>

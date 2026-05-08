@@ -1,54 +1,56 @@
 <?php 
   $page_id = $args["id"];
   $sec_name = $args["name"]["value"];
+
+  // Получаем поля из админки
+  $title = get_field($sec_name . '_title', 'option');
+  $image_url = get_field($sec_name . '_image', 'option');
+  $image =get_image_versions($image_url);
+  $form_shortcode = get_field('shortkod_form', 'option');
+   
+
+  // Если нет заголовка, нет формы и нет картинки - ничего не выводится
+if(empty($title) && empty($form_shortcode) && empty($image)) {
+  return;
+}
 ?>
 
 <section class="banner-quote-form sec-offset">
   <div class="container">
     <div class="banner-quote-form__wrap">
-      <!-- <div class="banner-quote-form__block"> -->
       <!-- Левая часть с формой -->
       <div class="banner-quote-form__content">
         <!-- Обёртка для заголовка с фоном на всю ширину -->
-        <div class="banner-quote-form__title-wrapper">
-          <h2 class="banner-quote-form__title sec-title" data-aos="fade-up">
-            Рассчитаем стоимость вашего автомобиля
-          </h2>
-        </div>
-
-        <form class="banner-quote-form__form">
-          <div class="banner-quote-form__field">
-            <input type="tel" placeholder="Телефон" required />
+          <?php if(!empty($title)) : ?>
+          <div class="banner-quote-form__title-wrapper">
+            <h2 class="banner-quote-form__title sec-title" data-aos="fade-up">
+            <?php echo esc_html($title); ?>
+            </h2>
           </div>
-
-          <div class="banner-quote-form__field">
-            <input type="text" placeholder="Комментарий" />
-          </div>
-
-          <button class="banner-quote-form__btn" type="submit">
-            Получить расчет
-          </button>
-          <div class="banner-quote-form__checkbox">
-            <label>
-              <input type="checkbox" required />
-              <span class="banner-quote-form__checkbox-text">
-                Нажимая на кнопку, вы даёте согласие на обработку
-                персональных данных
-              </span>
-            </label>
-          </div>
-        </form>
+          <?php endif; ?>
+          
+        <!-- Выводим форму через шорткод CF7 -->
+        <?php if(!empty($form_shortcode)) : ?>
+          <?php echo do_shortcode($form_shortcode); ?>
+        <?php endif; ?>
       </div>
 
       <!-- Правая часть с картинкой -->
-      <div class="banner-quote-form__image">
-        <img
-          class="banner-quote-form__img"
-          src="banner-image.png"
-          alt="Мужчина с деньгами"
-        />
-      </div>
-      <!-- </div> -->
+        <?php if(!empty($image) && is_array($image)) : ?>
+          <div class="banner-quote-form__image">
+            <picture class="banner-quote-form__picture">
+              <img 
+                class="banner-quote-form__img"
+                src="<?php echo esc_url($image ["original_1x"]); ?>"
+                alt="<?php echo !empty($image['alt']) ? esc_attr($image['alt']) : esc_attr($title); ?>"
+                width="412"
+                height="405"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        <?php endif; ?>
+  
     </div>
   </div>
 </section>

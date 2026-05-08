@@ -41,7 +41,7 @@
 }
 
 @mixin mobile-xs {
-  @media (max-width: (375px)) {
+  @media (max-width: (370px)) {
     @content;
   }
 }

@@ -32,10 +32,8 @@ if (!function_exists('theme_child_cf7_button_handler')) {
   }
   $atts['type'] = 'submit';
   $atts = wpcf7_format_atts($atts);
-  $html = sprintf('<button %1$s><span class="ui-btn-arrow__text">%2$s</span><span class="ui-btn-arrow__arrow"><span class="ui-arrow"><svg class="ui-arrow__svg" aria-hidden><use xlink:href="%3$s/img/sprite.svg#icon-arrow-diagonal"></use></svg><svg class="ui-arrow__svg ui-arrow__svg--copy" aria-hidden><use xlink:href="%3$s/img/sprite.svg#icon-arrow-diagonal"></use></svg></span></span></button>', $atts, $value, get_template_directory_uri());
+  $html = sprintf('<button %1$s>%2$s</button>', $atts, $value, get_template_directory_uri());
   
   return $html;
   }
   }
-
-
