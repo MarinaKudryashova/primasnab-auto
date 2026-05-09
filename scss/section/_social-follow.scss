@@ -1,133 +1,97 @@
 .social-follow {
-  &__wrap {
+  &__content {
     display: flex;
+    flex-direction: row;
     /* gap: 55px; */
 
-    @include mobile {
+    @include tablet-md {
       flex-direction: column;
-      gap: 20px;
+      // gap: 20px;
     }
   }
 
-  &__content {
-    margin-right: 0;
-    margin-top: 40px;
-
-    @include mobile {
-      height: 368px;
-      margin-top: unset;
-    }
+  &__left {
+    display: flex;
+    flex-direction: column;
   }
 
   &__title {
     --title-mb: 20px;
+    margin-top: 40px;
+
+    @include tablet {
+      margin-top: 0px;
+    }
   }
 
   &__descr {
-    margin: 0;
-    margin-bottom: auto;
+    margin: 0 0 30px 0;
+    padding-right: 61px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 24px;
     line-height: 100%;
     color: var(--white);
 
+    @include desktop {
+      font-size: 22px;
+    }
+
     @include mobile {
       font-size: 18px;
       line-height: 26px;
+      padding-right: 0;
     }
   }
 
-  &__left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 55px;
-    margin-top: 22px;
-    overflow: visible;
-
-    @include mobile {
-      margin-right: unset;
-      margin-top: 19px;
-    }
-  }
-
-  &__left .messanges {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+  &__wrap {
+    position: relative;
   }
 
   &__image {
-    position: relative;
-    display: inline-block;
+    flex-shrink: 0;
+    width: auto;
 
-    overflow: visible;
+    @include desktop {
+      min-width: 400px;
+    }
 
     @include mobile {
-      // width: 368px;
-      // height: 368px;
+      flex-shrink: 1;
+      width: 100%;
     }
   }
 
   &__picture {
-    position: absolute;
     width: 619px;
     height: 619px;
-    top: -220px;
-    right: -67px;
-    transform: rotate(-10deg);
+    flex-shrink: 0;
     opacity: 1;
     filter: drop-shadow(4px 15px 25px var(--accent-blue));
-    /* filter: drop-shadow(0 0 20px var(--accent-blue)); */
-
-    display: block;
-    margin: 0 auto;
 
     @include mobile {
-      width: 367px;
-      height: 367px;
-      position: relative;
-      top: clamp(-50px, -8vw, -20px);
-      right: clamp(30px, 10vw, 120px);
-      transform: rotate(-10deg);
-      transform-origin: center center;
-      transition: all 0.3s ease;
-    }
-
-    @include mobile-xs {
-      top: -30px;
-      right: 14px;
-    }
-  }
-
-  &__left-icon {
-    transform: translate(300px, 44px);
-    z-index: 10;
-    width: 182px;
-    height: 182px;
-    border-radius: 2401px;
-    background-color: var(--accent-blue);
-    border: 2.4px solid var(--accent-pink);
-    box-sizing: border-box;
-    object-fit: cover;
-    padding: 19px;
-
-    transition: all 0.3s ease;
-
-    @include mobile {
-      width: 107px;
-      height: 107px;
-      padding: 5px;
-    }
-
-    @include mobile-xs {
-      transform: translate(194px, -154px);
+      width: 100%;
+      height: auto;
     }
   }
 
   &__var {
-    @include mobile {
+    position: absolute;
+    top: 0;
+    right: 10%;
+
+    @include desktop {
+      top: auto;
+      bottom: -50px;
+      right: -50%;
+    }
+
+    @include tablet {
+      bottom: -80px;
+      right: -50%;
+    }
+
+    @include tablet-md {
       display: none; // скрываем на мобилке
     }
   }
@@ -135,34 +99,127 @@
   &__var--mobile {
     display: none; // скрыт на десктопе
 
-    @include mobile {
+    @include tablet-md {
       display: block;
-      margin-top: 19px;
+    }
+
+    @include mobile-xs {
+      margin-top: unset;
     }
   }
 
-  &__img {
-    display: block;
-    width: 100%;
-    height: 100%;
+  // Иконка колокольчика
+  &__left-icon {
+    position: absolute;
+    bottom: 8%;
+    right: 13%;
+    width: 182px;
+    height: 182px;
+    border-radius: 100%;
+    background-color: var(--accent-blue);
+    border: 2.4px solid var(--accent-pink);
+    box-sizing: border-box;
     object-fit: cover;
+    padding: 19px;
+
+    @include mobile {
+      width: 130px;
+      height: 130px;
+      padding: 5px;
+    }
+
+    @include mobile-xs {
+      width: 107px;
+      height: 107px;
+      right: 1%;
+    }
+
+    &.bell-ring {
+      animation: ringing 0.8s ease-in-out;
+      transform-origin: top center;
+    }
+  }
+
+  &__right-inner {
+    position: absolute;
+    bottom: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 721px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid var(--white);
+    background: rgba(22, 22, 22, 0.6);
+    z-index: 2;
+
+    @include desktop {
+      bottom: 20%;
+    }
+
+    @media (max-width: 1096px) {
+      position: relative;
+      bottom: 17%;
+    }
+
+    @include tablet {
+      margin-top: 0;
+      margin-bottom: 19px;
+    }
+
+    @media (max-width: 850px) {
+      position: relative;
+      order: 2;
+      margin-bottom: 20px;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      top: auto;
+      transform: none;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+    }
+
+    @include mobile {
+      display: none;
+      margin-bottom: 0px;
+    }
+
+    @media (max-width: 375px) {
+      margin-bottom: 0px;
+    }
   }
 
   &__right {
     position: relative;
     display: inline-block;
     flex-shrink: 0;
-    // width: 780px;
-    width: clamp(500px, 56vw, 780px);
-    // max-width: 100%;
+    width: 780px;
+    width: clamp(500px, 52vw, 780px);
 
-    @media (max-width: 1200px) {
-      // width: clamp(500px, 55vw, 780px);
+    @include tablet {
       flex-shrink: 1;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (max-width: 850px) {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: auto;
+      width: 100%;
+      gap: 40px;
+    }
+
+    @include tablet-md {
+      gap: 0;
     }
 
     @include mobile {
-      display: none; // ← добавить
+      display: none;
     }
   }
 
@@ -173,31 +230,8 @@
     height: auto;
     object-fit: cover;
 
-    @media (max-width: 1400px) {
-      width: 100%;
-    }
-
-    @include mobile {
+    @include tablet-md {
       display: none; // скрываем большое фото
-    }
-  }
-
-  &__right-inner {
-    position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 721px;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    border: 1px solid var(--white);
-    background: rgba(22, 22, 22, 0.6);
-    z-index: 2;
-
-    @include mobile {
-      display: none; // скрываем оригинальный на мобилке
     }
   }
 
@@ -206,26 +240,45 @@
 
     @include mobile {
       display: flex;
-      order: 3;
-      margin-top: 60px;
+      width: 100%;
       position: static;
       left: auto;
       right: auto;
-      bottom: auto;
+      bottom: 45px;
       transform: none;
-      width: 100%;
+      // width: 100%;
       align-items: center;
       gap: 10px;
       position: relative;
       z-index: 10;
       backdrop-filter: blur(4px);
       padding: 16px 15px 15px 15px;
+      border-radius: 20px;
+      border: 1px solid var(--white);
+    }
+
+    @media (max-width: 400px) {
+      bottom: 45px;
+    }
+
+    @include mobile-xs {
+      bottom: 41px;
     }
   }
 
   &__right-icon {
     flex-shrink: 0;
-    margin: 0 12px;
+    margin: 0 5px;
+
+    @include tablet-lg {
+      width: 59px;
+      height: 59px;
+    }
+
+    @include tablet-md {
+      width: auto;
+      height: auto;
+    }
 
     @include mobile {
       margin: 0;
@@ -234,23 +287,33 @@
   }
 
   &__right-text {
-    // padding: 26px 0;
     margin: 0;
     font-weight: 400;
-    // font-size: 24px;
-    font-size: clamp(16px, 2vw, 24px);
+    font-size: clamp(10px, 1.6vw, 24px);
     padding: clamp(12px, 2vw, 26px) 0;
+    padding-right: 5px;
     color: var(--white);
 
+    @include tablet-md {
+      font-size: 16px;
+    }
+
     @include mobile {
-      font-size: 12px;
+      font-size: 14px;
       padding: 0;
+    }
+
+    @include mobile-xs {
+      font-size: 12px;
     }
   }
 
   & .messanges {
-    @include mobile {
-      gap: 24px;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 40px;
     }
   }
 
@@ -263,8 +326,9 @@
     box-shadow: 0 0 20px 0 var(--accent-pink);
     transition: all var(--transition-300);
     background-color: transparent;
+    cursor: pointer;
 
-    @include mobile {
+    @media (max-width: 400px) {
       width: 72px;
       height: 72px;
     }
@@ -278,5 +342,33 @@
   /* Ховер — усиливаем свечение */
   & .messanges__link:hover .messanges__icon {
     filter: drop-shadow(0 0 20px var(--accent-pink));
+  }
+
+  // Анимация колокольчика
+  @keyframes ringing {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(10deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(6deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(2deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 }

@@ -48,7 +48,7 @@
     }
 
     @include tablet-md {
-      font-size: 41px;
+      font-size: 33px;
     }
 
     @include mobile {
@@ -220,7 +220,13 @@
 
     @include mobile {
       font-size: 10px;
+      // max-width: 143px;
+      padding-right: 160px;
+    }
+
+    @include mobile-xs {
       max-width: 143px;
+      padding-right: 0px;
     }
   }
 
@@ -254,7 +260,7 @@
 
     @include mobile {
       min-width: 250px;
-      right: -2%;
+      // right: -2%;
     }
 
     @media (max-width: 390px) {
