@@ -109,12 +109,16 @@
   }
 
   // Иконка колокольчика
-  &__left-icon {
+  &__bell {
     position: absolute;
     bottom: 8%;
     right: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 182px;
-    height: 182px;
+    aspect-ratio: 1/1;
+    // height: 182px;
     border-radius: 100%;
     background-color: var(--accent-blue);
     border: 2.4px solid var(--accent-pink);
@@ -124,21 +128,64 @@
 
     @include mobile {
       width: 130px;
-      height: 130px;
+      // height: 130px;
       padding: 5px;
     }
 
     @include mobile-xs {
       width: 107px;
-      height: 107px;
+      // height: 107px;
       right: 1%;
     }
 
-    &.bell-ring {
-      animation: ringing 0.8s ease-in-out;
-      transform-origin: top center;
+    & img {
+      width: 182px;
+      aspect-ratio: 1/1;
+
+      @include mobile {
+        width: 130px;
+      }
+
+      @include mobile-xs {
+        width: 107px;
+      }
+
+      &.bell-ring {
+        animation: ringing 1.8s ease-in-out infinite;
+        transform-origin: top center;
+      }
     }
   }
+  // &__left-icon {
+  //   position: absolute;
+  //   bottom: 8%;
+  //   right: 13%;
+  //   width: 182px;
+  //   height: 182px;
+  //   border-radius: 100%;
+  //   background-color: var(--accent-blue);
+  //   border: 2.4px solid var(--accent-pink);
+  //   box-sizing: border-box;
+  //   object-fit: cover;
+  //   padding: 19px;
+
+  //   @include mobile {
+  //     width: 130px;
+  //     height: 130px;
+  //     padding: 5px;
+  //   }
+
+  //   @include mobile-xs {
+  //     width: 107px;
+  //     height: 107px;
+  //     right: 1%;
+  //   }
+
+  //   &.bell-ring {
+  //     animation: ringing 1.8s ease-in-out infinite;
+  //     transform-origin: top center;
+  //   }
+  // }
 
   &__right-inner {
     position: absolute;
