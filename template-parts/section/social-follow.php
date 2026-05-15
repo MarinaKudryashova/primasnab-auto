@@ -55,7 +55,7 @@ $right_image = !empty($right_image_url) ? get_image_versions($right_image_url) :
                                     </picture>
                                   <?php else : ?>
                                     <picture class="social-follow__picture">
-                                      <!-- <source srcset="<?php echo get_template_directory_uri(); ?>/img/banner-social-tel.webp" type="image/webp"> -->
+                                      <!-- <source srcset="<?php //echo get_template_directory_uri(); ?>/img/banner-social-tel.webp" type="image/webp"> -->
                                       <img 
                                         class="social-follow__img"
                                         loading="lazy" 
@@ -86,6 +86,7 @@ $right_image = !empty($right_image_url) ? get_image_versions($right_image_url) :
                                   </li>
                               </ul>
                           </div>
+                          <div class="social-follow__bell">
                             <img
                                 src="<?php echo get_template_directory_uri(); ?>/img/icon/icon-bell.svg"
                                 class="social-follow__left-icon"
@@ -93,6 +94,7 @@ $right_image = !empty($right_image_url) ? get_image_versions($right_image_url) :
                                 height="115"
                                 alt="иконка колокольчика"
                               />
+                          </div>
                     </div>
             </div>
 
