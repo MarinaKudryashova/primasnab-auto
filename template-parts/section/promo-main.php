@@ -7,6 +7,8 @@
   $promo_descr = get_field('promo_descr', $page_id);
   $promo_usp = get_field('promo_benefits_list', $page_id);
   $promo_benefits = get_field('promo_benefits', $page_id);
+
+  $promo_shortkod = get_field('promo_shortkod', $page_id);
 ?>
 
 <section class="promo sec-offset">
@@ -26,6 +28,43 @@
       <?php if(!empty($promo_descr)) : ?>
       <p class="promo__descr"><?php echo esc_html($promo_descr) ?></p>
       <?php endif; ?>
+    </div>
+    <div class="promo__form promo-form">
+      <!-- Выводим форму через шорткод CF7 -->
+      <?php if(!empty($promo_shortkod)) : ?>
+      <div class="promo-form__content">
+        <?php echo do_shortcode($promo_shortkod); ?>
+          <!-- <form action="#">
+            <div class="form__content">
+            <div class="form__field form-field">
+              <input type="text" class="form-field__input" name="carsMark" id="carsMark" placeholder="Марка/модель" aria-label="Введите марку/модель">
+              <button type="button" value="" class="form-field__clear-reset" aria-label="Очистить поле"></button>
+            </div>
+            <div class="form__field form-field form-field--required">
+              <input type="text" class="form-field__input" name="budget" id="budget" placeholder="Бюджет" aria-label="Введите ваш бюджет">
+              <button type="button" value="" class="form-field__clear-reset" aria-label="Очистить поле"></button>
+            </div>
+            <div class="form__field form-field form-field--required">
+              <input type="tel" class="form-field__input" name="tel" id="tel" placeholder="Телефон" required aria-label="Введите ваш телефон" autocomplete="tel">
+              <button type="button" value="" class="form-field__clear-reset" aria-label="Очистить поле"></button>
+            </div>
+  
+            <div class="form__control">
+              <button type="submit" class="form__btn ui-btn ui-btn--blue">Рассчитать стоимость</button>
+              <div class="form-argee">
+                <label>
+                  <input class="form-argee__input" type="checkbox" name="agree" id="modal-agree" value="0" required aria-invalid="false">
+                  <span class="wpcf7-list-item-label">Нажимая на кнопку, вы даёте <a href="privacy-policy" target="_blank" rel="nofollow">согласие на обработку персональных данных</a></span>          
+                </label>
+              </div>
+              <div class="form__status visually-hidden" aria-live="polite"></div>
+            </div>
+          </div>
+        </form> -->
+      </div>
+      <?php endif; ?>
+
+      <div class="promo-form__img"></div>
     </div>
 
     <?php if(!empty($promo_usp) && is_array($promo_usp)) : ?>

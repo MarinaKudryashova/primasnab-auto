@@ -6,9 +6,9 @@ import "./components/sec-slider";
 import "./components/video";
 import "./components/social-follow"; // колокольчик
 
-// import "./components/message";
+import "./components/message";
 // import "./components/showmore";
 
-// import "./components/modal";
+import "./components/modal";
 import "./components/topbtn";
 import "./components/cookie-notice";

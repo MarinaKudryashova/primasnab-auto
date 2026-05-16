@@ -281,10 +281,11 @@ ISC
 ❌ phpcs.xml.dist — конфиг PHP CodeSniffer
 ❌ README.md, LICENSE — документация
 ❌ old, test — старые и тестовые файлы
-❌ Все файлы *.map (sourcemaps)
+❌ Все файлы \*.map (sourcemaps)
 ❌ .git, .gitignore, .editorconfig и прочие конфиги
 
 ## 📦 Структура на продакшене (после gulp build)
+
 wp-content/themes/primasnab/
 ├── css/
 │ ├── main.css # ✅ Минифицированный CSS

@@ -1,5 +1,5 @@
 import GraphModal from "graph-modal";
-import { showSuccessMessage, showErrorMessage } from "./message_new.js";
+import { showSuccessMessage, showErrorMessage } from "./message.js";
 
 function initFormHandlers() {
   const modal = new GraphModal();
