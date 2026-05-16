@@ -1,0 +1,156 @@
+.form-field {
+  --input-border-widht: 1px;
+  --input-border-style: solid;
+  --input-border-color: rgba(90, 167, 185, 0.2);
+  --input-border-color-accent: var(--accent-blue);
+  --input-border-radius: 15px;
+  --input-ff: var(--font-family);
+  --input-fw: 400;
+  --input-fz: 15px;
+  --input-lh: 1;
+  --input-color: var(--white);
+  --input-color-hover: var(--accent-blue);
+  --input-placeholder-color: var(--white-60);
+  --input-error: var(--red);
+  --clear-color: var(--grey);
+
+  position: relative;
+
+  & .wpcf7-form-control-wrap {
+    display: block;
+  }
+
+  &__input {
+    border: none;
+    border-width: var((--input-border-widht));
+    border-style: var(--input-border-style);
+    border-color: var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    padding: 1.14em 2.3em 1.13em 1.33em;
+    width: 100%;
+    font-family: var(--input-ff);
+    font-weight: var(--input-fw);
+    font-size: var(--input-fz);
+    line-height: var(--input-lh);
+    color: currentColor;
+    background-color: transparent;
+    outline: none;
+    transition:
+      border-color var(--transition-300),
+      background-color var(--transition-300),
+      opacity var(--transition-300);
+
+    &::placeholder {
+      color: var(--input-placeholder-color);
+      opacity: 1;
+      transition: opacity var(--transition-300);
+    }
+
+    @include hover {
+      border-color: var(--input-color-hover);
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--input-color-hover);
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    &:active {
+      border-color: var(--input-color-hover);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border-color: var(--input-color-hovert);
+      -webkit-box-shadow: 0 0 0px 40rem #161616 inset;
+    }
+  }
+
+  &--required {
+    .form-field__input {
+      border-color: var(--input-border-color-accent);
+    }
+  }
+
+  &__clear-reset {
+    position: absolute;
+    top: 50%;
+    right: 1.33em;
+    z-index: 2;
+    margin: 0;
+    border: none;
+    padding: 0;
+    width: 1em;
+    height: 1em;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clear-color);
+    background: transparent;
+    background-image:
+      linear-gradient(45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%);
+    background-size: 0.8em 0.8em; // Размер крестика
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+      opacity var(--transition-300),
+      visibility var(--transition-300),
+      color var(--transition-300);
+
+    &:focus-visible {
+      color: var(--accent);
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+  }
+
+  &__input:focus-within ~ &__clear-reset,
+  &__input:not(:placeholder-shown) ~ &__clear-reset,
+  &__clear-reset:focus {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__error,
+  & .wpcf7-not-valid-tip {
+    position: absolute;
+    left: 0;
+    bottom: -1.33em;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 110%;
+    color: var(--input-error);
+    z-index: 2;
+  }
+
+  // &__input:focus~&__label,
+  // &__input:not(:placeholder-shown)~&__label,
+  // &__input:-webkit-autofill:focus~&__label,
+  // &__input:-webkit-autofill:hover~&__label {
+  //   top: 12px;
+  //   opacity: 0;
+  //   transform: translateY(-50%) scale(0.75);
+  // }
+  // .wpcf7-form-control-wrap:has(.form-field__input:focus)~.form-field__label,
+  // .wpcf7-form-control-wrap:has(.form-field__input:not(:placeholder-shown))~.form-field__label,
+  // .wpcf7-form-control-wrap:has(.form-field__input:-webkit-autofill:focus)~.form-field__label,
+  // .wpcf7-form-control-wrap:has(.form-field__input:-webkit-autofill:hover)~.form-field__label {
+  //   top: 12px;
+  //   opacity: 0;
+  //   transform: translateY(-50%) scale(0.75);
+  // }
+}

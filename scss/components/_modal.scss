@@ -28,10 +28,10 @@
       height: 44px;
     }
 
-    @include small-tablet {
-      width: 40px;
-      height: 40px;
-    }
+    // @include small-tablet {
+    //   width: 40px;
+    //   height: 40px;
+    // }
 
     @include mobile {
       position: absolute;
@@ -78,7 +78,7 @@
     max-width: 34.722vw; //500px для media 1400;
     background-color: var(--white);
 
-    @include desktop{
+    @include desktop {
       padding: 32px;
       max-width: 500px;
     }
