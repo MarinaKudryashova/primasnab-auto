@@ -2,11 +2,10 @@
   &__content {
     display: flex;
     flex-direction: row;
-    /* gap: 55px; */
 
-    @include tablet-md {
+    @include desktop {
       flex-direction: column;
-      // gap: 20px;
+      align-items: center;
     }
   }
 
@@ -19,8 +18,14 @@
     --title-mb: 20px;
     margin-top: 40px;
 
+    @media (max-width: 1220px) {
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
     @include tablet {
       margin-top: 0px;
+      margin-right: 0px;
     }
   }
 
@@ -29,7 +34,7 @@
     padding-right: 61px;
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 24px;
+    font-size: clamp(20px, 1.6vw, 24px);
     line-height: 100%;
     color: var(--white);
 
@@ -58,7 +63,8 @@
 
     @include mobile {
       flex-shrink: 1;
-      width: 100%;
+      min-width: 100%;
+      margin-left: 25px;
     }
   }
 
@@ -77,21 +83,19 @@
 
   &__var {
     position: absolute;
-    top: 0;
+    top: clamp(-30px, -2.9vw, 0px);
     right: 10%;
 
     @include desktop {
-      top: auto;
-      bottom: -50px;
-      right: -50%;
+      top: 0;
     }
 
     @include tablet {
-      bottom: -80px;
-      right: -50%;
+      // bottom: -80px;
+      // right: -50%;
     }
 
-    @include tablet-md {
+    @include mobile {
       display: none; // скрываем на мобилке
     }
   }
@@ -99,12 +103,9 @@
   &__var--mobile {
     display: none; // скрыт на десктопе
 
-    @include tablet-md {
+    @include mobile {
       display: block;
-    }
-
-    @include mobile-xs {
-      margin-top: unset;
+      margin-top: -22px;
     }
   }
 
@@ -116,7 +117,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 182px;
+    width: clamp(160px, 13vw, 182px);
     aspect-ratio: 1/1;
     // height: 182px;
     border-radius: 100%;
@@ -126,23 +127,29 @@
     object-fit: cover;
     padding: 19px;
 
-    @include mobile {
-      width: 130px;
-      // height: 130px;
-      padding: 5px;
+    @include desktop {
+      right: 26%;
     }
 
-    @include mobile-xs {
+    @media (max-width: 600px) {
+      right: 13%;
+    }
+
+    @include mobile {
+      width: 130px;
+      padding: 0px;
+      right: 9%;
+    }
+    @media (max-width: 375px) {
       width: 107px;
-      // height: 107px;
-      right: 1%;
+      right: 2%;
     }
 
     & img {
       width: 182px;
       aspect-ratio: 1/1;
 
-      @include mobile {
+      @include tablet-md {
         width: 130px;
       }
 
@@ -189,11 +196,11 @@
 
   &__right-inner {
     position: absolute;
-    bottom: 14%;
+    bottom: clamp(20px, 3vw, 80px);
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
-    max-width: 721px;
+    max-width: clamp(580px, 50vw, 721px);
     display: flex;
     align-items: center;
     border-radius: 20px;
@@ -201,18 +208,17 @@
     background: rgba(22, 22, 22, 0.6);
     z-index: 2;
 
-    @include desktop {
-      bottom: 20%;
+    @media (max-width: 1205px) {
+      bottom: 50px;
     }
 
-    @media (max-width: 1096px) {
-      position: relative;
-      bottom: 17%;
+    @include desktop {
+      bottom: clamp(20px, 3vw, 80px);
     }
 
     @include tablet {
-      margin-top: 0;
-      margin-bottom: 19px;
+      position: relative;
+      bottom: 17%;
     }
 
     @media (max-width: 850px) {
@@ -243,8 +249,7 @@
     position: relative;
     display: inline-block;
     flex-shrink: 0;
-    width: 780px;
-    width: clamp(500px, 52vw, 780px);
+    min-width: auto;
 
     @include tablet {
       flex-shrink: 1;
@@ -261,7 +266,8 @@
       gap: 40px;
     }
 
-    @include tablet-md {
+    @include tablet {
+      min-width: auto;
       gap: 0;
     }
 
@@ -272,12 +278,12 @@
 
   &__right-image {
     border-radius: 40px;
-    width: 780px;
-    max-width: 100%;
+    width: clamp(650px, 55vw, 780px);
+    min-width: auto;
     height: auto;
     object-fit: cover;
 
-    @include tablet-md {
+    @include tablet {
       display: none; // скрываем большое фото
     }
   }
@@ -291,7 +297,7 @@
       position: static;
       left: auto;
       right: auto;
-      bottom: 45px;
+      bottom: 35px;
       transform: none;
       // width: 100%;
       align-items: center;
@@ -304,12 +310,9 @@
       border: 1px solid var(--white);
     }
 
-    @media (max-width: 400px) {
-      bottom: 45px;
-    }
-
     @include mobile-xs {
       bottom: 41px;
+      padding: 16px 10px 15px 10px;
     }
   }
 
@@ -336,7 +339,7 @@
   &__right-text {
     margin: 0;
     font-weight: 400;
-    font-size: clamp(10px, 1.6vw, 24px);
+    font-size: clamp(16px, 1.7vw, 24px);
     padding: clamp(12px, 2vw, 26px) 0;
     padding-right: 5px;
     color: var(--white);
@@ -350,7 +353,7 @@
       padding: 0;
     }
 
-    @include mobile-xs {
+    @media (max-width: 375px) {
       font-size: 12px;
     }
   }
@@ -358,9 +361,13 @@
   & .messanges {
     flex-direction: column;
 
-    @include desktop {
+    @include mobile {
       flex-direction: row;
       gap: 40px;
+    }
+
+    @include mobile-xs {
+      gap: 30px;
     }
   }
 
