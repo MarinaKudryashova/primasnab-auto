@@ -22,7 +22,7 @@
   <div class="promo__container container">
     <div class="promo__content">
       <?php if(!empty($promo_title)) : ?>
-      <h1 class="promo__title"><?php echo esc_html($promo_title) ?></h1>
+      <h1 class="promo__title page-title"><?php echo esc_html($promo_title) ?></h1>
       <?php endif; ?>
   
       <?php if(!empty($promo_descr)) : ?>
