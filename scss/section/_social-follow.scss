@@ -1,42 +1,61 @@
 .social-follow {
   &__content {
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    align-items: stretch;
 
-    @include desktop {
+    @include tablet {
+      // flex-direction: column;
+      // align-items: center;
+
+      display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0;
     }
   }
 
   &__left {
     display: flex;
     flex-direction: column;
+
+    grid-column: span 5; // ДОБАВИТЬ - левая часть на 5 колонок
+
+    @include tablet {
+      width: 100%;
+      grid-column: auto;
+    }
   }
 
   &__title {
-    --title-mb: 20px;
-    margin-top: 40px;
+    --title-mb: 14px;
+    margin-top: 41px;
 
     @media (max-width: 1220px) {
       margin-top: 10px;
-      margin-right: 10px;
     }
 
     @include tablet {
       margin-top: 0px;
-      margin-right: 0px;
     }
   }
 
   &__descr {
-    margin: 0 0 30px 0;
-    padding-right: 61px;
+    margin: 0 0 22px 0;
+    padding-right: 75px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: clamp(20px, 1.6vw, 24px);
     line-height: 100%;
     color: var(--white);
+
+    @media (max-width: 1220px) {
+      padding-right: 30px;
+    }
 
     @include desktop {
       font-size: 22px;
@@ -63,8 +82,15 @@
 
     @include mobile {
       flex-shrink: 1;
-      min-width: 100%;
-      margin-left: 25px;
+      min-width: 360px;
+      width: 100%;
+      // min-width: 100%;
+      // margin-left: 25px;
+    }
+
+    @include mobile-xs {
+      min-width: 280px;
+      width: 100px;
     }
   }
 
@@ -75,24 +101,40 @@
     opacity: 1;
     filter: drop-shadow(4px 15px 25px var(--accent-blue));
 
+    @include tablet {
+      margin-left: 60px;
+    }
+
     @include mobile {
       width: 100%;
       height: auto;
+      margin-left: 30px;
     }
   }
 
   &__var {
     position: absolute;
-    top: clamp(-30px, -2.9vw, 0px);
-    right: 10%;
+    top: clamp(0px, -2.9vw, 0px);
+    right: 5%;
+
+    // @media (max-width: 1245px) {
+    //   right: 5%;
+    // }
 
     @include desktop {
       top: 0;
     }
 
     @include tablet {
-      // bottom: -80px;
-      // right: -50%;
+      right: 18%;
+    }
+
+    @include tablet-lg {
+      right: 15%;
+    }
+
+    @include tablet-md {
+      right: 0%;
     }
 
     @include mobile {
@@ -113,7 +155,7 @@
   &__bell {
     position: absolute;
     bottom: 8%;
-    right: 13%;
+    right: 11%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,12 +169,34 @@
     object-fit: cover;
     padding: 19px;
 
-    @include desktop {
-      right: 26%;
+    @media (max-width: 1245px) {
+      bottom: 4%;
     }
 
-    @media (max-width: 600px) {
-      right: 13%;
+    @include desktop {
+      bottom: -1%;
+      right: 7%;
+    }
+
+    @include tablet {
+      bottom: 9%;
+      right: 38%;
+      width: 182px;
+    }
+
+    @include tablet-lg {
+      bottom: 5%;
+      right: 30%;
+    }
+
+    @media (max-width: 850px) {
+      right: 17%;
+    }
+
+    @include tablet-md {
+      bottom: 4%;
+      right: 14%;
+      width: 160px;
     }
 
     @include mobile {
@@ -142,6 +206,7 @@
     }
     @media (max-width: 375px) {
       width: 107px;
+      bottom: 8%;
       right: 2%;
     }
 
@@ -149,7 +214,7 @@
       width: 182px;
       aspect-ratio: 1/1;
 
-      @include tablet-md {
+      @include tablet-lg {
         width: 130px;
       }
 
@@ -196,7 +261,7 @@
 
   &__right-inner {
     position: absolute;
-    bottom: clamp(20px, 3vw, 80px);
+    bottom: clamp(20px, 2.5vw, 80px);
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
@@ -219,6 +284,8 @@
     @include tablet {
       position: relative;
       bottom: 17%;
+      max-width: 100%;
+      width: 100%;
     }
 
     @media (max-width: 850px) {
@@ -247,14 +314,19 @@
 
   &__right {
     position: relative;
-    display: inline-block;
-    flex-shrink: 0;
-    min-width: auto;
+    display: flex;
+    // flex-shrink: 0;
+    flex-direction: column;
+    // min-width: auto;
+    grid-column: span 7; // ДОБАВИТЬ - правая картинка на 7 колонок
+    min-width: 0; // ИЗМЕНИТЬ - было auto, стало 0 (важно для сжатия)
 
     @include tablet {
       flex-shrink: 1;
       width: 100%;
       max-width: 100%;
+      grid-column: auto;
+      display: flex;
     }
 
     @media (max-width: 850px) {
@@ -263,24 +335,33 @@
       height: auto;
       min-height: auto;
       width: 100%;
-      gap: 40px;
+      // gap: 40px;
     }
 
-    @include tablet {
-      min-width: auto;
-      gap: 0;
-    }
+    // @include tablet {
+    //   min-width: auto;
+    //   gap: 0;
+    // }
 
     @include mobile {
       display: none;
     }
   }
 
+  &__right-picture {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    // border-radius: 40px; // ➕ ДОБАВИТЬ (опционально, для скругления)
+    // overflow: hidden; // ➕ ДОБАВИТЬ (опционально)
+  }
+
   &__right-image {
     border-radius: 40px;
-    width: clamp(650px, 55vw, 780px);
+    // width: clamp(650px, 55vw, 780px);
+    width: 100%;
+    height: 100%;
     min-width: auto;
-    height: auto;
     object-fit: cover;
 
     @include tablet {
@@ -367,7 +448,7 @@
     }
 
     @include mobile-xs {
-      gap: 30px;
+      gap: 15px;
     }
   }
 
@@ -381,6 +462,16 @@
     transition: all var(--transition-300);
     background-color: transparent;
     cursor: pointer;
+
+    @media (max-width: 1112px) {
+      width: 86px;
+      height: 86px;
+    }
+
+    @include tablet {
+      width: 96px;
+      height: 96px;
+    }
 
     @media (max-width: 400px) {
       width: 72px;

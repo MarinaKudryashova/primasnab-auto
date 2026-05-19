@@ -178,9 +178,11 @@
       width: 100%;
     }
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       background-color: var(--accent-pink);
-      box-shadow: 0 0 0 2px #ffffff;
+      box-shadow: 0 0 0 1px #ffffff;
     }
   }
 
@@ -227,8 +229,8 @@
       position: absolute;
       left: 6px;
       top: 6px;
-      width: 5px;
-      height: 9px;
+      width: 6px;
+      height: 10px;
       border: solid white;
       border-width: 0 2px 2px 0;
 
@@ -238,9 +240,28 @@
       opacity: 0;
 
       transition: opacity var(--transition-300);
+
+      @media (max-width: 1010px) {
+        top: 39%;
+      }
+
+      @media (max-width: 628px) {
+        top: 39%;
+      }
+
+      @media (max-width: 430px) {
+        top: 44%;
+      }
+
+      @include mobile-xs {
+        top: 38%;
+      }
     }
     input[type="checkbox"]:checked ~ .wpcf7-list-item-label::after {
       opacity: 1;
+    }
+    input[type="checkbox"]:checked ~ .wpcf7-list-item-label::before {
+      background-color: var(--accent-blue);
     }
 
     // input:checked ~ .banner-quote-form__checkbox-text::before {
@@ -392,7 +413,8 @@
     border: none;
     cursor: pointer;
     border-radius: 50%;
-    opacity: 0.6;
+    opacity: 0;
+    visibility: hidden;
     transition: opacity var(--transition-300);
 
     &::before,
@@ -416,6 +438,12 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  &__field:focus-within &__clear-reset,
+  &__input:not(:placeholder-shown) ~ &__clear-reset {
+    opacity: 0.6;
+    visibility: visible;
   }
 
   &__control {
@@ -452,18 +480,32 @@
 
 .wpcf7-not-valid-tip {
   position: absolute;
-  bottom: -30px;
+  bottom: -33px;
   left: 0;
 
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
-  color: var(--white);
+  color: var(--red);
 
   background: none;
 
-  @include mobile {
-    white-space: normal;
-    bottom: -36px;
-    font-size: 10px;
+  @include desktop {
+    bottom: -30px;
   }
+
+  // @include mobile {
+  //   white-space: normal;
+  //   bottom: -36px;
+  //   font-size: 10px;
+  // }
+}
+
+@include desktop {
+  .banner-quote-form__field:has(.wpcf7-not-valid-tip) {
+    margin-bottom: 10px;
+  }
+}
+
+input.wpcf7-not-valid {
+  border-color: var(--red) !important;
 }
