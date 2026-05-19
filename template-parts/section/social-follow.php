@@ -89,7 +89,7 @@ $right_image = !empty($right_image_url) ? get_image_versions($right_image_url) :
                           <div class="social-follow__bell">
                             <img
                                 src="<?php echo get_template_directory_uri(); ?>/img/icon/icon-bell.svg"
-                                class="social-follow__left-icon"
+                                class="social-follow__icon-bell"
                                 width="115"
                                 height="115"
                                 alt="иконка колокольчика"
