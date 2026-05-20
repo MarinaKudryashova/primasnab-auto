@@ -16,10 +16,13 @@
 @import "components/ui-link";
 @import "components/messanges";
 @import "components/sec-offset";
+@import "components/sec-offsettabs";
 @import "components/page-title";
 @import "components/sec-title";
 @import "components/ui-card";
 @import "components/contacts";
+@import "components/tabs"; // табы для контактов
+@import "components/offices"; // офисы
 // @import "components/form";
 @import "components/form-field";
 @import "components/form-argee";
@@ -28,6 +31,7 @@
 // @import "components/social";
 // @import "components/textcontent";
 @import "components/cookie-notice";
+@import "components/breadcrumbs";
 
 // Секции
 @import "section/header";

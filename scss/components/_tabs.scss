@@ -1,0 +1,42 @@
+// стили для переключений
+.tabs {
+  &__nav {
+    @include list-reset;
+    display: flex;
+    flex-wrap: nowrap;
+
+    // временно
+    @include tablet-md {
+      flex-direction: column;
+    }
+  }
+
+  &__nav-item {
+    flex: 1;
+  }
+
+  &__nav-btn {
+    @include btn-reset;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__panel {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    display: none;
+
+    &--active {
+      display: grid;
+
+      @include tablet-md {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

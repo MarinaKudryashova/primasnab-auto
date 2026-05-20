@@ -22,7 +22,7 @@
     color: var(--contacts-title);
 
     @include mobile {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 
@@ -32,5 +32,9 @@
     align-items: flex-start;
     margin: 0;
     color: var(--contacts-value);
+
+    @include mobile {
+      font-size: 16px;
+    }
   }
 }

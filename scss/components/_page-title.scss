@@ -5,4 +5,10 @@
   font-size: 60px;
   line-height: 100%;
   color: var(--white);
+
+  &--contacts {
+    @include mobile {
+      font-size: 28px;
+    }
+  }
 }
