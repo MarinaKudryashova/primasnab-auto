@@ -5,6 +5,7 @@ import "./components/sec-slider";
 import "./components/sec-slider";
 import "./components/video";
 import "./components/social-follow"; // колокольчик
+import "./components/tabs"; // табы на странице контакты
 
 import "./components/message";
 // import "./components/showmore";

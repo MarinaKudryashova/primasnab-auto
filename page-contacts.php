@@ -13,10 +13,31 @@ $offices = get_field("offices", $page_id);
     <div class="container">
       <?php get_template_part("template-parts/components/breadcrumbs", "", $page_id); ?>
 
-      <h1 class="page-title"><?php echo esc_html(get_the_title()); ?></h1>
+      <h1 class="page-title page-title--contacts"><?php echo esc_html(get_the_title()); ?></h1>
 
       <?php if($offices && is_array($offices)) : ?>
       <div class="offices sec-offsettabs" data-tabs="offices-tabs">
+
+      <!-- КАСТОМНЫЙ ВЫПАДАЮЩИЙ СПИСОК (только для мобилки) -->
+        <div class="offices__custom-select">
+          <div class="offices__select-selected offices__btn">
+            <span class="offices__select-name offices__name">
+              <?php echo esc_html($offices[0]['name']); ?>
+            </span>
+            <svg class="offices__select-arrow" width="10" height="9">
+              <use xlink:href="<?php echo esc_url(get_template_directory_uri()); ?>/img/sprite.svg#icon-caret-down"></use>
+            </svg>
+          </div>
+          <div class="offices__select-options">
+            <?php foreach($offices as $index => $office) : ?>
+            <div class="offices__select-option <?php echo $index === 0 ? 'active' : ''; ?>" data-tab-index="<?php echo $index; ?>">
+              <span><?php echo esc_html($office['name']); ?></span>
+            </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        
+        <!-- Обычная навигация (для десктопа) -->
         <ul class="list-reset tabs__nav offices__nav">
           <?php foreach($offices as $office) : ?>
           <li class="tabs__nav-item">

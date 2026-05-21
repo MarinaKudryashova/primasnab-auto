@@ -89,13 +89,17 @@
     }
 
     @include mobile {
-      max-width: 90%;
-      margin: 20px;
+      // max-width: 90%;
+      // margin: 20px;
+      max-width: 100%; // было 90%
+      margin: 0; // было 20px
+      width: 100%;
+      padding: 0 15px;
     }
 
     @include mobile-xs {
-      max-width: 85%;
-      margin-bottom: 0;
+      // max-width: 85%;
+      // margin-bottom: 0;
     }
   }
 
@@ -111,6 +115,10 @@
     @include tablet {
       width: 100%;
     }
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__field {
@@ -119,6 +127,7 @@
 
     @include mobile {
       min-width: 100%;
+      width: 100%;
     }
 
     input {
