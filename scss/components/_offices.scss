@@ -1,4 +1,20 @@
 .offices {
+  &__contacts .contacts__title {
+    font-size: 15px;
+
+    @include tablet-md {
+      font-size: 14px;
+    }
+  }
+
+  &__contacts .contacts__value {
+    font-size: 18px;
+
+    @include tablet-md {
+      font-size: 16px;
+    }
+  }
+
   &__nav {
     gap: clamp(15px, 2vw, 20px);
     margin-top: 40px;
@@ -71,11 +87,31 @@
     background: #f5f5f5;
     border-radius: 20px;
     overflow: hidden;
+    position: relative;
 
     @include mobile {
       order: 2;
       min-height: 340px;
     }
+  }
+
+  &__map-hint {
+    position: absolute;
+    bottom: auto;
+    left: auto;
+    top: 44%;
+    left: 79%;
+    transform: translate(-50%, -50%);
+    background: var(--white-60);
+    color: var(--black);
+    padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 16px);
+    border-radius: 20px;
+    font-size: clamp(12px, 4vw, 18px);
+    font-family: var(--font-family);
+    white-space: nowrap;
+    z-index: 100000;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
   }
 
   // ========== КАСТОМНЫЙ ВЫПАДАЮЩИЙ СПИСОК ==========
@@ -156,10 +192,6 @@
 
   // ========== ОТКРЫТЫЙ СПИСОК ==========
   &.open {
-    // .offices__select-arrow {
-    //   transform: rotate(180deg);
-    // }
-
     .offices__select-options {
       display: block;
     }
