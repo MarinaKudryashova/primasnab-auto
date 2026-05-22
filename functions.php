@@ -152,6 +152,17 @@ function primasnab_styles_and_scripts() {
 
 	// основные скрипты темы	
 	wp_enqueue_script( 'js-main', $js_path . 'main.min.js', array(), $ver, array( 'in_footer' => true, 'strategy' => 'defer'));
+
+	// Подключаем Яндекс.Карты на странице Контакты
+if ( is_page('kontakty') ) {
+	wp_enqueue_script(
+		'yandex-maps',
+		'https://api-maps.yandex.ru/2.1/?lang=ru_RU',
+		array(),
+		null,
+		true
+	);
+}
 	
 	// Локализация для JS
 	wp_localize_script('primasnab-main', 'primasnab_ajax', array(
