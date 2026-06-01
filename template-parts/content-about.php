@@ -83,9 +83,14 @@ if($team_profi && is_array($team_profi)) :
     <section class="team-section sec-offset">
         <h1 class="team-section__title sec-title"><?php echo esc_html($team_title); ?></h1>
         <ul class="team-section__list">
-            <?php foreach($team_profi as $member) : ?>
+                <?php foreach($team_profi as $index => $member) : ?>
                 <li class="team-section__item">
                     <article class="team-card">
+                        <?php if($index === 0) : ?>
+                            <h3 class="team-card__sticker">
+                                <span>Самый главный</span>
+                            </h3>
+                        <?php endif; ?>
                         <div class="team-card__view">
                             <?php 
                                 $photo_url = !empty($member['photo']) ? $member['photo'] : '';

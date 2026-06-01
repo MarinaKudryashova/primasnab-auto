@@ -52,38 +52,43 @@ $offices = get_field("offices", $page_id);
           <div class="tabs__panel">
             <div class="offices__info">
 
-              <?php /*-- Адрес офиса --*/ ?>
+              <!-- Адрес (только если не пусто) -->
+              <?php if(!empty($office["address"])) : ?>
               <div class="offices__contacts contacts">
                 <span class="contacts__title"><?php esc_html_e( 'Адрес', 'primasnab' ); ?></span>
                 <p class="contacts__value"><?php echo esc_html($office["address"]); ?></p>
               </div>
+              <?php endif; ?>
 
-              <?php /*-- График работы офиса --*/ ?>
+              <!-- График работы (только если не пусто) -->
+              <?php if(!empty($office["timework"])) : ?>
               <div class="offices__contacts contacts">
                 <span class="contacts__title"><?php esc_html_e( 'График работы', 'primasnab' ); ?></span>
                 <p class="contacts__value"><?php echo esc_html($office["timework"]); ?></p>
-
               </div>
+              <?php endif; ?>
 
-              <?php /*-- Телефон --*/ ?>
-              <?php
-                $phone = $office["tel"];
-                $phone = explode(PHP_EOL, $phone);
+              <!-- Телефон (обрабатываем, только если поле не пусто) -->
+              <?php if(!empty($office["tel"])) : 
+                $phone = explode(PHP_EOL, $office["tel"]);
                 $phone_href = preg_replace('![^0-9]+!', '', $phone);
               ?>
               <div class="offices__contacts contacts">
                 <span class="contacts__title"><?php esc_html_e( 'Телефон', 'primasnab' ); ?></span>
-                <a class="contacts__value ui-link" href="tel:<?php echo $phone_href[0]; ?>"
-                  data-text="<?php echo $phone[0]; ?>"><?php echo $phone[0]; ?></a>
+                <a class="contacts__value ui-link" href="tel:<?php echo esc_attr($phone_href[0]); ?>"
+                  data-text="<?php echo esc_attr($phone[0]); ?>"><?php echo esc_html($phone[0]); ?></a>
               </div>
+              <?php endif; ?>
 
-              <?php /*-- Электронная почта --*/ ?>
+              <!-- Электронная почта (только если не пусто) -->
+              <?php if(!empty($office["mail"])) : ?>
               <div class="offices__contacts contacts">
                 <span class="contacts__title"><?php esc_html_e( 'Электронная почта', 'primasnab' ); ?></span>
                 <a class="contacts__value ui-link" href="mailto:<?php echo esc_attr($office["mail"]); ?>">
                   <?php echo esc_html($office["mail"]); ?>
                 </a>
               </div>
+              <?php endif; ?>
 
             </div>
 
