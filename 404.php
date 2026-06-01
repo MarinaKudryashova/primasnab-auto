@@ -9,51 +9,53 @@
 
 get_header();
 ?>
+<?php
+$error_title = get_field( 'error-404_title', 'option' );
+$error_text = get_field( 'error-404_text', 'option' );
+$error_background_url = get_field( 'error-404_bgimg', 'option' );
+$error_background = (!empty($error_background_url)) ? get_image_versions($error_background_url) : null;
+$error_background_url_mobile = get_field( 'error-404_bgimg_mobile', 'option' );
+$error_background_mobile = (!empty($error_background_url_mobile)) ? get_image_versions($error_background_url_mobile) : null;
+
+$button_text = get_field( 'error-404_link_name', 'option' ) ?: esc_html__( 'На главную', 'primasnab' );
+$button_custom_url = get_field( 'error-404_link', 'option' );
+if ( $button_custom_url ) {
+	$button_url = $button_custom_url;
+} else {
+	$button_url = home_url( '/' );
+}
+
+?>
 
 	<main class="main">
-
 		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'primasnab' ); ?></h1>
-			</header><!-- .page-header -->
+			<div class="container">
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'primasnab' ); ?></p>
+				<div class="error-404__content">
+					<?php if($error_title) : ?>
+						<h1 class="error-404__title"><?php echo esc_html( $error_title ); ?></h1>
+					<?php endif; ?>
 
-					<?php
-					get_search_form();
+					<?php if($error_text) : ?>
+						<p class="error-404__decr"><?php echo esc_html( $error_text ); ?></p>
+					<?php endif; ?>
+					
+					<?php if($button_text && $button_url) : ?>
+						<a href="<?php echo esc_url( $button_url ); ?>" class="error-404__link ui-btn"><?php echo esc_html( $button_text ); ?></a>
+					<?php endif; ?>
+				</div>
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+				<?php if($error_background && is_array($error_background)) : ?>
+					<picture class="error-404__img">
+						<source media="(min-width: 768px)" srcset="<?php echo esc_url($error_background_mobile['webp_1x']); ?>" type="image/webp">
+						<source media="(min-width: 768px)" srcset="<?php echo esc_url($error_background_mobile['original_1x']); ?>" type="image/jpg">
+						<source srcset="<?php echo esc_url($error_background['webp_1x']); ?>" type="image/webp">
+						<img src="<?php echo esc_url($error_background['original_1x']); ?>" width="423" height="423" aria-hidden="true" alt="">
+					</picture>
+				<?php endif; ?>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'primasnab' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$primasnab_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'primasnab' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$primasnab_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
+			</div>
 		</section><!-- .error-404 -->
-
 	</main><!-- #main -->
 
 <?php
