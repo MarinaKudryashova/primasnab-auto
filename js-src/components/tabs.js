@@ -82,45 +82,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Карты
   if (typeof ymaps !== "undefined") {
     ymaps.ready(() => {
       document.querySelectorAll(".offices__map").forEach((el, mapIndex) => {
-        const center = el.dataset.center?.split(",").map(Number);
         const point = el.dataset.point?.split(",").map(Number);
-
-        if (!center || !point || !point[0] || !point[1]) {
+        if (!point || !point[0] || !point[1]) {
           console.log(`⚠️ Карта ${mapIndex}: нет point, пропускаем`);
           return;
         }
 
         const hintText = el.dataset.hint || "Офис";
 
+        // Карта центрируется по метке (point), а не по отдельному центру
         const map = new ymaps.Map(el, {
-          center: center,
+          center: point, // координаты метки
           zoom: 16,
           controls: ["zoomControl"],
         });
 
         const placemark = new ymaps.Placemark(point, {
+          hintContent: hintText, // стандартный хинт (появляется при наведении)
           balloonContent: hintText,
         });
+
         map.geoObjects.add(placemark);
-
-        function addHintDiv() {
-          const mapContainer = map.container.getElement();
-          if (mapContainer.querySelector(".offices__map-hint")) return;
-
-          const hintDiv = document.createElement("div");
-          hintDiv.className = "offices__map-hint";
-          hintDiv.textContent = hintText;
-          mapContainer.style.position = "relative";
-          mapContainer.appendChild(hintDiv);
-          console.log(`✅ Карта ${mapIndex}: div добавлен в левый нижний угол`);
-        }
-
-        setTimeout(addHintDiv, 500);
-        setTimeout(addHintDiv, 1000);
       });
     });
   }

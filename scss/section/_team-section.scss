@@ -26,6 +26,7 @@
 
   &__item {
     grid-column: span 4;
+    position: relative;
 
     &:nth-child(4) {
       grid-column: 3 / span 4;
@@ -83,6 +84,38 @@
 
   @include mobile {
     padding: 15px;
+  }
+
+  &__sticker {
+    position: absolute;
+    top: -10px;
+    right: -60px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    padding: 15px;
+    width: 306px;
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    text-align: center;
+    color: inherit;
+    background-color: var(--accent-pink);
+    transform: rotate(7.28deg);
+    transition: transform var(--transition-300);
+
+    @include desktop {
+      width: 78%;
+      font-size: 20px;
+    }
+
+    @include tablet-md {
+      display: none;
+    }
   }
 
   // Изображение

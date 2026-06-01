@@ -27,6 +27,8 @@
   }
 
   &__btn {
+    position: relative;
+    z-index: 101;
     width: 100%;
     min-height: clamp(46px, 6.5vw, 74px);
     display: flex;
@@ -67,7 +69,7 @@
   }
 
   &__info {
-    grid-column: span 3;
+    grid-column: span 6;
     display: flex;
     flex-direction: column;
     margin-top: 60px;
@@ -95,24 +97,24 @@
     }
   }
 
-  &__map-hint {
-    position: absolute;
-    bottom: auto;
-    left: auto;
-    top: 44%;
-    left: 79%;
-    transform: translate(-50%, -50%);
-    background: var(--white-60);
-    color: var(--black);
-    padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 16px);
-    border-radius: 20px;
-    font-size: clamp(12px, 4vw, 18px);
-    font-family: var(--font-family);
-    white-space: nowrap;
-    z-index: 100000;
-    pointer-events: none;
-    backdrop-filter: blur(4px);
-  }
+  // &__map-hint {
+  //   position: absolute;
+  //   bottom: auto;
+  //   left: auto;
+  //   top: 44%;
+  //   left: 79%;
+  //   transform: translate(-50%, -50%);
+  //   background: var(--white-60);
+  //   color: var(--black);
+  //   padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 16px);
+  //   border-radius: 20px;
+  //   font-size: clamp(12px, 4vw, 18px);
+  //   font-family: var(--font-family);
+  //   white-space: nowrap;
+  //   z-index: 100000;
+  //   pointer-events: none;
+  //   backdrop-filter: blur(4px);
+  // }
 
   // ========== КАСТОМНЫЙ ВЫПАДАЮЩИЙ СПИСОК ==========
   &__custom-select {
@@ -137,6 +139,7 @@
     flex-shrink: 0;
     stroke: var(--white);
     fill: var(--white);
+    transition: transform var(--transition-300);
 
     @include mobile {
       margin-right: 20px;
@@ -145,16 +148,27 @@
 
   &__select-options {
     position: absolute;
-    top: calc(100% + 8px);
+    // top: calc(100% + 8px);
+    top: 0;
     left: 0;
     right: 0;
     padding: 20px;
+    padding-top: 66px;
     background: rgba(22, 22, 22, 1);
     border: 1px solid rgba(90, 167, 185, 0.4);
     border-radius: 20px;
     overflow: hidden;
     z-index: 100;
-    display: none;
+    // display: none;
+
+    // Плавность
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      opacity var(--transition-300),
+      visibility var(--transition-300),
+      transform var(--transition-300);
   }
 
   &__select-option {
@@ -193,7 +207,89 @@
   // ========== ОТКРЫТЫЙ СПИСОК ==========
   &.open {
     .offices__select-options {
-      display: block;
+      // display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    // Поворачиваем стрелку
+    .offices__select-arrow {
+      transform: rotate(180deg);
     }
   }
+}
+
+// Общие стили для балуна и хинта
+[class*="ymaps-"][class*="balloon"],
+[class*="ymaps-"][class*="hint"] {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  color: var(--black);
+  font-family: var(--font-family);
+  border: none;
+  box-shadow: none;
+}
+
+// Содержимое балуна
+[class*="ymaps-"][class*="balloon__content"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 16px);
+  font-size: clamp(12px, 4vw, 18px);
+  white-space: nowrap;
+  background: transparent;
+  color: inherit;
+  // min-height: 44px;
+}
+
+// Прячем стандартную кнопку (она не видна, но кликабельная)
+[class*="ymaps-"][class*="balloon__close"],
+[class*="ymaps-"][class*="balloon__close-button"] {
+  opacity: 0;
+  pointer-events: auto;
+}
+
+// Добавляем свой крестик через псевдоэлемент к содержимому балуна
+[class*="ymaps-"][class*="balloon__content"] ymaps {
+  position: relative;
+  padding-right: 5px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+[class*="ymaps-"][class*="balloon__content"]::after {
+  content: "✕";
+  position: absolute;
+  right: -21px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--grey);
+  background: transparent;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+}
+
+[class*="ymaps-"][class*="balloon__content"]:hover::after {
+  color: var(--black); // чёрный цвет
+}
+
+// Хвостики (стрелки) у балуна и хинта – скрываем
+[class*="ymaps-"][class*="balloon__tail"],
+[class*="ymaps-"][class*="balloon-tail"],
+[class*="ymaps-"][class*="hint__tail"],
+[class*="ymaps-"][class*="hint-tail"] {
+  display: none;
+}
+
+// Дополнительно: позиционирование хинта (чтобы не перекрывал метку)
+[class*="ymaps-"][class*="hint"] {
+  transform: translateY(-40%);
 }
