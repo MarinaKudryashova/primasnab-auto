@@ -1,5 +1,11 @@
 .faq {
   position: relative;
+
+  &__title {
+    b {
+      color: var(--accent-pink);
+    }
+  }
 }
 
 .accordion {
@@ -146,13 +152,13 @@
     //   padding: 0 24px;
     // }
 
-      @include tablet-md {
-        padding: 0 30px;
-      }
+    @include tablet-md {
+      padding: 0 30px;
+    }
 
-      @include mobile {
-        padding: 0 20px;
-      }
+    @include mobile {
+      padding: 0 20px;
+    }
 
     .is-open & {
       padding-bottom: 40px;

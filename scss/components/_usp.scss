@@ -1,0 +1,36 @@
+.usp {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--white);
+    border-radius: 15px;
+    padding: 0.5em 1.1em 0.48em;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--white);
+
+    &::before {
+      content: "";
+      flex: none;
+      border-radius: 100%;
+      width: 8px;
+      height: 8px;
+      background-color: var(--white);
+      box-shadow: 0 0 5px 0 var(--white);
+    }
+
+    & b {
+      font-weight: 400;
+      color: var(--usp-color);
+    }
+  }
+}

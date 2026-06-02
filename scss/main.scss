@@ -32,6 +32,7 @@
 // @import "components/textcontent";
 @import "components/cookie-notice";
 @import "components/breadcrumbs";
+@import "components/usp";
 
 // Секции
 @import "section/header";
@@ -57,6 +58,13 @@
 
 @import "components/footer-menu";
 @import "section/footer";
+
+// Страница Услуги
+@import "section/promo-services";
+@import "section/why-choose";
+@import "section/popular";
+@import "components/card-popular";
+@import "section/we-bring";
 
 // WooCommerce стили (если нужно)
 // @import 'woocommerce/main';

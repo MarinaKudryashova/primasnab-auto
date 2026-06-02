@@ -34,33 +34,6 @@
       <?php if(!empty($promo_shortkod)) : ?>
       <div class="promo-form__content">
         <?php echo do_shortcode($promo_shortkod); ?>
-          <!-- <form action="#">
-            <div class="form__content">
-            <div class="form__field form-field">
-              <input type="text" class="form-field__input" name="carsMark" id="carsMark" placeholder="Марка/модель" aria-label="Введите марку/модель">
-              <button type="button" value="" class="form-field__clear-reset" aria-label="Очистить поле"></button>
-            </div>
-            <div class="form__field form-field form-field--required">
-              <input type="text" class="form-field__input" name="budget" id="budget" placeholder="Бюджет" aria-label="Введите ваш бюджет">
-              <button type="button" value="" class="form-field__clear-reset" aria-label="Очистить поле"></button>
-            </div>
-            <div class="form__field form-field form-field--required">
-              <input type="tel" class="form-field__input" name="tel" id="tel" placeholder="Телефон" required aria-label="Введите ваш телефон" autocomplete="tel">
-              <button type="button" value="" class="form-field__clear-reset" aria-label="Очистить поле"></button>
-            </div>
-  
-            <div class="form__control">
-              <button type="submit" class="form__btn ui-btn ui-btn--blue">Рассчитать стоимость</button>
-              <div class="form-argee">
-                <label>
-                  <input class="form-argee__input" type="checkbox" name="agree" id="modal-agree" value="0" required aria-invalid="false">
-                  <span class="wpcf7-list-item-label">Нажимая на кнопку, вы даёте <a href="privacy-policy" target="_blank" rel="nofollow">согласие на обработку персональных данных</a></span>          
-                </label>
-              </div>
-              <div class="form__status visually-hidden" aria-live="polite"></div>
-            </div>
-          </div>
-        </form> -->
       </div>
       <?php endif; ?>
 
@@ -68,9 +41,9 @@
     </div>
 
     <?php if(!empty($promo_usp) && is_array($promo_usp)) : ?>
-    <ul class="promo__usp">
+    <ul class="promo__usp usp">
       <?php foreach($promo_usp as $usp) : ?>
-      <li class="promo__usp-item"><?php echo $usp["text"]; ?></li>
+      <li class="usp__item" style="--usp-color:<?php echo !empty($usp["color"]) ? $usp["color"] : 'var(--accent-pink)'; ?>"><?php echo $usp["text"]; ?></li>
       <?php endforeach; ?>
     </ul>
     <?php endif; ?>

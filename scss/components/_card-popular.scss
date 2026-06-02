@@ -1,0 +1,80 @@
+.card-popular {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--accent-blue);
+  padding: 32px 0;
+  width: 100%;
+  min-height: 104px;
+  color: var(--white);
+  transition: color var(--transition-300);
+
+  &:focus-visible,
+  &:hover {
+    color: var(--accent-blue);
+
+    & .card-popular__img {
+      opacity: 1;
+    }
+  }
+
+  &__model {
+    position: relative;
+    grid-column: span 4;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 65/40;
+
+    img {
+      width: fit-content;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+  &__name {
+    position: relative;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    color: currentColor;
+    transition: color var(--transition-300);
+  }
+  &__img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 228px;
+    transform: translate(110%, -50%);
+    opacity: 0;
+    transition: opacity var(--transition-300);
+
+    & img {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 228/250;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    grid-column: span 3;
+    color: currentColor;
+    transition: color var(--transition-300);
+  }
+
+  &__text {
+    grid-column: span 5;
+    color: currentColor;
+    transition: color var(--transition-300);
+  }
+}

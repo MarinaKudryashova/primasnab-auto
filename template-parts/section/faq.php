@@ -7,7 +7,7 @@
 <section class="faq sec-offset" itemscope itemtype="https://schema.org/FAQPage">
   <div class="container">
     <?php if($block_title) : ?>
-      <h2 class="sec-title" data-aos="fade-up"><?php echo $block_title; ?></h2>
+      <h2 class="faq__title sec-title" data-aos="fade-up"><?php echo $block_title; ?></h2>
     <?php endif; ?>
 
     <?php if(is_array($block_list)) : ?>

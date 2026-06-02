@@ -1,0 +1,120 @@
+.why-choose {
+  &__title {
+    position: relative;
+    max-width: 785px;
+  }
+  &__flag {
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    width: 77px;
+    aspect-ratio: 1 / 1;
+    transform: translate(15px, 20px) rotate(34deg);
+
+    // @include mobile {
+    // }
+  }
+
+  &__content {
+    --choose-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--choose-gap);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    color: var(--white);
+  }
+
+  &__list {
+    grid-column: span 4;
+    @include list-reset;
+    display: flex;
+    flex-direction: column;
+    gap: var(--choose-gap);
+  }
+  &__item {
+    --choose-color: var(--accent-blue);
+    border-radius: 20px;
+    border: 1px solid var(--choose-color);
+    padding: 1.25em;
+    width: 100%;
+    height: 100%;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background-color: var(--black);
+    box-shadow: 0 0 22px 0 var(--choose-color);
+
+    & b {
+      font-weight: 400;
+      color: var(--choose-color);
+    }
+  }
+  &__inner {
+    position: relative;
+    grid-column: span 8;
+    border-radius: 20px;
+    padding: 1.25em;
+    border: 1px solid var(--accent-pink);
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background-color: var(--black);
+    box-shadow: 0 0 22px 0 var(--accent-pink);
+    display: flex;
+    flex-direction: column-reverse;
+
+    // flex-direction: row-reverse;
+
+    // display: flow-root;
+  }
+  &__descr {
+    // width: 50%;
+    position: relative;
+    z-index: 2;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+
+    & p {
+      font-weight: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+    }
+
+    & p:not(:last-child) {
+      margin-top: 0;
+      margin-bottom: 0.8em;
+    }
+  }
+
+  &__bgimg {
+    // position: absolute;
+    // bottom: 0;
+    // right: 0;
+    align-self: flex-end;
+    display: flex;
+    border-radius: inherit;
+    // width: 50%;
+
+    // margin-left: 20px;
+    margin-right: -1.25em;
+    margin-bottom: -1.25em;
+    // float: right;
+    // shape-outside: margin-box;
+    // background-color: antiquewhite;
+
+    & img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      aspect-ratio: 441 / 337;
+    }
+  }
+}

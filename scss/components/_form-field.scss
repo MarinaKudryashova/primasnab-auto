@@ -32,7 +32,7 @@
     font-weight: var(--input-fw);
     font-size: var(--input-fz);
     line-height: var(--input-lh);
-    color: currentColor;
+    color: var(--input-color);
     background-color: transparent;
     outline: none;
     transition:
@@ -68,14 +68,15 @@
     &:-webkit-autofill:focus {
       border-color: var(--input-color-hovert);
       -webkit-box-shadow: 0 0 0px 40rem #161616 inset;
+      -webkit-text-fill-color: var(--input-color);
     }
   }
 
-  &--required {
-    .form-field__input {
-      border-color: var(--input-border-color-accent);
-    }
-  }
+  // &--required {
+  //   .form-field__input {
+  //     border-color: var(--input-border-color-accent);
+  //   }
+  // }
 
   &__clear-reset {
     position: absolute;

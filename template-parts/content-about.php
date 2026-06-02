@@ -9,7 +9,7 @@ $about_image = get_field('about_image', $page_id);
 <!-- ==================== ЗАГОЛОВОК СТРАНИЦЫ ==================== -->
 <?php if($about_title) : ?>
     <!-- <h1 class="sec-title page-title--about"> -->
-    <h1 class="about-section__title sec-title">
+    <h1 class="about-section__title page-title page-title--color">
         <?php echo wp_kses($about_title, array('span' => array('class' => array()))); ?>
     </h1>
 <?php endif; ?>
