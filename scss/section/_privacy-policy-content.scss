@@ -1,0 +1,179 @@
+.privacy-policy-page {
+  margin-bottom: 70px;
+}
+
+.privacy-policy-page .breadcrumbs {
+  @media (max-width: 375px) {
+    font-size: 8px;
+    margin-bottom: 30px;
+  }
+}
+
+.privacy-policy-title {
+  font-size: 60px;
+
+  @include desktop {
+    font-size: 58px;
+  }
+
+  @include tablet-lg {
+    font-size: 47px;
+  }
+
+  @include tablet-md {
+    font-size: 39px;
+    margin-bottom: 30px;
+  }
+
+  @include mobile {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 23px;
+  }
+}
+
+.privacy-policy-content {
+  line-height: 130%;
+
+  p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 15px;
+    margin: 10px 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+
+  h3 {
+    font-family: var(--second-family);
+    font-size: 24px;
+    line-height: 110%;
+    font-weight: 400;
+    margin: 70px 0 30px 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      margin: 70px 0 20px 0;
+    }
+  }
+
+  a {
+    color: var(--accent-pink);
+    text-decoration: underline;
+  }
+
+  .table-wrapper {
+    border-radius: 10px;
+    overflow: auto;
+    border: 1px solid var(--accent-pink);
+    background: transparent;
+
+    @include tablet-md {
+      overflow-x: auto;
+    }
+
+    &::-webkit-scrollbar {
+      height: 8px;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--accent-pink);
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    @include tablet-md {
+      min-width: 560px;
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid var(--accent-pink);
+    padding: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: left;
+
+    @include tablet-md {
+      white-space: nowrap;
+    }
+
+    @include mobile {
+      font-size: 12px;
+      padding: 15px 39px 15px 15px;
+    }
+  }
+
+  // Убираем левую границу у всех ячеек, кроме первой в строке
+  th:not(:first-child),
+  td:not(:first-child) {
+    border-left: none;
+  }
+
+  // Убираем верхнюю границу у всех ячеек, кроме первой строки
+  tr:not(:first-child) th,
+  tr:not(:first-child) td {
+    border-top: none;
+  }
+
+  @include mobile {
+    // или @media (max-width: 576px)
+    th:first-child,
+    td:first-child {
+      min-width: 235px;
+      white-space: normal; // разрешаем перенос текста
+      word-break: break-word;
+    }
+  }
+
+  table ul {
+    list-style: disc;
+    padding-left: 1.5em;
+    margin: 0;
+    li::before {
+      content: none; // убираем тире
+    }
+  }
+
+  // Списки вне таблиц – тире
+  ul {
+    list-style: none;
+    padding-left: 20px;
+
+    li {
+      position: relative;
+      &::before {
+        content: "—";
+        position: absolute;
+        left: -1.2em;
+      }
+    }
+  }
+}

@@ -248,38 +248,44 @@
 // Прячем стандартную кнопку (она не видна, но кликабельная)
 [class*="ymaps-"][class*="balloon__close"],
 [class*="ymaps-"][class*="balloon__close-button"] {
-  opacity: 0;
-  pointer-events: auto;
+  // opacity: 0;
+  // pointer-events: auto;
+  display: none;
+}
+
+.ymaps-2-1-79-balloon__close + .ymaps-2-1-79-balloon__content {
+  margin-right: 0 !important;
+  padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 16px) !important;
 }
 
 // Добавляем свой крестик через псевдоэлемент к содержимому балуна
 [class*="ymaps-"][class*="balloon__content"] ymaps {
   position: relative;
-  padding-right: 5px;
+  // padding-right: 5px;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-[class*="ymaps-"][class*="balloon__content"]::after {
-  content: "✕";
-  position: absolute;
-  right: -21px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--grey);
-  background: transparent;
-  cursor: pointer;
-  z-index: 10;
-  opacity: 1;
-  visibility: visible;
-}
+// [class*="ymaps-"][class*="balloon__content"]::after {
+//   content: "✕";
+//   position: absolute;
+//   right: -21px;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   font-size: 18px;
+//   font-weight: bold;
+//   color: var(--black);
+//   background: transparent;
+//   cursor: pointer;
+//   z-index: 10;
+//   opacity: 1;
+//   visibility: visible;
+// }
 
-[class*="ymaps-"][class*="balloon__content"]:hover::after {
-  color: var(--black); // чёрный цвет
-}
+// [class*="ymaps-"][class*="balloon__content"]:hover::after {
+//   color: var(--grey);
+// }
 
 // Хвостики (стрелки) у балуна и хинта – скрываем
 [class*="ymaps-"][class*="balloon__tail"],
@@ -287,9 +293,4 @@
 [class*="ymaps-"][class*="hint__tail"],
 [class*="ymaps-"][class*="hint-tail"] {
   display: none;
-}
-
-// Дополнительно: позиционирование хинта (чтобы не перекрывал метку)
-[class*="ymaps-"][class*="hint"] {
-  transform: translateY(-40%);
 }
