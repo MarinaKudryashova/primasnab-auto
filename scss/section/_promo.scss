@@ -36,15 +36,8 @@
     margin-bottom: 150px;
   }
 
-  &__title {
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-family: var(--second-family);
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 100%;
-    color: var(--white);
-  }
+  // &__title {}
+
   &__descr {
     margin: 0;
     margin-bottom: auto;
@@ -58,45 +51,7 @@
     grid-column: 4 span;
   }
   &__usp {
-    @include list-reset;
     grid-column: 6 span;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  &__usp-item {
-    --usp-color: var(--accent-pink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 1px solid var(--white);
-    border-radius: 15px;
-    padding: 0.5em 1.1em 0.48em;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 130%;
-    text-align: center;
-    color: var(--usp-color);
-
-    &::before {
-      content: "";
-      flex: none;
-      border-radius: 100%;
-      width: 8px;
-      height: 8px;
-      background-color: var(--white);
-      box-shadow: 0 0 5px 0 var(--white);
-    }
-
-    & b {
-      font-weight: 400;
-      color: var(--white);
-    }
-
-    &--blue {
-      --usp-color: var(--accent-blue);
-    }
   }
 
   &__benefits {

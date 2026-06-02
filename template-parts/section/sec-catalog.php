@@ -11,7 +11,7 @@
 <section class="sec-catalog sec-offset">
   <div class="container">
     <?php if($sec_catalog_title) : ?>
-      <h2 class="sec-title sec-title--blue sec-title--center" data-aos="fade-up"><?php echo $sec_catalog_title; ?></h2>
+      <h2 class="sec-title sec-title--center" data-aos="fade-up"><?php echo $sec_catalog_title; ?></h2>
     <?php endif; ?>
 
     <?php if(!empty($sec_catalog_list) && is_array($sec_catalog_list)) : ?>

@@ -30,7 +30,7 @@
   @include mobile-xs {
     --title-mb: 34px;
     font-size: 24px;
-    --title-mb: 32px; 
+    --title-mb: 32px;
   }
 
   &--center {
@@ -41,16 +41,20 @@
     }
   }
 
-  &--pink {
-    --title-color: var(--accent-pink);
-  }
+  // &--pink {
+  //   --title-color: var(--accent-pink);
+  // }
 
-  &--blue {
-    --title-color: var(--accent-blue);
-  }
+  // &--blue {
+  //   --title-color: var(--accent-blue);
+  // }
 
   & b {
     font-weight: 400;
-    color: var(--white);
+    color: var(--accent-pink);
+  }
+  & span {
+    font-weight: 400;
+    color: var(--accent-blue);
   }
 }

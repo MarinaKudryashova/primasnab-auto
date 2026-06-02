@@ -1,14 +1,26 @@
 .page-title {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 30px;
   font-family: var(--second-family);
   font-weight: 400;
   font-size: 60px;
   line-height: 100%;
   color: var(--white);
 
-  &--contacts {
-    @include mobile {
-      font-size: 28px;
+  @include mobile {
+    font-size: 28px;
+  }
+  // &--contacts {
+  // }
+
+  &--color {
+    margin-bottom: 40px;
+
+    b {
+      color: var(--accent-pink);
+    }
+    span {
+      color: var(--accent-blue);
     }
   }
 }

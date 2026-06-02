@@ -1,0 +1,127 @@
+.we-bring {
+  position: relative;
+  padding-top: 70px;
+  max-height: 740px;
+
+  overflow: clip;
+  // padding-right: 40px;
+
+  &__bgimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    font-size: 0;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.56);
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    grid-column: 5 span;
+    align-self: start;
+    height: fit-content;
+
+    position: sticky;
+    top: 80px; // отступ от верха экрана
+    z-index: 2;
+    // transition: all 0.3s ease;
+  }
+
+  &__list {
+    grid-column: 8 / 5 span;
+    @include list-reset;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--white);
+    padding: 40px;
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    box-shadow: 0 0 22px 0 var(--accent-blue);
+
+    // transition:
+    //   transform 0.3s ease,
+    //   opacity 0.3s ease;
+    // opacity: 0;
+    // transform: translateY(30px);
+    // animation: fadeInUp 0.6s ease forwards;
+
+    // @for $i from 1 through 10 {
+    //   &:nth-child(#{$i}) {
+    //     animation-delay: #{$i * 0.1}s;
+    //   }
+    // }
+    overflow-y: auto;
+
+    // Кастомный скроллбар
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--accent-pink);
+      border-radius: 4px;
+    }
+
+    &:nth-child(odd) {
+      background-color: var(--black);
+    }
+    &:nth-child(even) {
+      background-color: var(--accent-pink);
+    }
+  }
+  &__item-title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    color: currentColor;
+  }
+  &__item-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    color: currentColor;
+  }
+}
+// @keyframes fadeInUp {
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
