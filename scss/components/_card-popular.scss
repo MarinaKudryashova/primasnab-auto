@@ -19,12 +19,23 @@
     }
   }
 
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   &__model {
     position: relative;
     grid-column: span 4;
     display: flex;
     align-items: center;
     gap: 14px;
+
+    @include mobile {
+      margin-bottom: 10px;
+      gap: 15px;
+    }
   }
 
   &__logo {
@@ -47,6 +58,10 @@
     line-height: 110%;
     color: currentColor;
     transition: color var(--transition-300);
+
+    @include mobile {
+      font-size: 18px;
+    }
   }
   &__img {
     position: absolute;
@@ -64,17 +79,30 @@
       aspect-ratio: 228/250;
       object-fit: cover;
     }
+
+    @include mobile {
+      right: 264%;
+      width: 170px;
+    }
   }
 
   &__body {
     grid-column: span 3;
     color: currentColor;
     transition: color var(--transition-300);
+
+    @include mobile {
+      font-size: 14px;
+    }
   }
 
   &__text {
     grid-column: span 5;
     color: currentColor;
     transition: color var(--transition-300);
+
+    @include mobile {
+      font-size: 14px;
+    }
   }
 }

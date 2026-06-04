@@ -1,6 +1,4 @@
 .sec-catalog {
-  
-
   &__list {
     @include list-reset;
     display: flex;
@@ -16,5 +14,14 @@
     @include mobile {
       width: 100%;
     }
+  }
+}
+
+// Заголовок на странице услуг
+.page-template-page-services .sec-catalog .sec-title {
+  @include mobile {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
   }
 }

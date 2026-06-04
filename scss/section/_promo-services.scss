@@ -30,19 +30,54 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 26px 20px;
+
+    @include tablet-lg {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
   }
 
   &__content {
     grid-column: 8 span;
     display: flex;
     flex-direction: column;
-    margin-bottom: 150px;
+    // margin-bottom: 150px;
+    margin-bottom: 135px;
     height: 100%;
+
+    @include tablet-lg {
+      margin-bottom: 40px;
+    }
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
   &__title {
     position: relative;
     max-width: 570px;
     grid-column: 5 span;
+
+    @include tablet {
+      max-width: 540px;
+    }
+
+    @include tablet-md {
+      max-width: 400px;
+      font-size: 45px;
+    }
+
+    @include mobile {
+      max-width: 305px;
+      font-size: 36px;
+    }
+
+    @media (max-width: 375px) {
+      max-width: 255px;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
   }
   &__flag {
     position: absolute;
@@ -52,24 +87,71 @@
     aspect-ratio: 1 / 1;
     transform: translate(15px, -10px) rotate(34deg);
 
-    // @include mobile {
-    // }
+    @include tablet {
+      transform: translate(49px, -10px) rotate(34deg);
+    }
+
+    @include tablet-md {
+      width: 60px;
+      transform: translate(38px, -10px) rotate(34deg);
+    }
+
+    @include mobile {
+      width: 40px;
+      transform: translate(37px, -10px) rotate(34deg);
+    }
+
+    @media (max-width: 375px) {
+      transform: translate(-10px, -10px) rotate(34deg);
+    }
   }
   &__descr {
     margin: 0;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     max-width: 818px;
     font-weight: 400;
     font-size: 24px;
     line-height: 100%;
     color: var(--white);
+
+    @include tablet-lg {
+      margin-bottom: 40px;
+    }
+
+    @include tablet-md {
+      font-size: 20px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
   }
   &__form {
     grid-column: 4 span;
+
+    @include desktop {
+      padding: 30px;
+    }
+
+    @include tablet-lg {
+      min-height: 0px;
+    }
+
+    @include mobile {
+      padding: 20px;
+    }
   }
   &__usp {
     grid-column: 6 span;
     max-width: 600px;
     margin-top: auto;
+  }
+
+  .usp__item {
+    @include mobile {
+      // или @media (max-width: 576px)
+      padding: 10px 20px;
+    }
   }
 }

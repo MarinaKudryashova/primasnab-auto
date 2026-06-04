@@ -1,7 +1,6 @@
 .error-404 {
-  // position: relative;
   @include tablet-md {
-    margin-bottom: 114px;
+    margin-top: 93px;
   }
 
   &__content {
@@ -10,11 +9,11 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin: 118px auto 193px;
+    margin: 63px auto 193px;
 
     @include tablet-md {
       gap: 20px;
-      margin: 114px auto 0;
+      margin: 0 auto 0;
     }
   }
 
@@ -22,8 +21,7 @@
     font-family: var(--second-family);
     font-size: 320px;
     font-weight: 400;
-    // line-height: 100%;
-    line-height: 0.64;
+    line-height: 100%;
     margin: 0;
 
     @include tablet-md {
@@ -33,13 +31,24 @@
     @include mobile {
       font-size: 156px;
     }
+
+    @include mobile-xs {
+      font-size: 130px;
+    }
   }
 
   &__decr {
+    position: absolute;
+    top: 71%;
     font-size: 18px;
+    line-height: 130%;
     margin: 5px 0 0 0;
-    max-width: 355px;
+    max-width: 360px;
     text-align: center;
+
+    @include desktop {
+      font-size: 17px;
+    }
 
     @include tablet-md {
       font-size: 15px;
@@ -49,11 +58,19 @@
     @include mobile {
       max-width: 100%;
     }
+
+    @include mobile-xs {
+      font-size: 14px;
+    }
   }
 
   &__link {
     background-color: var(--accent-pink);
     border: var(--accent-pink);
+
+    @include tablet-md {
+      margin-bottom: 33px;
+    }
 
     @include mobile {
       width: 100%;
@@ -62,8 +79,8 @@
 
   &__img {
     position: absolute;
-    right: 168px;
-    bottom: 87px;
+    left: 59%;
+    bottom: 16%;
     width: clamp(200px, 40vw, 423px); // адаптивная ширина
     height: auto;
     pointer-events: none; // чтобы картинка не мешала кликам по кнопке
@@ -71,8 +88,19 @@
 
     img {
       display: block;
-      // width: 100%;
-      // height: auto;
+    }
+
+    // Для экранов шире 1440px
+    // @media (min-width: 1441px) {
+    //   left: 77%;
+    //   right: auto; // сбрасываем right
+    //   bottom: 31vh;
+    //   width: 540px;
+    //   transform: translateX(-50%);
+    // }
+
+    @include desktop {
+      left: 59%;
     }
 
     @include tablet-md {
@@ -82,14 +110,16 @@
       justify-content: center;
       width: 366px;
       width: 100%;
-      right: 0;
+      left: 0;
       bottom: 0;
 
       img {
-        // width: 100%;
-        // height: 100%;
         object-fit: cover;
       }
+    }
+
+    @include mobile-xs {
+      width: 90%;
     }
   }
 }

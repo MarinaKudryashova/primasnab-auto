@@ -3,12 +3,32 @@
     max-width: 1015px;
     margin-right: auto;
     margin-left: auto;
+
+    @include tablet-md {
+      max-width: 472px;
+      font-size: 28px;
+    }
+
+    @include mobile {
+      --title-position: center;
+    }
+
+    @media (max-width: 375px) {
+      max-width: 393px;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   }
+
   &__list {
     @include list-reset;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
+    @include tablet-md {
+      flex-direction: column;
+    }
 
     @include mobile {
       gap: 8px;
@@ -28,5 +48,28 @@
 
   .page-template-page-services &__item {
     width: calc(100% / 3 - 20px * 2 / 3);
+
+    @include tablet-md {
+      width: 100%;
+    }
+
+    @include mobile {
+      .card-benefits {
+        padding: 30px;
+      }
+    }
+
+    @include mobile {
+      .card-benefits__name {
+        text-align: left;
+      }
+    }
+
+    @include mobile {
+      .card-benefits__text {
+        font-size: 14px;
+        text-align: left;
+      }
+    }
   }
 }

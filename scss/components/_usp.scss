@@ -4,6 +4,10 @@
   flex-wrap: wrap;
   gap: 20px;
 
+  @include mobile {
+    gap: 10px;
+  }
+
   &__item {
     display: flex;
     align-items: center;
@@ -31,6 +35,10 @@
     & b {
       font-weight: 400;
       color: var(--usp-color);
+    }
+
+    @include mobile {
+      font-size: 12px;
     }
   }
 }

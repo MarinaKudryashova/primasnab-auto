@@ -9,7 +9,7 @@
   &__wrap {
     position: relative;
 
-    border: 1px solid #ffffff;
+    border: 1px solid var(--white);
     border-radius: 20px;
     padding: 35px 1px 39px;
 
@@ -191,7 +191,7 @@
     &:focus,
     &:active {
       background-color: var(--accent-pink);
-      box-shadow: 0 0 0 1px #ffffff;
+      box-shadow: 0 0 0 1px var(--white);
     }
   }
 
@@ -217,7 +217,7 @@
       width: 17px;
       height: 17px;
       margin-top: 2px;
-      border: 1px solid #ffffff;
+      border: 1px solid var(--white);
       border-radius: 5px;
     }
     .wpcf7-list-item-label::after {
