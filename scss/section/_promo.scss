@@ -87,6 +87,7 @@
     }
   }
   &__form {
+    position: relative;
     grid-column: 4 span;
   }
   &__usp {
@@ -94,6 +95,36 @@
 
     @include tablet-md {
       grid-column: 12 span;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    bottom: -36%;
+    left: -44%;
+
+    @include tablet-lg {
+      bottom: 0%;
+      left: 50%;
+      min-width: 350px;
+      img {
+        transform: scaleX(-1);
+      }
+
+      @include tablet-md {
+        left: 34%;
+        min-width: 370px;
+      }
+
+      @include mobile {
+        min-width: 231px;
+        left: 16%;
+      }
+
+      @media (max-width: 375px) {
+        min-width: 231px;
+        left: 32%;
+      }
     }
   }
 
@@ -147,6 +178,22 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include tablet-lg {
+      margin-bottom: 320px;
+    }
+
+    @include mobile {
+      margin-bottom: 372px;
+    }
+
+    @media (max-width: 450px) {
+      margin-bottom: 310px;
+    }
+
+    @media (max-width: 375px) {
+      margin-bottom: 156px;
+    }
   }
 
   // .form__field
@@ -157,6 +204,30 @@
     display: flex;
     flex-direction: column;
     gap: 13px;
+  }
+
+  &-argee label {
+    @include tablet-lg {
+      padding-right: 275px;
+    }
+
+    @media (max-width: 600px) {
+      padding-right: 245px;
+    }
+
+    @include mobile {
+      padding-right: 0px;
+    }
+
+    @media (max-width: 375px) {
+      padding-right: 103px;
+    }
+
+    @media (max-width: 375px) {
+      span.wpcf7-list-item-label {
+        font-size: 10px;
+      }
+    }
   }
 
   // .form__btn
