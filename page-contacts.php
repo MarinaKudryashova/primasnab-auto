@@ -92,7 +92,7 @@ $offices = get_field("offices", $page_id);
 
             </div>
 
-            <div class="offices__map" data-icon-href="<?php echo get_template_directory_uri(); ?>/img/icon/icon-map.svg" data-center="<?php echo esc_html($office["map"]["center"]); ?>" data-hint="<?php echo esc_html($office["map"]["hint"]); ?>" data-point="<?php echo esc_html($office["map"]["point"]); ?>"></div>
+            <div class="offices__map" data-icon-href="<?php echo get_template_directory_uri(); ?>/img/icon/icon-map.svg" data-center="<?php echo esc_html($office["map"]["center"]); ?>" data-hint="<?php echo esc_html($office["map"]["hint"]); ?>"></div>
           </div>
           <?php endforeach; ?>
         </div>

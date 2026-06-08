@@ -1,0 +1,39 @@
+.catalog {
+  &__content {
+    display: grid;
+    grid-template-columns: 325px 1fr;
+    align-items: start;
+    gap: 20px;
+  }
+
+  // .catalog__sidebar
+  &__sidebar {
+    position: sticky;
+    top: 85px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 40px;
+  }
+
+  // .catalog__area
+  &__area {
+  }
+
+  // .catalog__meta
+  &__meta {
+  }
+
+  // .catalog__panel
+  &__panel {
+  }
+
+  // .catalog__list
+  &__list {
+  }
+
+  // .catalog__paginations
+  &__paginations {
+  }
+}

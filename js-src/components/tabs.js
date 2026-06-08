@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selectOptions[index]) {
       const optionName = selectOptions[index].querySelector("span")?.innerText;
-      const selectNameSpan = selectSelected?.querySelector(
-        ".offices__select-name",
-      );
+      const selectNameSpan = selectSelected?.querySelector(".offices__select-name");
       if (selectNameSpan && optionName) {
         selectNameSpan.innerText = optionName;
       }
@@ -60,15 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!hasActive && btns.length > 0) {
     switchTab(0);
   } else if (hasActive) {
-    const activeIndex = Array.from(btns).findIndex((btn) =>
-      btn.classList.contains("tabs__nav-btn--active"),
-    );
+    const activeIndex = Array.from(btns).findIndex((btn) => btn.classList.contains("tabs__nav-btn--active"));
     if (activeIndex !== -1) {
-      const activeName =
-        btns[activeIndex]?.querySelector(".offices__name")?.innerText;
-      const selectNameSpan = selectSelected?.querySelector(
-        ".offices__select-name",
-      );
+      const activeName = btns[activeIndex]?.querySelector(".offices__name")?.innerText;
+      const selectNameSpan = selectSelected?.querySelector(".offices__select-name");
       if (selectNameSpan && activeName) {
         selectNameSpan.innerText = activeName;
       }
@@ -85,22 +78,23 @@ document.addEventListener("DOMContentLoaded", function () {
   if (typeof ymaps !== "undefined") {
     ymaps.ready(() => {
       document.querySelectorAll(".offices__map").forEach((el, mapIndex) => {
-        const point = el.dataset.point?.split(",").map(Number);
-        if (!point || !point[0] || !point[1]) {
-          console.log(`⚠️ Карта ${mapIndex}: нет point, пропускаем`);
+        const center = el.dataset.center?.split(",").map(Number);
+        // const point = el.dataset.point?.split(",").map(Number);
+        if (!center || !center[0] || !center[1]) {
+          console.log(`⚠️ Карта ${mapIndex}: нет center, пропускаем`);
           return;
         }
 
         const hintText = el.dataset.hint || "Офис";
 
-        // Карта центрируется по метке (point), а не по отдельному центру
+        // Карта центрируется по метке (center), а не по отдельному центру
         const map = new ymaps.Map(el, {
-          center: point, // координаты метки
+          center: center, // координаты метки
           zoom: 16,
           controls: ["zoomControl"],
         });
 
-        const placemark = new ymaps.Placemark(point, {
+        const placemark = new ymaps.Placemark(center, {
           hintContent: hintText, // стандартный хинт (появляется при наведении)
           balloonContent: hintText,
         });

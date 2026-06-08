@@ -48,6 +48,9 @@ function primasnab_setup() {
 			'script',
 		)
 	);
+
+	add_theme_support( 'woocommerce' );
+	add_theme_support('wc-product-grid');
 	// Add theme support for selective refresh for widgets.
 	// add_theme_support( 'customize-selective-refresh-widgets' );
 }
@@ -80,20 +83,47 @@ add_action( 'init', 'primasnab_load_textdomain' );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-// function primasnab_widgets_init() {
-// 	register_sidebar(
-// 		array(
-// 			'name'          => esc_html__( 'Sidebar', 'primasnab' ),
-// 			'id'            => 'sidebar-1',
-// 			'description'   => esc_html__( 'Add widgets here.', 'primasnab' ),
-// 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-// 			'after_widget'  => '</section>',
-// 			'before_title'  => '<h2 class="widget-title">',
-// 			'after_title'   => '</h2>',
-// 		)
-// 	);
-// }
-// add_action( 'widgets_init', 'primasnab_widgets_init' );
+function primasnab_widgets_init() {
+	// Сайдбар "Фильтр" для товаров
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Фильтр', 'primasnab' ),
+			'id'            => 'filter-product',
+			'description'   => esc_html__( 'Добавьте виджеты для фильтрации товаров.', 'primasnab' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	// Сайдбар "Сортировка" для каталога
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Сортировка товаров', 'primasnab' ),
+			'id'            => 'sidebar-product-sort-options',
+			'description'   => esc_html__( 'Добавьте виджеты для отображения сортировки.', 'primasnab' ),
+			'before_widget' => '<div id="%1$s" class="sort-options %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<span class="sort-options__label" id="sortLabel">',
+			'after_title'   => '</span>',
+		)
+	);
+
+	// Сайдбар "Активные фильтры" для каталога
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Активные фильтры', 'primasnab' ),
+			'id'            => 'sidebar-active-filters',
+			'description'   => esc_html__( 'Добавьте виджеты для отображения активных фильтров.', 'primasnab' ),
+			'before_widget' => '<div id="active-filters" class="catalog__active-filters active-filters %2$s" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<span class="visually-hidden">',
+			'after_title'   => '</span>',
+		)
+	);
+}
+add_action( 'widgets_init', 'primasnab_widgets_init' );
 
 /**
  * ОТКЛЮЧЕНИЕ КОММЕНТАРИЕВ ПОЛНОСТЬЮ
@@ -154,7 +184,7 @@ function primasnab_styles_and_scripts() {
 	wp_enqueue_script( 'js-main', $js_path . 'main.min.js', array(), $ver, array( 'in_footer' => true, 'strategy' => 'defer'));
 
 	// Подключаем Яндекс.Карты на странице Контакты
-if ( is_page('kontakty') ) {
+if ( is_page('kontakty') || is_page_template('page-contacts.php') ) {
 	wp_enqueue_script(
 		'yandex-maps',
 		'https://api-maps.yandex.ru/2.1/?lang=ru_RU',
@@ -232,4 +262,20 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+add_filter( 'woocommerce_catalog_orderby', 'rename_sorting_options' );
+function rename_sorting_options( $options ) {
+    $options['menu_order'] = 'По умолчанию';
+    $options['price']      = 'Дешевле';
+    $options['price-desc'] = 'Дороже';
+    return $options;
+}
+
+add_filter( 'woocommerce_catalog_orderby', 'remove_sorting_options' );
+function remove_sorting_options( $options ) {
+    unset( $options['popularity'] ); // Удаляем сортировку по популярности
+    unset( $options['rating'] );     // Удаляем сортировку по рейтингу
+    unset( $options['date'] );     // Удаляем сортировку по дате
+    return $options;
 }
