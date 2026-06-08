@@ -9,6 +9,8 @@
   $promo_benefits = get_field('promo_benefits', $page_id);
 
   $promo_shortkod = get_field('promo_shortkod', $page_id);
+  $image_url = get_field('promo_form_img', $page_id);
+  $promo_image = !empty($image_url) ? get_image_versions($image_url) : null;
 ?>
 
 <section class="promo sec-offset">
@@ -37,7 +39,22 @@
       </div>
       <?php endif; ?>
 
-      <div class="promo-form__img"></div>
+      
+<!-- картинка для формы -->
+      <?php if(!empty($promo_image) && is_array($promo_image)) : ?>
+          <div class="promo__img">
+            <picture class="promo__picture">
+              <img 
+                class="promo__img"
+                src="<?php echo esc_url($promo_image ["original_1x"]); ?>"
+                alt="<?php echo !empty($promo_image['alt']) ? esc_attr($promo_image['alt']) : esc_attr($promo_title); ?>"
+                width="390"
+                height="390"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        <?php endif; ?>
     </div>
 
     <?php if(!empty($promo_usp) && is_array($promo_usp)) : ?>
