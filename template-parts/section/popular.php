@@ -7,7 +7,10 @@
   $sec_name = $args["name"]["value"];
   
   $services_country = get_field('services_promo_country', $page_id);
-  $services_thumbnail_id = get_term_meta( $services_country, 'thumbnail_id', true );
+  $services_thumbnail_id = '';
+  if($services_country && !is_wp_error($services_country)) {
+    $services_thumbnail_id = get_term_meta($services_country, 'thumbnail_id', true);
+  }
   $services_flag_url = $services_thumbnail_id ? wp_get_attachment_image_url( $services_thumbnail_id, 'full' ) : '#';
 
   $field_title = $sec_name . "_title";

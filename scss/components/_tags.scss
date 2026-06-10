@@ -1,0 +1,21 @@
+.tags {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+
+  &__link {
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--grey-light);
+    cursor: pointer;
+    transition: var(--transition-300);
+
+    &:focus-visible,
+    &:hover {
+      color: var(--accent-blue);
+    }
+  }
+}

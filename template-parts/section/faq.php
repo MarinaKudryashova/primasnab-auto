@@ -31,7 +31,7 @@
               </span>
             </button>
             <div class="accordion__content" aria-hidden="<?php echo esc_attr($aria_hidden); ?>" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
-              <p class="accordion__text" itemprop="text"><?php echo esc_html($faq->post_content); ?></p>
+              <p class="accordion__text" itemprop="text"><?php echo wp_kses_post($faq->post_content); ?></p>
             </div>
           </div>
         <?php endforeach; ?>

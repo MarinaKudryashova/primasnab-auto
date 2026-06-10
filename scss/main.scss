@@ -33,6 +33,9 @@
 @import "components/cookie-notice";
 @import "components/breadcrumbs";
 @import "components/usp";
+@import "components/page-controls";
+@import "components/paginations";
+@import "components/sort-options";
 
 // Секции
 @import "section/header";
@@ -67,6 +70,12 @@
 @import "section/popular";
 @import "components/card-popular";
 @import "section/we-bring";
+@import "section/how-work";
+
+// Страница Каталог
+@import "section/catalog";
+@import "components/tags";
+@import "components/layout";
 
 // WooCommerce стили (если нужно)
 // @import 'woocommerce/main';

@@ -9,6 +9,8 @@ import "./components/tabs"; // табы на странице контакты
 import "./components/select-price"; // выпадашка цен на баннере на странице услуг
 import "./components/reviews-page"; // кнопка для загрузки отзывов больше 6
 
+import "./components/how-work"; // слайдер stages how-work
+
 import "./components/message";
 // import "./components/showmore";
 

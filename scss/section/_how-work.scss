@@ -1,0 +1,148 @@
+.how-work {
+  padding: 80px 0;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+
+    @include tablet-lg {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: start;
+      position: relative;
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+
+    @include tablet-lg {
+      position: sticky;
+      top: 70px;
+      z-index: 2;
+      max-height: calc(100% - 80px);
+      height: auto;
+      align-self: start;
+      transition: top 0.2s ease-out;
+    }
+  }
+
+  &__image-item {
+    display: none;
+    width: 100%;
+    height: auto;
+    position: static;
+
+    &.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      aspect-ratio: 710 / 636;
+      object-fit: cover;
+      border-radius: 20px;
+      flex: 1 1 auto;
+
+      @include tablet-lg {
+        aspect-ratio: 335 / 300;
+      }
+    }
+  }
+
+  &__list {
+    @include list-reset;
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+
+    @include tablet-lg {
+      position: sticky;
+      z-index: 3;
+      gap: 0;
+      align-self: start;
+      transition: top 0.2s ease-out;
+    }
+  }
+
+  &__item {
+    width: 100%;
+
+    @include tablet-lg {
+      position: relative;
+      top: auto;
+      z-index: auto;
+      transition:
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-bottom 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s ease;
+      will-change: transform, margin-bottom, opacity;
+      transform-origin: center center;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__btn {
+    border: 2px solid var(--white);
+    border-radius: 20px;
+    padding: 25px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    text-align: center;
+    color: var(--white);
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.3s var(--transition-300);
+
+    @include desktop {
+      &:hover {
+        border-color: var(--accent-blue);
+        background-color: rgba(100, 108, 255, 0.2);
+      }
+    }
+
+    @include tablet-lg {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(0px);
+    }
+
+    &.active {
+      border-color: var(--accent-blue);
+      background-color: var(--accent-blue);
+
+      @include desktop {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
