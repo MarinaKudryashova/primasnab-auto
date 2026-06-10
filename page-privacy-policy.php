@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Политика конфиденциальности
+ * Template Name: Страница Политика
  * Template Post Type: page
  */
 
