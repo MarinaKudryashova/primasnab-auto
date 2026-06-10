@@ -47,6 +47,11 @@
     @include list-reset;
     width: 100%;
     margin-top: 5px;
+    display: none;
+
+    &.open {
+      display: block;
+    }
 
     & .footer-menu__link {
       --link-color: var(--white-60);
@@ -58,5 +63,9 @@
         font-size: 11px;
       }
     }
+  }
+
+  &__toggle.open svg {
+    transform: rotate(180deg);
   }
 }

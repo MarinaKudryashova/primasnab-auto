@@ -80,6 +80,18 @@
     flex-direction: column;
     gap: 30px;
 
+    max-height: 600px;
+    overflow-y: auto;
+    scroll-behavior: smooth; // плавная прокрутка
+
+    // Скрываем скроллбар для разных браузеров
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE / Edge
+
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Edge (Chromium)
+    }
+
     @media (max-width: 375px) {
       gap: 10px;
     }
@@ -108,7 +120,9 @@
     //     animation-delay: #{$i * 0.1}s;
     //   }
     // }
-    overflow-y: auto;
+
+    // overflow-y: auto; пока временно убрала
+    overflow: visible;
 
     // Кастомный скроллбар
     &::-webkit-scrollbar {
