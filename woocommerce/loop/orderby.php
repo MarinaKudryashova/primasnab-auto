@@ -44,3 +44,22 @@ $icon_url = get_template_directory_uri() . '/img/icon/arrow-switch-vertical.svg'
 	<input type="hidden" name="paged" value="1" />
 	<?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
 </form>
+
+<!-- Cортировка -->
+<div class="sort-options" id="sort-select">
+	<span class="sort-options__label visually-hidden" id="sortLabel">Сортировка:</span>
+	<div class="sort-options__dropdown">
+		<button class="sort-options__btn" data-sort-btn aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sortLabel sortValueText">
+			<img class="sort-options__img" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/icon/arrow-switch-vertical.svg" width="16" height="16" alt="icon arrow switch vertical" aria-hidden="true" loading="lazy">
+			<span class="sort-options__current" data-sort-value id="sortValueText">По умолчанию</span>
+			<svg class="sort-options__icon" aria-hidden="true" focusable="false">
+				<use xlink:href="<?php echo esc_url(get_template_directory_uri()); ?>/img/sprite.svg#icon-chevron-down"></use>
+			</svg>
+		</button>
+		<ul class="sort-options__menu" data-sort-menu aria-labelledby="sortLabel" aria-hidden="true" role="listbox" tabindex="-1">
+			<li class="sort-options__item" role="option" aria-selected="false" data-value="default" tabindex="0">По умолчанию</li>
+			<li class="sort-options__item" role="option" aria-selected="false" data-value="price-asc" tabindex="0">Дешевле</li>
+			<li class="sort-options__item" role="option" aria-selected="false" data-value="price-desc" tabindex="0">Дороже</li>
+		</ul>
+	</div>
+</div>

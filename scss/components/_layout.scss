@@ -1,0 +1,24 @@
+.layout {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &__item {
+    width: calc(100% / var(--columns) - 20px * (var(--columns) - 1) / var(--columns));
+
+    @include desktop {
+      width: calc(100% / (var(--columns) - 1) - 20px * (var(--columns) - 2) / (var(--columns) - 1));
+    }
+
+    @include tablet-lg {
+      width: calc(100% / var(--columns) - 20px * (var(--columns) - 1) / var(--columns));
+    }
+    @include tablet-md {
+      width: calc(100% / (var(--columns) - 1) - 20px * (var(--columns) - 2) / (var(--columns) - 1));
+    }
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

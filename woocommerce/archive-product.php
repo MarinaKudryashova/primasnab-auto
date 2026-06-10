@@ -36,7 +36,27 @@ get_header( 'shop' );
 	
 					<!-- Основная область -->
 					<div class="catalog__area">
-						<div class="catalog__meta"></div>
+						<ul class="catalog__tags tags">
+							<?php 
+							$product_tags = get_terms(array(
+									'taxonomy'   => 'product_tag',
+									'hide_empty' => false, // true - скрыть теги без товаров, false - показать все
+									'orderby'    => 'name', // сортировка по имени
+									'order'      => 'ASC',
+							));
+
+							if (!empty($product_tags) && !is_wp_error($product_tags)) : 
+								foreach ($product_tags as $tag) : 
+									$tag_name = $tag->name;
+									$tag_slug = $tag->slug;
+									$tag_link = get_term_link($tag);
+							?>
+							<li class="tags__item"><a href="<?php echo esc_url($tag_link); ?>" class="tags__link">#<?php echo esc_html($tag_name); ?></a></li>
+							<?php 
+								endforeach;
+							endif;
+							?>
+						</ul>
 						<div class="catalog__panel">
 							<div class="catalog__sort-options"><?php woocommerce_catalog_ordering(); ?></div>
 							<?php echo do_shortcode('[wcapf_active_filters]'); ?>
@@ -63,12 +83,19 @@ get_header( 'shop' );
 
 								woocommerce_product_loop_end();
 
-								/**
-								 * Hook: woocommerce_after_shop_loop.
-								 *
-								 * @hooked woocommerce_pagination - 10
-								 */
-								do_action( 'woocommerce_after_shop_loop' );
+								?>
+								<div class="catalog__paginations">
+									<?php 
+										/**
+										 * Hook: woocommerce_after_shop_loop.
+										 *
+										 * @hooked woocommerce_pagination - 10
+										 */
+										do_action( 'woocommerce_after_shop_loop' );
+									?>
+								</div>
+								
+							  <?php
 							} else {
 								/**
 								 * Hook: woocommerce_no_products_found.
@@ -79,7 +106,6 @@ get_header( 'shop' );
 							}
 							?>
 						</div>
-						<div class="catalog__paginations"></div>
 
 					</div>
 				</div>
