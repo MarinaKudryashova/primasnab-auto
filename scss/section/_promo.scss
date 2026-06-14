@@ -103,6 +103,16 @@
     bottom: -36%;
     left: -44%;
 
+    @media (max-width: 1377px) {
+      bottom: -50%;
+      left: -50%;
+    }
+
+    @media (max-width: 1264px) {
+      bottom: -64%;
+      left: -56%;
+    }
+
     @include tablet-lg {
       bottom: 0%;
       left: 50%;
@@ -194,6 +204,22 @@
     @media (max-width: 375px) {
       margin-bottom: 156px;
     }
+
+    // Только для страницы услуг
+    body.page-template-page-services-php & {
+      @include tablet-lg {
+        margin-bottom: 0;
+      }
+      @include mobile {
+        margin-bottom: 0;
+      }
+      @media (max-width: 450px) {
+        margin-bottom: 0;
+      }
+      @media (max-width: 375px) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   // .form__field
@@ -238,4 +264,10 @@
 }
 .wpcf7-response-output {
   display: none;
+}
+
+body.page-template-page-services-php .form-argee label {
+  @include tablet-lg {
+    padding-right: 0;
+  }
 }

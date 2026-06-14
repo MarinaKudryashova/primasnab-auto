@@ -10,6 +10,7 @@ import "./components/select-price"; // выпадашка цен на банне
 import "./components/reviews-page"; // кнопка для загрузки отзывов больше 6
 import "./components/we-bring-scroll-new"; // плашки как мы работаем
 import "./components/accordion-footer"; // футер-услуги
+import "./components/single-product"; // карточка товара
 
 import "./components/how-work"; // слайдер stages how-work
 

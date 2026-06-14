@@ -200,6 +200,12 @@ if ( is_page('kontakty') || is_page_template('page-contacts.php') ) {
 		'nonce' => wp_create_nonce('primasnab_nonce'),
 		'theme_url' => get_template_directory_uri()
 	));
+
+	// Swiper на странице товара
+if ( is_product() ) {
+    wp_enqueue_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0' );
+    wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true );
+}
 }
 add_action( 'wp_enqueue_scripts', 'primasnab_styles_and_scripts' );
 
