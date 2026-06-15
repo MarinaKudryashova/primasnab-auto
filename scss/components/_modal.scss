@@ -1,92 +1,200 @@
+// .graph-modal {
+//   padding: 1.111vw 0; //16px для media 1440;
+//   background-color: rgba(0, 0, 0, 0.64);
+
+//   @include desktop {
+//     padding: 16px 0;
+//   }
+
+//   &__close {
+//     position: fixed;
+//     top: 1.111vw; //16px для media 1440;
+//     right: 1.111vw; //16px для media 1440;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     border: 1px solid var(--red);
+//     width: 3.056vw; //44px для media 1440;
+//     height: 3.056vw; //44px для media 1440;
+//     color: var(--white);
+//     background-image: none;
+//     background-color: var(--white);
+//     transition: background-color var(--transition-300);
+
+//     @include desktop {
+//       top: 16px;
+//       right: 16px;
+//       width: 44px;
+//       height: 44px;
+//     }
+
+//     // @include small-tablet {
+//     //   width: 40px;
+//     //   height: 40px;
+//     // }
+
+//     @include mobile {
+//       position: absolute;
+//       top: -46px;
+//       right: -1px;
+//       top: 5px;
+//       right: 5px;
+//     }
+
+//     & svg {
+//       width: 1.389vw; //20px для media 1400;
+//       height: 1.389vw; //20px для media 1440;
+//       stroke: var(--red);
+//       stroke-width: 2px;
+//       transition: stroke var(--transition-300);
+
+//       @include desktop {
+//         width: 20px;
+//         height: 20px;
+//       }
+//     }
+
+//     @include hover {
+//       background-color: var(--red);
+
+//       & svg {
+//         stroke: var(--white);
+//       }
+//     }
+
+//     &:focus-visible,
+//     &:active {
+//       background-color: var(--red);
+
+//       & svg {
+//         stroke: var(--white);
+//       }
+//     }
+//   }
+
+//   &__container {
+//     border-radius: 0;
+//     padding: 2.222vw; //32px для media 1400;
+//     max-width: 34.722vw; //500px для media 1400;
+//     background-color: var(--white);
+
+//     @include desktop {
+//       padding: 32px;
+//       max-width: 500px;
+//     }
+
+//     @include mobile {
+//       padding: 20px 16px 20px;
+//       max-width: 420px;
+//       width: calc(100% - 2 * var(--container-offset));
+//     }
+//   }
+// }
+
 .graph-modal {
-  padding: 1.111vw 0; //16px для media 1440;
-  background-color: rgba(0, 0, 0, 0.64);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.85);
 
   @include desktop {
-    padding: 16px 0;
   }
 
   &__close {
-    position: fixed;
-    top: 1.111vw; //16px для media 1440;
-    right: 1.111vw; //16px для media 1440;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--red);
-    width: 3.056vw; //44px для media 1440;
-    height: 3.056vw; //44px для media 1440;
-    color: var(--white);
-    background-image: none;
-    background-color: var(--white);
-    transition: background-color var(--transition-300);
+    cursor: pointer;
+    z-index: 10;
 
-    @include desktop {
-      top: 16px;
-      right: 16px;
-      width: 44px;
-      height: 44px;
-    }
-
-    // @include small-tablet {
-    //   width: 40px;
-    //   height: 40px;
-    // }
-
-    @include mobile {
-      position: absolute;
-      top: -46px;
-      right: -1px;
-      top: 5px;
-      right: 5px;
-    }
-
-    & svg {
-      width: 1.389vw; //20px для media 1400;
-      height: 1.389vw; //20px для media 1440;
-      stroke: var(--red);
+    svg {
+      color: var(--white);
+      // stroke: var(--white);
       stroke-width: 2px;
-      transition: stroke var(--transition-300);
-
-      @include desktop {
-        width: 20px;
-        height: 20px;
-      }
+      width: 20px;
+      height: 20px;
+      transition: opacity 0.3s;
     }
 
-    @include hover {
-      background-color: var(--red);
-
-      & svg {
-        stroke: var(--white);
-      }
+    &:hover svg {
+      opacity: 0.7;
     }
 
-    &:focus-visible,
-    &:active {
-      background-color: var(--red);
-
-      & svg {
-        stroke: var(--white);
+    // адаптация для мобильных
+    @include mobile {
+      top: 8px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      svg {
+        width: 16px;
+        height: 16px;
       }
     }
   }
 
   &__container {
-    border-radius: 0;
-    padding: 2.222vw; //32px для media 1400;
-    max-width: 34.722vw; //500px для media 1400;
-    background-color: var(--white);
+    background: var(--black);
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    width: 440px;
+    max-width: 90vw;
+    height: 172px;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
 
     @include desktop {
-      padding: 32px;
-      max-width: 500px;
+      // можно оставить как есть
     }
 
     @include mobile {
-      padding: 20px 16px 20px;
-      max-width: 420px;
-      width: calc(100% - 2 * var(--container-offset));
+      width: calc(100% - 40px);
+      height: auto;
+      min-height: 172px;
+      padding: 20px 16px;
+    }
+  }
+
+  &__content {
+    color: var(--white);
+    font-size: 18px;
+    line-height: 1.4;
+    width: 100%;
+
+    .thanks-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .thanks-text {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    @include mobile {
+      font-size: 16px;
+      .thanks-title {
+        font-size: 22px;
+      }
+      .thanks-text {
+        font-size: 14px;
+      }
     }
   }
 }
