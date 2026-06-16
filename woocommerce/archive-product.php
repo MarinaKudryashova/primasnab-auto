@@ -31,6 +31,11 @@ get_header( 'shop' );
 				<div class="catalog__content">
 					<?php /* ==  Боковая панель - фильтр == */ ?>
 					<div class="catalog__sidebar">
+						<button class="close-sidebar" aria-label="Закрыть фильтры">
+							<svg class="close-sidebar__icon" width="6" height="6" aria-hidden="true" focusable="false">
+									<use xlink:href="<?php echo esc_url(get_template_directory_uri()); ?>/img/sprite.svg#icon-close"></use>
+							</svg>
+						</button>
 						<?php dynamic_sidebar( 'filter-product' ); ?>
 					</div>
 	
@@ -59,8 +64,16 @@ get_header( 'shop' );
 						</ul>
 						<div class="catalog__panel">
 							<div class="catalog__sort-options"><?php woocommerce_catalog_ordering(); ?></div>
-							<?php echo do_shortcode('[wcapf_active_filters]'); ?>
-
+					
+							<!-- Кнопка фильтры для мобилки -->
+								<button class="filter-toggle__btn" aria-label="Открыть фильтры" aria-expanded="false">
+									<svg class="filter-toggle__icon" width="15" height="15" aria-hidden="true" focusable="false">
+											<use xlink:href="<?php echo esc_url(get_template_directory_uri()); ?>/img/sprite.svg#icon-filter"></use>
+									</svg>
+									Фильтры
+							</button>
+							
+									<?php echo do_shortcode('[wcapf_active_filters]'); ?>
 						</div>
 						<div class="catalog__list" id="products-list">
 							<?php 

@@ -19,7 +19,15 @@
     justify-content: space-between;
 
     @include tablet-lg {
-      display: none;
+      display: none; // скрыт на мобильных
+    }
+
+    &.active {
+      @include tablet-lg {
+        display: flex; // показываем при активном классе
+        // position: relative;
+        z-index: 10;
+      }
     }
 
     form {
@@ -166,7 +174,8 @@
             color: var(--accent-blue);
           }
         }
-        .wcapf-chosen-container.chosen-container-active.chosen-with-drop .chosen-single {
+        .wcapf-chosen-container.chosen-container-active.chosen-with-drop
+          .chosen-single {
           z-index: 1012;
           border-bottom-right-radius: 15px;
           border-bottom-left-radius: 15px;
@@ -266,6 +275,45 @@
           transform: scale(99%);
         }
       }
+    }
+  }
+
+  .close-sidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+
+    background-color: var(--accent-blue);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    width: 18px;
+    height: 18px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: var(--accent-pink);
+    }
+
+    &__icon {
+      width: 6.5px;
+      height: 6.5px;
+      flex-shrink: 0;
+      fill: var(--white);
+      stroke: var(--white);
+    }
+  }
+
+  @include tablet-lg {
+    .catalog__sidebar .close-sidebar {
+      display: flex;
     }
   }
 
@@ -369,4 +417,70 @@
   // .catalog__paginations
   // &__paginations {
   // }
+}
+
+.filter-toggle__btn {
+  display: none;
+  align-items: center;
+  gap: 10px; // вместо justify-content: space-between
+  margin: 0;
+  border: 1px solid var(--accent-blue);
+  border-radius: 15px;
+  padding: 8px 27px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--grey-light);
+  background-color: transparent;
+  cursor: pointer;
+
+  @include tablet-lg {
+    display: flex;
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+
+  @include mobile-xs {
+    padding: 8px 25px;
+  }
+
+  .filter-toggle__icon {
+    flex-shrink: 0;
+    fill: var(--white);
+  }
+}
+
+// Кнопка "Применить" для фильтров на мобильных
+.wcapf-apply-filters-btn {
+  display: none; // скрыта по умолчанию, показывается через класс .show
+  margin-top: 15px;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--accent-blue);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-300),
+    transform var(--transition-300);
+
+  &.show {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+  }
+
+  @include hover {
+    background-color: var(--accent-pink);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }

@@ -11,6 +11,8 @@ import "./components/reviews-page"; // кнопка для загрузки от
 import "./components/we-bring-scroll-new"; // плашки как мы работаем
 import "./components/accordion-footer"; // футер-услуги
 import "./components/single-product"; // карточка товара
+import "./components/filter-btn-catalog"; // кнопка "фильтры" на мобилке
+import "./components/filter-btn-mobile"; // кнопка "применить" на мобилке
 
 import "./components/how-work"; // слайдер stages how-work
 

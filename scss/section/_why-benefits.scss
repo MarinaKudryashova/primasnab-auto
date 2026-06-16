@@ -41,7 +41,11 @@
     @include desktop {
       width: calc(100% / 2 - 20px * 1 / 2);
     }
-    @include mobile {
+    // @include mobile {
+    //   width: 100%;
+    // }
+
+    @include tablet-md {
       width: 100%;
     }
   }

@@ -30,50 +30,58 @@ $car_thumbnail_alt = !empty($car_thumbnail["alt"]) ? $car_thumbnail["alt"] : spr
 $car_fallback_img_url = wc_placeholder_img_src('large');// URL заглушки по умолчанию 600x600
 $car_fallback_img_id = attachment_url_to_postid($car_fallback_img_url);
 
+// Ссылка на товар
+$product_permalink = get_permalink($car_id);
+
 ?>
 
 
 <article class="ui-card product-card" itemscope itemtype="https://schema.org/Product">
-  <?php /*-- Изображение --*/ ?>
-  <?php if(has_post_thumbnail($car_id)) : ?>
-  <picture class="product-card__view">
-    <?php if(isset($car_thumbnail['webp_1x']) && !empty($car_thumbnail['webp_1x'])) : ?>
-    <source srcset="<?php echo esc_url($car_thumbnail["webp_1x"]); ?>" type="image/webp">
-    <?php endif; ?>
-    <img class="product-card__img" src="<?php echo esc_url($car_thumbnail["original_1x"]); ?>"
-      itemprop="image" alt="<?php echo esc_attr($car_thumbnail_alt); ?>" width="400" height="350">
-  </picture>
-  <?php else : ?>
-  <div class="product-card__view">
-    <img class="product-card__img" src="<?php echo esc_url($car_fallback_img_url); ?>" itemprop="image"
-      alt="<?php echo esc_attr('Изображения товара нет', 'primasnab') ?>" width="400" height="350">
-  </div>
-  <?php endif; ?>
-
-  <?php /*-- Информация --*/ ?>
-  <div class="product-card__info">
-    <?php /*-- Название с годом выпуска --*/ ?>
-    <h3 class="product-card__title" itemprop="name">
-      <?php if($car_year) : ?>
-      <?php echo esc_html( $car_title ) . ', '; ?><span><?php echo esc_html( $car_year ); ?></span>
-      <?php else :?>
-        <?php echo esc_html( $car_title ); ?>
+  
+  <!-- Вся карточка кликабельна, кроме кнопки -->
+  <a href="<?php echo esc_url($product_permalink); ?>" class="product-card__link" itemprop="url">
+    
+    <?php /*-- Изображение --*/ ?>
+    <?php if(has_post_thumbnail($car_id)) : ?>
+    <picture class="product-card__view">
+      <?php if(isset($car_thumbnail['webp_1x']) && !empty($car_thumbnail['webp_1x'])) : ?>
+      <source srcset="<?php echo esc_url($car_thumbnail["webp_1x"]); ?>" type="image/webp">
       <?php endif; ?>
-    </h3>
-
-    <?php /*-- Страна --*/ ?>
-    <?php if (!empty($car_country_name)) : ?>
-    <span class="product-card__category"><?php echo esc_html( $car_country_name ); ?></span>
+      <img class="product-card__img" src="<?php echo esc_url($car_thumbnail["original_1x"]); ?>"
+        itemprop="image" alt="<?php echo esc_attr($car_thumbnail_alt); ?>" width="400" height="350">
+    </picture>
+    <?php else : ?>
+    <div class="product-card__view">
+      <img class="product-card__img" src="<?php echo esc_url($car_fallback_img_url); ?>" itemprop="image"
+        alt="<?php echo esc_attr('Изображения товара нет', 'primasnab') ?>" width="400" height="350">
+    </div>
     <?php endif; ?>
 
-    <?php /*-- Цена --*/ ?>
-    <?php if (!empty($car_price)) : ?>
-    <div class="product-card__prices"> <?php echo $car_price; ?></div>
-    <?php endif; ?>
-  </div>
+    <?php /*-- Информация --*/ ?>
+    <div class="product-card__info">
+      <?php /*-- Название с годом выпуска --*/ ?>
+      <h3 class="product-card__title" itemprop="name">
+        <?php if($car_year) : ?>
+        <?php echo esc_html( $car_title ) . ', '; ?><span><?php echo esc_html( $car_year ); ?></span>
+        <?php else :?>
+          <?php echo esc_html( $car_title ); ?>
+        <?php endif; ?>
+      </h3>
 
+      <?php /*-- Страна --*/ ?>
+      <?php if (!empty($car_country_name)) : ?>
+      <span class="product-card__category"><?php echo esc_html( $car_country_name ); ?></span>
+      <?php endif; ?>
 
-  <?php /*-- Кнопка с формой --*/ ?>
+      <?php /*-- Цена --*/ ?>
+      <?php if (!empty($car_price)) : ?>
+      <div class="product-card__prices"> <?php echo $car_price; ?></div>
+      <?php endif; ?>
+    </div>
+    
+  </a> <!-- закрываем ссылку -->
+
+  <?php /*-- Кнопка с формой (вне ссылки, чтобы не переходить по ней) --*/ ?>
   <button type="button" class="product-card__btn ui-btn ui-btn--pink" data-graph-path="modal-leadform">Оставить заявку</button>
 
 </article>
