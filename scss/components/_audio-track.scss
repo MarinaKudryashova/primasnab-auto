@@ -1,0 +1,74 @@
+.audio-float__btn {
+  position: fixed;
+  bottom: 70px;
+  right: 30px;
+  z-index: 9999;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px 0 var(--accent-pink);
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include tablet-lg {
+    bottom: 280px;
+    width: 150px;
+    height: 150px;
+  }
+
+  @include tablet-md {
+    width: 120px;
+    height: 120px;
+    right: 17px;
+    bottom: 232px;
+  }
+
+  @include mobile {
+    bottom: 262px;
+  }
+
+  @media (max-width: 375px) {
+    top: 460px;
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (max-width: 350px) {
+    top: 70px;
+    width: 80px;
+    height: 80px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  // Вращение при воспроизведении
+  &.playing {
+    animation: spin 2s linear infinite;
+  }
+
+  // Остановка вращения при паузе
+  &.paused {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

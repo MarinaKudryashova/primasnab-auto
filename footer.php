@@ -130,6 +130,16 @@
 					</div>
 				</div>
 			</div>
+
+
+		
+		<!-- Плавающая кнопка с аудио -->
+		<div id="audio-float-btn" class="audio-float__btn" role="button" aria-label="Воспроизвести трек">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/icon-track.png" alt="Воспроизвести трек">
+		</div>
+		<audio id="audio-player" src="<?php echo get_template_directory_uri(); ?>/audio/GTA_San_Andreas_-_Theme_song_62938231.mp3"></audio>
+
+
 		</footer>
 		
   </div><!-- #site -->
@@ -139,6 +149,7 @@
 	<?php get_template_part("template-parts/components/modal"); ?>
 	<?php get_template_part("template-parts/components/topbtn"); ?>
 	<?php get_template_part("template-parts/components/cookie-notice"); ?>
+
 
 </body>
 </html>
