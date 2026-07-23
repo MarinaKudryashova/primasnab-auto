@@ -14,6 +14,8 @@ import "./components/single-product"; // карточка товара
 import "./components/filter-btn-catalog"; // кнопка "фильтры" на мобилке
 import "./components/filter-btn-mobile"; // кнопка "применить" на мобилке
 import "./components/audio-track"; // картинка с музыкой
+import "./components/partners-slider"; // парнеры
+import "./components/customs-video"; // видео с таможенного оформления
 
 import "./components/how-work"; // слайдер stages how-work
 

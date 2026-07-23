@@ -32,3 +32,15 @@
     color: var(--white);
   }
 }
+
+// ========== ОТСТУП ДЛЯ ХЛЕБНЫХ КРОШЕК НА СТРАНИЦАХ ==========
+
+.page-template-page-about,
+.page-template-page-reviews,
+.page-template-page-contacts,
+.page-template-page-trade-in,
+.page-template-page-customs {
+  .breadcrumbs {
+    padding-top: 50px;
+  }
+}

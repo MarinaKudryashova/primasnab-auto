@@ -1,0 +1,8 @@
+// ========== УВЕЛИЧЕНИЕ ОТСТУПА ДЛЯ СЕКЦИИ "ИНТЕРЕСНО О НАС" ==========
+.sec-slider[data-id="company-media"] {
+  margin-bottom: 200px;
+
+  @include mobile {
+    margin-bottom: 100px;
+  }
+}
