@@ -127,14 +127,20 @@
 
 			<?php /*-- Телефон --*/ ?>
 			<?php
-			$phone = get_field('company_tel', 'options');
-			$phone = explode(PHP_EOL, $phone);
-			$phone_href = preg_replace('![^0-9]+!', '', $phone);
+			$phone_field = get_field('company_tel', 'options');
+			$phone_arr = array_filter(array_map('trim', explode(PHP_EOL, $phone_field)));
+			$phone = $phone_arr[0] ?? '';
+
+			if (strpos(trim($phone), '+') === 0) {
+					$phone_href = preg_replace('/[^0-9+]/', '', $phone);
+			} else {
+					$phone_href = preg_replace('/[^0-9]/', '', $phone);
+			}
 			?>
 			<div class="contacts">
 				<span class="contacts__title"><?php esc_html_e('Телефон', 'primasnab'); ?></span>
-				<a class="contacts__value ui-link" href="tel:<?php echo $phone_href[0]; ?>"
-					data-text="<?php echo $phone[0]; ?>"><?php echo $phone[0]; ?></a>
+				<a class="contacts__value ui-link" href="tel:<?php echo $phone_href; ?>"
+					data-text="<?php echo $phone; ?>"><?php echo $phone; ?></a>
 			</div>
 			<?php /*-- Электронная почта --*/ ?>
 			<div class="contacts">

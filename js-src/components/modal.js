@@ -1,5 +1,4 @@
 import GraphModal from "graph-modal";
-import { showSuccessMessage, showErrorMessage } from "./message.js";
 
 function initFormHandlers() {
   const modal = new GraphModal();
@@ -13,7 +12,6 @@ function initFormHandlers() {
     modal.close();
   }
 
-  // Обработчики событий Contact Form 7
   document.addEventListener(
     "wpcf7mailsent",
     function (response) {
@@ -24,7 +22,7 @@ function initFormHandlers() {
       }
 
       setTimeout(() => {
-        showSuccessMessage();
+        new GraphModal().open("modal-send");
       }, 300);
     },
     false,
@@ -32,6 +30,7 @@ function initFormHandlers() {
 
   document.addEventListener(
     "wpcf7mailfailed",
+    "wpcf7invalid",
     function (response) {
       const formElement = response.target;
 
@@ -40,16 +39,8 @@ function initFormHandlers() {
       }
 
       setTimeout(() => {
-        showErrorMessage();
+        new GraphModal().open("modal-failed");
       }, 300);
-    },
-    false,
-  );
-
-  document.addEventListener(
-    "wpcf7invalid",
-    function (response) {
-      showErrorMessage("Пожалуйста, проверьте правильность заполнения формы");
     },
     false,
   );

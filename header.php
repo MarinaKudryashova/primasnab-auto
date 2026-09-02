@@ -17,7 +17,6 @@ $messanges = get_field('messengers_list', 'options'); /*-- Мессенджер�
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="description" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo('description'); ?>">
 
 
@@ -95,27 +94,40 @@ $messanges = get_field('messengers_list', 'options'); /*-- Мессенджер�
 				</div>
 				<?php /*-- СТА --*/ ?>
 				<?php
-					$phone = get_field('company_tel', 'options');
-					$phone = explode(PHP_EOL, $phone);
-					$phone_href = preg_replace('![^0-9]+!', '', $phone);
+					$phone_field = get_field('company_tel', 'options');
+					$phone_arr = array_filter(array_map('trim', explode(PHP_EOL, $phone_field)));
+					$phone = $phone_arr[0] ?? '';
+
+					if (strpos(trim($phone), '+') === 0) {
+							$phone_href = preg_replace('/[^0-9+]/', '', $phone);
+					} else {
+							$phone_href = preg_replace('/[^0-9]/', '', $phone);
+					}
 				?>
 				<div class="header__action">
 					<?php /*-- Телефон --*/ ?>
-					<?php if(!empty($phone[0]) && is_array($phone)) : ?>
-					<a href="tel:<?php echo $phone_href[0]; ?>" class="header__phone" aria-label="Позвонить нам">
+					<?php if(!empty($phone)) : ?>
+					<a href="tel:<?php echo $phone_href; ?>" class="header__phone" aria-label="Позвонить нам">
 						<svg>
 							<use xlink:href="<?php echo get_template_directory_uri();?>/img/sprite.svg#icon-phone"></use>
 						</svg>
-						<span><?php echo $phone[0]; ?></span>
+						<span><?php echo $phone; ?></span>
 					</a>
 					<?php endif; ?>
 
 					<?php /*-- Мессенджеры --*/ ?>
 					<?php if($messanges) : ?>
 						<ul class="header__messanges messanges" title="messanges">
-							<?php foreach($messanges as $li) : ?>
-								<li class="messanges__item"><a href="<?php  echo get_field($li['value'], 'options'); ?>" target="_blank" class="messanges__link" aria-label="Свяжитесь с нами в <?php echo $li['label']; ?>">
-									<img loading="lazy" src="<?php echo get_template_directory_uri();?>/img/icon/<?php echo esc_html__($li['value']); ?>.svg" class="messanges__icon" width="40" height="40" alt="иконка <?php  echo $li['label']; ?>" aria-hidden="true">
+							<?php foreach($messanges as $li) : 
+								$li_class = 'messanges__link';
+								$li_size = 40;
+								if($li["value"] == 'max') {
+										$li_class = 'messanges__link messanges__link--max';
+										$li_size = 30;
+								}
+							?>
+								<li class="<?php esc_attr_e($li_class); ?>"><a href="<?php  echo get_field($li['value'], 'options'); ?>" target="_blank" class="messanges__link" aria-label="Свяжитесь с нами в <?php echo $li['label']; ?>">
+									<img loading="lazy" src="<?php echo get_template_directory_uri();?>/img/icon/<?php echo esc_html__($li['value']); ?>.svg" class="messanges__icon" width="<?php esc_attr_e($li_size); ?>" height="<?php esc_attr_e($li_size); ?>" alt="иконка <?php  echo $li['label']; ?>" aria-hidden="true">
 								</a></li>
 							<?php endforeach;	?>
 						</ul>
