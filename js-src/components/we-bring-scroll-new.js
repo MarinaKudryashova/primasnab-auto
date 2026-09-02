@@ -1,9 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const isMobile = window.innerWidth <= 768;
   const list = document.querySelector(".we-bring__list");
   if (!list) return;
 
-  // Проверяем, нужна ли прокрутка (контент выше контейнера)
-  if (list.scrollHeight <= list.clientHeight) return;
+  if (isMobile) {
+    // Мобилки: отключаем всё, плашки в потоке
+    list.style.maxHeight = "none";
+    list.style.overflowY = "visible";
+    console.log("Мобильный режим: автопрокрутка отключена");
+    return;
+  }
+
+  // Десктоп: включаем автопрокрутку, если список выше контейнера
+  if (list.scrollHeight <= list.clientHeight) {
+    console.log("Список не выше контейнера, автопрокрутка не нужна");
+    return;
+  }
 
   let direction = 1; // 1 = вниз, -1 = вверх
   let interval;
@@ -12,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (interval) clearInterval(interval);
     interval = setInterval(() => {
       list.scrollBy({ top: 1.5, behavior: "smooth" });
-      // Проверка достижения края
       if (list.scrollTop + list.clientHeight >= list.scrollHeight - 2) {
         direction = -1;
       } else if (list.scrollTop <= 2) {
@@ -23,10 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const stopAutoScroll = () => clearInterval(interval);
 
-  // Остановка при наведении
   list.addEventListener("mouseenter", stopAutoScroll);
   list.addEventListener("mouseleave", startAutoScroll);
 
-  // Запуск
   startAutoScroll();
+  console.log("Десктоп: автопрокрутка запущена");
 });

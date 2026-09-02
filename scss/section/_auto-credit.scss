@@ -1,0 +1,257 @@
+// ========== СТРАНИЦА АВТОКРЕДИТОВАНИЕ ==========
+.auto-credit-section {
+  @include tablet-md {
+    --sec-mb: 100px;
+  }
+
+  @include mobile {
+    --sec-mb: 70px;
+  }
+
+  &__title {
+    font-size: 60px;
+
+    @include desktop {
+      font-size: 58px;
+    }
+
+    @include tablet-lg {
+      font-size: 50px;
+    }
+
+    @include tablet-md {
+      font-size: 39px;
+      margin-bottom: 30px;
+    }
+
+    @include mobile {
+      font-size: clamp(30px, 5vw, 38px);
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 27px;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 23px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 140%;
+    color: var(--white);
+
+    b,
+    strong {
+      color: var(--accent-blue);
+      font-size: 34px;
+
+      @include tablet {
+        font-size: 28px;
+      }
+
+      @include mobile {
+        font-size: 22px;
+      }
+    }
+
+    p {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+
+    @include tablet {
+      font-size: 18px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    &--before-list {
+      margin-bottom: 52px;
+    }
+
+    &--between-lists {
+      margin-top: 65px;
+      margin-bottom: 15px;
+    }
+
+    &--after {
+      font-size: 32px;
+
+      @include tablet {
+        font-size: 26px;
+      }
+
+      @include mobile {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: 900px;
+
+    &--unordered {
+      margin-bottom: 0;
+    }
+
+    &--ordered {
+      margin-top: 0;
+      list-style: none;
+      counter-reset: item;
+    }
+
+    &-item {
+      position: relative;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 140%;
+      color: var(--white);
+      padding: 12px 0 12px 32px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @include tablet {
+        font-size: 16px;
+        padding: 10px 0 10px 28px;
+      }
+
+      @include mobile {
+        font-size: 15px;
+        padding: 8px 0 8px 24px;
+      }
+    }
+  }
+
+  // Маркер для ненумерованного списка - ЧЕРТОЧКА
+  &__list--unordered &__list-item {
+    &::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      font-size: 18px;
+      line-height: 140%;
+      color: var(--accent-blue);
+      opacity: 0.6;
+
+      @include tablet {
+        font-size: 16px;
+        top: 10px;
+      }
+
+      @include mobile {
+        font-size: 15px;
+        top: 8px;
+      }
+    }
+  }
+
+  // Нумерация для упорядоченного списка
+  &__list--ordered &__list-item {
+    counter-increment: item;
+
+    &::before {
+      content: counter(item) ".";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 140%;
+      color: var(--accent-blue);
+      opacity: 0.7;
+      min-width: 24px;
+
+      @include tablet {
+        font-size: 16px;
+        top: 10px;
+        min-width: 20px;
+      }
+
+      @include mobile {
+        font-size: 15px;
+        top: 8px;
+        min-width: 18px;
+      }
+    }
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px;
+    margin-top: 30px;
+
+    @include tablet-md {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @include mobile {
+      gap: 20px;
+    }
+  }
+
+  &__left {
+    grid-column: span 6;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .auto-credit-section__text--between-lists {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .auto-credit-section__list {
+      margin: 0;
+      max-width: 100%;
+      margin-bottom: 52px;
+    }
+
+    @include tablet-md {
+      grid-column: span 1;
+      justify-content: flex-start;
+    }
+  }
+
+  &__right {
+    grid-column: span 6;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet-md {
+      grid-column: span 1;
+      max-width: 100%;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    background: var(--black);
+    box-shadow: 0px 0px 11px 0px var(--accent-blue);
+  }
+}

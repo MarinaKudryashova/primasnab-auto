@@ -12,8 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let ticking = false;
   let resizeTimeout;
 
-  function setActiveItem(index) {
-    if (currentActiveIndex === index) return;
+  // function setActiveItem(index) {
+  //   if (currentActiveIndex === index) return;
+  function setActiveItem(index, force = false) {
+    if (!force && currentActiveIndex === index) return;
 
     buttons.forEach((btn, i) => {
       if (parseInt(btn.dataset.index) === index) {
@@ -26,6 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     imageItems.forEach((img, i) => {
       if (i === index) {
         img.classList.add("active");
+        // Для мобильных: явно показываем изображение
+        if (window.innerWidth < 993) {
+          img.style.display = "block";
+          imageItems.forEach((other) => {
+            if (other !== img) other.style.display = "none";
+          });
+        }
       } else {
         img.classList.remove("active");
       }
@@ -118,7 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleStackEffect() {
     if (window.innerWidth >= 993) return;
 
-    const stickyPoint = imageBlock ? imageBlock.getBoundingClientRect().bottom + 20 : 20;
+    const stickyPoint = imageBlock
+      ? imageBlock.getBoundingClientRect().bottom + 20
+      : 20;
     const { progresses, activeIndex } = calculateProgresses(stickyPoint);
 
     applyStackStyles(progresses);
@@ -198,23 +209,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // function handleMobileClick(e) {
+  //   if (window.innerWidth < 993) {
+  //     e.preventDefault();
+  //     const index = parseInt(e.currentTarget.dataset.index);
+  //     const targetItem = listItems[index];
+
+  //     if (targetItem) {
+  //       const itemRect = targetItem.getBoundingClientRect();
+  //       const offsetTop = itemRect.top + window.pageYOffset - 20;
+
+  //       window.scrollTo({
+  //         top: offsetTop,
+  //         behavior: "smooth",
+  //       });
+
+  //       setActiveItem(index, true);
+  //     }
+  //   }
+  // }
+
   function handleMobileClick(e) {
     if (window.innerWidth < 993) {
       e.preventDefault();
       const index = parseInt(e.currentTarget.dataset.index);
-      const targetItem = listItems[index];
-
-      if (targetItem) {
-        const itemRect = targetItem.getBoundingClientRect();
-        const offsetTop = itemRect.top + window.pageYOffset - 20;
-
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
-
-        setActiveItem(index);
-      }
+      // Просто переключаем изображение без прокрутки
+      setActiveItem(index, true);
     }
   }
 

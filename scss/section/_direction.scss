@@ -74,6 +74,10 @@
     @include mobile {
       transform: translate(25px, -57%) rotate(34deg);
     }
+
+    @media (max-width: 320px) {
+      transform: translate(5px, -57%) rotate(34deg);
+    }
   }
 
   &__tags {

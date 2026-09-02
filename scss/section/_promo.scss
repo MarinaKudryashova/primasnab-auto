@@ -42,6 +42,10 @@
     @media (max-width: 375px) {
       font-size: 28px;
     }
+
+    @media (max-width: 320px) {
+      font-size: 25px;
+    }
   }
 
   &__container {
@@ -85,7 +89,12 @@
     @include mobile {
       font-size: 18px;
     }
+
+    @media (max-width: 320px) {
+      font-size: 16px;
+    }
   }
+
   &__form {
     position: relative;
     grid-column: 4 span;
@@ -102,6 +111,17 @@
     position: absolute;
     bottom: -36%;
     left: -44%;
+    pointer-events: none;
+
+    @media (max-width: 1377px) {
+      bottom: -50%;
+      left: -50%;
+    }
+
+    @media (max-width: 1264px) {
+      bottom: -64%;
+      left: -56%;
+    }
 
     @include tablet-lg {
       bottom: 0%;
@@ -124,6 +144,11 @@
       @media (max-width: 375px) {
         min-width: 231px;
         left: 32%;
+      }
+
+      @media (max-width: 320px) {
+        min-width: 200px;
+        left: 15%;
       }
     }
   }
@@ -165,12 +190,6 @@
     grid-column: 12 span;
     grid-row: 3;
   }
-
-  // .promo-form__content
-  // &__content {}
-
-  // .promo-form__img
-  // &__img {}
 }
 .form {
   // .form__content
@@ -194,10 +213,23 @@
     @media (max-width: 375px) {
       margin-bottom: 156px;
     }
-  }
 
-  // .form__field
-  // &__field {}
+    // Только для страницы услуг
+    body.page-template-page-services-php & {
+      @include tablet-lg {
+        margin-bottom: 0;
+      }
+      @include mobile {
+        margin-bottom: 0;
+      }
+      @media (max-width: 450px) {
+        margin-bottom: 0;
+      }
+      @media (max-width: 375px) {
+        margin-bottom: 0;
+      }
+    }
+  }
 
   // .form__control
   &__control {
@@ -226,16 +258,17 @@
     @media (max-width: 375px) {
       span.wpcf7-list-item-label {
         font-size: 10px;
+        padding-right: 11px;
       }
     }
   }
-
-  // .form__btn
-  // &__btn {}
-
-  // .form__status
-  // &__status {}
 }
 .wpcf7-response-output {
   display: none;
+}
+
+body.page-template-page-services-php .form-argee label {
+  @include tablet-lg {
+    padding-right: 0;
+  }
 }

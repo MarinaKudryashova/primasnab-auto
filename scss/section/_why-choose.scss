@@ -189,24 +189,18 @@
 
   &__bgimg {
     position: absolute;
-    // top: 30.5%;
+
     bottom: 199px;
     right: 4%;
-    // position: absolute;
-    // bottom: 0;
-    // right: 0;
+
     align-self: flex-end;
     display: flex;
     border-radius: inherit;
     // width: 50%;
 
-    // margin-left: 20px;
     margin-right: -1.25em;
-    // margin-bottom: -1.25em;
+
     margin-bottom: -8.25em;
-    // float: right;
-    // shape-outside: margin-box;
-    // background-color: antiquewhite;
 
     & img {
       max-width: 100%;

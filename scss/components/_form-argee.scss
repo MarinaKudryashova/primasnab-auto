@@ -27,6 +27,13 @@
       color: var(--argee-color);
       transition: color var(--transition-300);
 
+      // Только для страницы услуг
+      body.page-template-page-services-php & {
+        @include mobile {
+          font-size: 10px;
+        }
+      }
+
       & a {
         position: relative;
         z-index: 2;
@@ -55,6 +62,10 @@
 
         @include hover {
           color: var(--accent-pink);
+        }
+
+        @include mobile {
+          text-underline-offset: 2px;
         }
       }
     }
@@ -150,7 +161,7 @@
     left: 0;
     // bottom: -1.33em;
     font-weight: 400;
-    font-size: 1em;
+    font-size: 0.8em;
     line-height: 110%;
     color: var(--input-error);
     z-index: 2;

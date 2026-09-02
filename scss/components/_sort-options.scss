@@ -26,6 +26,8 @@
     font-size: 15px;
     color: var(--white);
     background-color: var(--black);
+
+    cursor: pointer;
   }
 
   &__img {
@@ -49,7 +51,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 16px;
     border: 1px solid rgba(90, 167, 185, 0.4);
@@ -60,5 +62,12 @@
     font-size: 15px;
     color: var(--write);
     background-color: var(--black);
+    z-index: 99;
+    cursor: pointer;
+
+    // Класс-модификатор для отображения
+    &.is-open {
+      display: flex;
+    }
   }
 }

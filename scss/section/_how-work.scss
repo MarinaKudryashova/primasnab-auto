@@ -33,6 +33,10 @@
       align-self: start;
       transition: top 0.2s ease-out;
     }
+
+    @include mobile {
+      max-height: 100%;
+    }
   }
 
   &__image-item {
@@ -63,6 +67,10 @@
 
       @include tablet-lg {
         aspect-ratio: 335 / 300;
+      }
+
+      @include mobile {
+        aspect-ratio: 1 / 1;
       }
     }
   }

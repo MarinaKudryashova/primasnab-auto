@@ -32,3 +32,28 @@
     color: var(--white);
   }
 }
+
+// ========== ОТСТУП ДЛЯ ХЛЕБНЫХ КРОШЕК НА СТРАНИЦАХ ==========
+
+.page-template-page-about,
+.page-template-page-reviews,
+.page-template-page-contacts,
+.page-template-page-trade-in,
+.page-template-page-customs,
+.page-template-page-auto-credit,
+.page-template-page-articles-list {
+  .breadcrumbs {
+    padding-top: 50px;
+  }
+}
+
+// Для отдельной записи (статьи)
+.single-post .breadcrumbs,
+.single .breadcrumbs {
+  padding-top: 50px;
+}
+
+// ========== ДЛЯ МАГАЗИНА ТОВАРОВ ==========
+.post-type-archive-product .breadcrumbs {
+  padding-top: 50px;
+}

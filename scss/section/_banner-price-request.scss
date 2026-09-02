@@ -304,6 +304,10 @@
           transform: rotate(45deg);
           opacity: 0;
         }
+
+        @include mobile {
+          font-size: 12px;
+        }
       }
 
       // Когда чекбокс отмечен, показываем галочку

@@ -1,9 +1,15 @@
 .we-bring {
   position: relative;
-  padding-top: 70px;
+  // padding-top: 70px;
   max-height: 740px;
   overflow: clip;
   // padding-right: 40px;
+
+  @include tablet-md {
+    max-height: none;
+    overflow: visible;
+    padding: 35px 0;
+  }
 
   &__bgimg {
     position: absolute;
@@ -40,6 +46,11 @@
     @include tablet-md {
       display: flex;
       flex-direction: column;
+      align-items: stretch;
+    }
+
+    @include mobile {
+      gap: 0;
     }
   }
 
@@ -47,6 +58,7 @@
     grid-column: 5 span;
     align-self: start;
     height: fit-content;
+    padding-top: 70px;
 
     position: sticky;
     top: 80px; // отступ от верха экрана
@@ -58,6 +70,9 @@
     }
 
     @include tablet-md {
+      position: static;
+      top: auto;
+      padding-top: 0;
       margin-bottom: 20px;
       font-size: 42px;
     }
@@ -79,20 +94,28 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding: 70px 0 0 0;
 
     max-height: 600px;
     overflow-y: auto;
     scroll-behavior: smooth; // плавная прокрутка
 
     // Скрываем скроллбар для разных браузеров
-    scrollbar-width: none; // Firefox
-    -ms-overflow-style: none; // IE / Edge
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
-      display: none; // Chrome, Safari, Edge (Chromium)
+      display: none;
     }
 
-    @media (max-width: 375px) {
+    @include tablet-md {
+      max-height: none;
+      overflow-y: visible; // отключаем прокрутку
+      gap: 20px;
+      padding: 0;
+    }
+
+    @include mobile {
       gap: 10px;
     }
   }
@@ -107,19 +130,6 @@
     height: 100%;
     color: var(--white);
     box-shadow: 0 0 22px 0 var(--accent-blue);
-
-    // transition:
-    //   transform 0.3s ease,
-    //   opacity 0.3s ease;
-    // opacity: 0;
-    // transform: translateY(30px);
-    // animation: fadeInUp 0.6s ease forwards;
-
-    // @for $i from 1 through 10 {
-    //   &:nth-child(#{$i}) {
-    //     animation-delay: #{$i * 0.1}s;
-    //   }
-    // }
 
     // overflow-y: auto; пока временно убрала
     overflow: visible;
@@ -173,9 +183,3 @@
     }
   }
 }
-// @keyframes fadeInUp {
-//   to {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }

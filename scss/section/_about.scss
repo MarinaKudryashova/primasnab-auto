@@ -39,6 +39,10 @@
     @media (max-width: 375px) {
       font-size: 27px;
     }
+
+    @media (max-width: 320px) {
+      font-size: 23px;
+    }
   }
 
   &__wrapper {
