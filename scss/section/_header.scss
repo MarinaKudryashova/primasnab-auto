@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: 9999;
   width: 100%;
   padding-top: var(--padding-y);
   padding-bottom: calc(var(--padding-y) - 1px);

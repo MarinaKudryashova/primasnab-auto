@@ -1,15 +1,7 @@
 // кнопка "применить" для каталога в мобилке + иконка крестика
-
-console.log("✅ filters-btn-mobile.js loaded");
-
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("✅ DOMContentLoaded fired");
   const filterForm = document.querySelector(".wcapf-form");
-  console.log("filterForm:", filterForm);
-  if (!filterForm) {
-    console.warn("❌ Форма .wcapf-form не найдена");
-    return;
-  }
+  if (!filterForm) return;
 
   let applyButton = null;
   let isMobile = () => window.innerWidth <= 992;
@@ -45,22 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function toggleApplyButton() {
-    console.log(
-      "toggleApplyButton called, isMobile:",
-      isMobile(),
-      "isAnyFilterSelected:",
-      isAnyFilterSelected(),
-    );
-    if (!applyButton) {
-      console.warn("Кнопка ещё не создана");
-      return;
-    }
+    if (!applyButton) return;
     if (isMobile() && isAnyFilterSelected()) {
       applyButton.classList.add("show");
-      console.log("✅ Кнопка показана");
     } else {
       applyButton.classList.remove("show");
-      console.log("Кнопка скрыта");
     }
   }
 
@@ -71,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     applyButton.className = "wcapf-apply-filters-btn";
     applyButton.textContent = "Применить";
     filterForm.appendChild(applyButton);
-    console.log("✅ Кнопка создана");
     applyButton.addEventListener("click", function (e) {
       e.preventDefault();
       filterForm.submit();
@@ -81,13 +61,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function preventAutoSubmit(e) {
     if (isMobile()) {
       e.preventDefault();
-      console.log("Автоматическая отправка предотвращена");
       return false;
     }
   }
 
   function initMobileFilters() {
-    console.log("initMobileFilters, isMobile:", isMobile());
     if (isMobile()) {
       createApplyButton();
       filterForm.addEventListener("submit", preventAutoSubmit);
@@ -107,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (applyButton && applyButton.parentNode) {
         applyButton.remove();
         applyButton = null;
-        console.log("Кнопка удалена (десктоп)");
       }
       filterForm.removeEventListener("submit", preventAutoSubmit);
     }
@@ -127,10 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (filterToggleBtn) {
         filterToggleBtn.setAttribute("aria-expanded", "false");
       }
-      console.log("Сайдбар закрыт по крестику");
     });
-  } else {
-    console.warn("Крестик .close-sidebar не найден");
   }
 
   let resizeTimer;

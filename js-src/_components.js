@@ -16,6 +16,7 @@ import "./components/filter-btn-mobile"; // кнопка "применить" н
 import "./components/audio-track"; // картинка с музыкой
 import "./components/partners-slider"; // парнеры
 import "./components/customs-video"; // видео с таможенного оформления
+import "./components/sort"; // сортировка
 
 import "./components/how-work"; // слайдер stages how-work
 

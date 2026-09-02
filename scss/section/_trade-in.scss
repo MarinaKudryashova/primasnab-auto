@@ -45,21 +45,6 @@
     }
   }
 
-  // &__wrapper {
-  //   display: grid;
-  //   grid-template-columns: repeat(12, 1fr);
-  //   gap: 16px;
-  //   align-items: stretch;
-
-  //   @include tablet-lg {
-  //     gap: 30px;
-  //   }
-
-  //   @include mobile {
-  //     gap: 10px;
-  //   }
-  // }
-
   &__content {
     grid-column: span 12;
     display: flex;
@@ -260,4 +245,9 @@
       font-size: 15px;
     }
   }
+}
+
+// для неразрывного дефиса
+.nowrap {
+  white-space: nowrap;
 }

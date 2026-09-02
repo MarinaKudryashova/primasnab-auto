@@ -1,0 +1,127 @@
+// ========== БЛОК ПОСЛЕ ШАГОВ ==========
+.customs-prices {
+  padding: clamp(20px, 4vw, 51px) clamp(16px, 3vw, 37px);
+  box-shadow: 0px 0px 11.7px 0px var(--accent-blue);
+  border: 2px solid var(--white);
+  line-height: 130%;
+  border-radius: 20px;
+
+  &__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: var(--white);
+    margin-bottom: 40px;
+
+    b,
+    strong {
+      color: var(--accent-blue);
+      font-size: 26px;
+    }
+
+    @include tablet {
+      font-size: 22px;
+    }
+
+    @include mobile {
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 25px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-blue);
+    border-radius: 12px;
+    transition: all var(--transition-300);
+
+    @include tablet {
+      padding: 16px 20px;
+      font-size: 16px;
+    }
+
+    @include mobile {
+      padding: 14px 16px;
+    }
+
+    &__title {
+      font-size: 60px;
+
+      @include desktop {
+        font-size: 58px;
+      }
+
+      @include tablet-lg {
+        font-size: 50px;
+      }
+
+      @include tablet-md {
+        font-size: 39px;
+        margin-bottom: 30px;
+      }
+
+      @include mobile {
+        font-size: clamp(30px, 5vw, 38px);
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 375px) {
+        font-size: 27px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 23px;
+      }
+    }
+
+    &-description {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: var(--white);
+      opacity: 0.8;
+
+      @include tablet {
+        font-size: 14px;
+      }
+
+      @include mobile {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/* для значений ссылки */
+.page-template-page-customs .contacts__value.ui-link {
+  display: inline;
+}

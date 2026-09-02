@@ -72,12 +72,6 @@
     }
   }
 
-  // &--required {
-  //   .form-field__input {
-  //     border-color: var(--input-border-color-accent);
-  //   }
-  // }
-
   &__clear-reset {
     position: absolute;
     top: 50%;
@@ -97,7 +91,20 @@
     color: var(--clear-color);
     background: transparent;
     background-image:
-      linear-gradient(45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%);
+      linear-gradient(
+        45deg,
+        transparent 45%,
+        currentColor 45%,
+        currentColor 55%,
+        transparent 55%
+      ),
+      linear-gradient(
+        -45deg,
+        transparent 45%,
+        currentColor 45%,
+        currentColor 55%,
+        transparent 55%
+      );
     background-size: 0.8em 0.8em; // Размер крестика
     background-position: center;
     background-repeat: no-repeat;
@@ -132,26 +139,9 @@
     left: 0;
     bottom: -1.33em;
     font-weight: 400;
-    font-size: 1em;
+    font-size: 0.8em;
     line-height: 110%;
     color: var(--input-error);
     z-index: 2;
   }
-
-  // &__input:focus~&__label,
-  // &__input:not(:placeholder-shown)~&__label,
-  // &__input:-webkit-autofill:focus~&__label,
-  // &__input:-webkit-autofill:hover~&__label {
-  //   top: 12px;
-  //   opacity: 0;
-  //   transform: translateY(-50%) scale(0.75);
-  // }
-  // .wpcf7-form-control-wrap:has(.form-field__input:focus)~.form-field__label,
-  // .wpcf7-form-control-wrap:has(.form-field__input:not(:placeholder-shown))~.form-field__label,
-  // .wpcf7-form-control-wrap:has(.form-field__input:-webkit-autofill:focus)~.form-field__label,
-  // .wpcf7-form-control-wrap:has(.form-field__input:-webkit-autofill:hover)~.form-field__label {
-  //   top: 12px;
-  //   opacity: 0;
-  //   transform: translateY(-50%) scale(0.75);
-  // }
 }

@@ -90,14 +90,6 @@
       display: block;
     }
 
-    // Для экранов шире 1440px
-    // @media (min-width: 1441px) {
-    //   left: 77%;
-    //   right: auto; // сбрасываем right
-    //   bottom: 31vh;
-    //   width: 540px;
-    //   transform: translateX(-50%);
-    // }
 
     @include desktop {
       left: 59%;

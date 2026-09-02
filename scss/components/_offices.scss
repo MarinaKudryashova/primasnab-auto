@@ -9,6 +9,7 @@
 
   &__contacts .contacts__value {
     font-size: 18px;
+    display: inline;
 
     @include tablet-md {
       font-size: 16px;
@@ -97,25 +98,6 @@
     }
   }
 
-  // &__map-hint {
-  //   position: absolute;
-  //   bottom: auto;
-  //   left: auto;
-  //   top: 44%;
-  //   left: 79%;
-  //   transform: translate(-50%, -50%);
-  //   background: var(--white-60);
-  //   color: var(--black);
-  //   padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 16px);
-  //   border-radius: 20px;
-  //   font-size: clamp(12px, 4vw, 18px);
-  //   font-family: var(--font-family);
-  //   white-space: nowrap;
-  //   z-index: 100000;
-  //   pointer-events: none;
-  //   backdrop-filter: blur(4px);
-  // }
-
   // ========== КАСТОМНЫЙ ВЫПАДАЮЩИЙ СПИСОК ==========
   &__custom-select {
     display: none;
@@ -135,7 +117,6 @@
   }
 
   &__select-arrow {
-    // transition: transform 0.2s;
     flex-shrink: 0;
     stroke: var(--white);
     fill: var(--white);
@@ -159,7 +140,6 @@
     border-radius: 20px;
     overflow: hidden;
     z-index: 100;
-    // display: none;
 
     // Плавность
     opacity: 0;
@@ -266,26 +246,6 @@
   align-items: center !important;
   justify-content: center !important;
 }
-
-// [class*="ymaps-"][class*="balloon__content"]::after {
-//   content: "✕";
-//   position: absolute;
-//   right: -21px;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   font-size: 18px;
-//   font-weight: bold;
-//   color: var(--black);
-//   background: transparent;
-//   cursor: pointer;
-//   z-index: 10;
-//   opacity: 1;
-//   visibility: visible;
-// }
-
-// [class*="ymaps-"][class*="balloon__content"]:hover::after {
-//   color: var(--grey);
-// }
 
 // Хвостики (стрелки) у балуна и хинта – скрываем
 [class*="ymaps-"][class*="balloon__tail"],

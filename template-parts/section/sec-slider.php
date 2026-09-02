@@ -50,7 +50,8 @@ $slider_list  = get_field($list_field, $page_id);
                   // echo '<pre>';
                   // var_dump($page_id, $sec_name, $slide);
                   // echo '</pre>';
-                  get_template_part('template-parts/components/card-media', null, ['id' => $page_id, 'block' => $sec_name, 'slide' => $slide]);
+                  // get_template_part('template-parts/components/card-media', null, ['id' => $page_id, 'block' => $sec_name, 'slide' => $slide]);
+                  get_template_part('template-parts/components/card-media', null, ['id' => $page_id, 'block' => $sec_name, 'slide' => $slide, 'index' => $index]);
                   break;
                 case 'sec-partners': // ← парнеры
                   get_template_part('template-parts/components/card-partners', null, ['id' => $page_id, 'block' => $sec_name, 'slide' => $slide]);

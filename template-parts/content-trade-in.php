@@ -11,7 +11,11 @@ $tradeIn_important_title = get_field('tradein_important_title', $page_id);
 <!-- ==================== ЗАГОЛОВОК СТРАНИЦЫ ==================== -->
 <?php if ($tradeIn_title) : ?>
     <h1 class="trade-in-section__title page-title page-title--color">
-        <?php echo wp_kses($tradeIn_title, array('span' => array('class' => array()))); ?>
+        <?php
+        // Добавляем класс nowrap к span с классом pink
+        $title = str_replace('class="pink"', 'class="pink nowrap"', $tradeIn_title);
+        echo wp_kses($title, array('span' => array('class' => array())));
+        ?>
     </h1>
 <?php endif; ?>
 

@@ -15,7 +15,7 @@
   overflow: hidden;
 
   @include tablet-lg {
-    bottom: 280px;
+    bottom: 20px;
     width: 150px;
     height: 150px;
   }
@@ -24,21 +24,21 @@
     width: 120px;
     height: 120px;
     right: 17px;
-    bottom: 232px;
+    // bottom: 232px;
   }
 
   @include mobile {
-    bottom: 262px;
+    // bottom: 262px;
   }
 
   @media (max-width: 375px) {
-    top: 460px;
+    // top: 460px;
     width: 100px;
     height: 100px;
   }
 
   @media (max-width: 350px) {
-    top: 70px;
+    // top: 70px;
     width: 80px;
     height: 80px;
   }

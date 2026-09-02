@@ -1,5 +1,4 @@
 import Swiper from "./init-slider.js";
-console.log('Swiper внутри модуля:', typeof Swiper);
 
 const casesSectionSliders = document.querySelectorAll("[data-id='sec-cases'] .sec-slider__content");
 

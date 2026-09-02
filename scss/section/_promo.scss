@@ -90,11 +90,11 @@
       font-size: 18px;
     }
 
-     @media (max-width: 320px) {
+    @media (max-width: 320px) {
       font-size: 16px;
     }
   }
-  
+
   &__form {
     position: relative;
     grid-column: 4 span;
@@ -111,6 +111,7 @@
     position: absolute;
     bottom: -36%;
     left: -44%;
+    pointer-events: none;
 
     @media (max-width: 1377px) {
       bottom: -50%;
@@ -189,12 +190,6 @@
     grid-column: 12 span;
     grid-row: 3;
   }
-
-  // .promo-form__content
-  // &__content {}
-
-  // .promo-form__img
-  // &__img {}
 }
 .form {
   // .form__content
@@ -236,9 +231,6 @@
     }
   }
 
-  // .form__field
-  // &__field {}
-
   // .form__control
   &__control {
     display: flex;
@@ -270,12 +262,6 @@
       }
     }
   }
-
-  // .form__btn
-  // &__btn {}
-
-  // .form__status
-  // &__status {}
 }
 .wpcf7-response-output {
   display: none;
