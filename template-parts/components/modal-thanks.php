@@ -9,7 +9,7 @@
         </button>
         <div class="graph-modal__content form">
             <h2 class="form__title">Спасибо!</h2>
-            <p class="form__descr">Ваши данные отправлены.</p>
+            <p class="form__descr">Ваши данные отправлены. Скоро свяжемся с вами!</p>
             <p class="form__descr">Скоро свяжемся с вами!</p>
         </div>
     </div>
