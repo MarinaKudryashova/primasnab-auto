@@ -241,7 +241,7 @@
         }
       }
 
-      .wcapf-filter-clear-btn {
+      .wcapf-active-filters .wcapf-reset-filters-btn {
         border: 1px solid var(--white);
         border-radius: 15px;
         padding: 15px 20px;
@@ -256,6 +256,7 @@
         transition:
           border-color var(--transition-300),
           background-color var(--transition-300),
+          color var(--transition-300),
           transform var(--transition-300);
 
         &:focus {
@@ -352,7 +353,11 @@
         flex-wrap: wrap;
         gap: 10px;
         padding-top: 0;
+        margin-top: 0;
+        --wcapf-primary-color: var(--white);
+        --wcapf-clear-all-btn-top-margin: 0;
       }
+
       .wcapf-active-filter-items {
         display: flex;
         align-items: center;
@@ -391,6 +396,7 @@
           background-color: var(--black);
         }
       }
+
       .wcapf-filter-clear-btn {
         display: flex;
         align-items: center;
