@@ -96,7 +96,8 @@
   margin-left: 0; /* убираем левый отступ только у первого */
 }
 
-/* Для страницы магазина (архив товаров) */
+/* Для страниц WooCommerce (магазин, таксономии) */
+body.woocommerce-page .container > span,
 body.post-type-archive-product .container > span {
   display: flex;
   align-items: center;
@@ -109,26 +110,32 @@ body.post-type-archive-product .container > span {
   color: var(--white-60);
 }
 
+body.woocommerce-page .container > span a,
 body.post-type-archive-product .container > span a {
   color: var(--white-60);
   text-decoration: none;
 }
 
+body.woocommerce-page .container > span a:hover,
 body.post-type-archive-product .container > span a:hover {
   color: var(--accent-pink);
 }
 
+body.woocommerce-page .container > span .breadcrumb_last,
 body.post-type-archive-product .container > span .breadcrumb_last {
   color: var(--white);
 }
 
-/* Для отступов у первого элемента */
+/* Отступы внутри крошек */
+body.woocommerce-page .container > span > span,
 body.post-type-archive-product .container > span > span {
   display: inline-flex;
   align-items: center;
   font-size: 12px;
   margin: 0 10px;
 }
+
+body.woocommerce-page .container > span > span:first-child,
 body.post-type-archive-product .container > span > span:first-child {
   margin-left: 0;
 }
