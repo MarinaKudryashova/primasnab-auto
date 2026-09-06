@@ -181,7 +181,10 @@ function primasnab_styles_and_scripts() {
 	wp_enqueue_script( 'primasnab-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $ver, true );
 
 	// основные скрипты темы	
-	wp_enqueue_script( 'js-main', $js_path . 'main.min.js', array(), $ver, array( 'in_footer' => true, 'strategy' => 'defer'));
+	$js_ver = file_exists( get_template_directory() . '/js/main.min.js' )
+		? filemtime( get_template_directory() . '/js/main.min.js' )
+		: $ver;
+	wp_enqueue_script( 'js-main', $js_path . 'main.min.js', array(), $js_ver, array( 'in_footer' => true, 'strategy' => 'defer'));
 
 	// Подключаем Яндекс.Карты на странице Контакты
 if ( is_page('kontakty') || is_page_template('page-contacts.php') ) {

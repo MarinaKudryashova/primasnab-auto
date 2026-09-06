@@ -15,7 +15,7 @@ if (empty($title) && empty($form_shortcode)) {
   <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="modal-leadform">
     <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно">
       <svg>
-        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/sprite.svg#icon-close"></use>
+        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/sprite.svg?v=3#icon-close"></use>
       </svg>
     </button>
     <div class="graph-modal__content form">

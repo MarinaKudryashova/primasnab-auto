@@ -30,7 +30,6 @@ function initFormHandlers() {
 
   document.addEventListener(
     "wpcf7mailfailed",
-    "wpcf7invalid",
     function (response) {
       const formElement = response.target;
 
@@ -52,3 +51,7 @@ if (document.readyState === "loading") {
 } else {
   initFormHandlers();
 }
+
+document.addEventListener("wcapf_ajax_complete", function () {
+  setTimeout(initFormHandlers, 100);
+});
