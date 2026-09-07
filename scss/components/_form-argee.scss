@@ -11,6 +11,8 @@
   --argee-hover-color: var(--accent-blue);
   --argee-checked-color: var(--accent-blue);
 
+  position: relative;
+
   & label {
     position: relative;
     display: flex;
@@ -163,7 +165,27 @@
     font-weight: 400;
     font-size: 0.8em;
     line-height: 110%;
-    color: var(--input-error);
+    color: var(--red);
     z-index: 2;
+
+    max-width: 100%;
+    width: max-content;
+    word-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+    padding-right: 10px;
+
+    @include tablet {
+      max-width: 60%;
+      width: auto;
+      padding-right: 5px;
+    }
+
+    @include mobile {
+      left: 0;
+      max-width: 70%;
+      width: auto;
+      padding-right: 0;
+    }
   }
 }

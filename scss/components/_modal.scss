@@ -59,10 +59,9 @@
     min-height: 172px;
     background: var(--black);
 
-    @include mobile {
+    @include tablet-lg {
       width: calc(100% - 40px);
       height: auto;
-      min-height: 172px;
       padding: 20px 16px;
     }
 
@@ -75,7 +74,7 @@
       max-width: 642px;
       width: 100%;
 
-      @include mobile {
+      @include tablet-lg {
         width: calc(100% - 40px);
       }
     }
@@ -86,6 +85,7 @@
     font-size: 18px;
     line-height: 1.4;
     width: 100%;
+    margin-bottom: 8px;
 
     .thanks-title {
       font-size: 24px;
@@ -107,5 +107,52 @@
         font-size: 14px;
       }
     }
+  }
+
+  .wpcf7-not-valid-tip {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    font-weight: 400;
+    font-size: 0.8em;
+    line-height: 110%;
+    color: var(--red);
+    z-index: 2;
+    max-width: 100%;
+    width: max-content;
+    word-wrap: break-word;
+    white-space: nowrap !important;
+    box-sizing: border-box;
+    padding-right: 10px;
+  }
+
+  // Специальное правило для ошибки согласия
+  .wpcf7-form-control-wrap[data-name="agree"] .wpcf7-not-valid-tip {
+    top: calc(100% + 10px);
+    left: -275px; // сдвиг только для этой ошибки
+    max-width: 220px; // ограничиваем ширину (подберите своё значение)
+    width: auto; // отменяем возможный width: max-content
+    white-space: normal; // разрешаем перенос слов
+    word-wrap: break-word; // переносим длинные слова, если нужно
+    word-break: break-word; // для длинных без пробелов (например, ссылок)
+    box-sizing: border-box; // чтобы padding не увеличивал ширину
+    padding-right: 5px; // можно уменьшить, если нужно
+  }
+
+  .form__content {
+    margin-bottom: 0;
+  }
+
+  .form-argee label {
+    padding-right: 0;
+  }
+
+  .form-argee label span.wpcf7-list-item-label::before {
+    margin-right: 10px;
+  }
+
+  .form-argee label span.wpcf7-list-item-label {
+    padding-left: 24px;
+    text-align: start;
   }
 }

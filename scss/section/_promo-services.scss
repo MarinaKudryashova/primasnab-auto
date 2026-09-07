@@ -28,6 +28,7 @@
 
   &__container {
     display: grid;
+    align-items: start;
     grid-template-columns: repeat(12, 1fr);
     gap: 26px 20px;
 
