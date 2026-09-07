@@ -72,7 +72,7 @@ get_header( 'shop' );
 									Фильтры
 							</button>
 							
-									<?php echo do_shortcode('[wcapf_active_filters]'); ?>
+							<?php echo do_shortcode('[wcapf_active_filters]'); ?>
 						</div>
 						<div class="catalog__list" id="products-list">
 							<?php 

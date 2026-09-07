@@ -115,38 +115,40 @@ if (empty($slider_images)) {
             <div class="single-product__specs">
                 <?php
                 $specs = [
-                    'Марка'                   => 'car_brand',
-                    'Модель'                  => 'car_model',
-                    'Год выпуска'             => 'car_year',
-                    'Объем двигателя (см³)'   => 'car_engine_volume',
-                    'Мощность двигателя (л.с.)' => 'car_power',
-                    'КПП'                     => 'car_transmission',
-                    'Привод'                  => 'car_drive',
-                    'Пробег (км)'             => 'car_mileage',
-                    'Цвет кузова'             => 'car_color',
-                    'Комплектация'            => 'car_trim',
-                    'Оценка'                  => 'car_grade',
-                    'Аукцион'                 => 'car_auction',
-                    'Дата аукциона'           => 'car_auction_date',
-                    'Стартовая цена'          => 'car_start_price',
-                    'Финальная/продажная цена' => 'car_final_price',
+                    'Марка'                     => 'pa_marka',
+                    'Модель'                    => 'pa_model',
+                    'Год выпуска'               => 'pa_car-year',
+                    'Объем двигателя (см³)'     => 'pa_obem-dvigatelya',
+                    'Мощность двигателя (л.с.)' => 'pa_moshhnost-dvigatelya',
+                    'КПП'                       => 'pa_kpp',
+                    'Привод'                    => 'pa_privod',
+                    'Пробег (км)'               => 'pa_probeg',
+                    'Цвет кузова'               => 'pa_czvet-kuzova',
+                    'Комплектация'              => 'pa_komplektacziya',
+                    'Оценка'                    => 'pa_oczenka',
+                    'Аукцион'                   => 'pa_aukczion',
+                    'Дата аукциона'             => 'pa_data-aukcziona',
+                    'Стартовая цена'             => 'pa_startovaya-czena',
+                    'Финальная/продажная цена'   => 'pa_finalnaya-czena',
                 ];
 
-                $product_id = $product->get_id();
                 $output = '';
 
-                foreach ($specs as $label => $field_key) {
-                    $value = get_field($field_key, $product_id);
-                    if (! empty($value) && $value !== '0') {
-                        // Определяем, нужно ли выделение
-                        $highlight = in_array($label, ['Стартовая цена', 'Финальная/продажная цена']);
-                        $value_class = $highlight ? 'specs-value specs-value--highlight' : 'specs-value';
+                foreach ($specs as $label => $taxonomy) {
+                    $terms = get_the_terms($product->get_id(), $taxonomy);
 
-                        $output .= '<div class="specs-row">';
-                        $output .= '<span class="specs-label">' . esc_html($label) . '</span>';
-                        $output .= '<span class="' . esc_attr($value_class) . '">' . esc_html($value) . '</span>';
-                        $output .= '</div>';
+                    if (! $terms || is_wp_error($terms)) {
+                        continue;
                     }
+
+                    $value = implode(', ', wp_list_pluck($terms, 'name'));
+                    $highlight = in_array($label, ['Стартовая цена', 'Финальная/продажная цена'], true);
+                    $value_class = $highlight ? 'specs-value specs-value--highlight' : 'specs-value';
+
+                    $output .= '<div class="specs-row">';
+                    $output .= '<span class="specs-label">' . esc_html($label) . '</span>';
+                    $output .= '<span class="' . esc_attr($value_class) . '">' . esc_html($value) . '</span>';
+                    $output .= '</div>';
                 }
 
                 if (! empty($output)) : ?>
