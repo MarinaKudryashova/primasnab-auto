@@ -61,14 +61,17 @@ if (empty($slider_images)) {
             <h1 class="single-product__title page-title"><?php echo esc_html($product->get_name()); ?></h1>
             <div class="single-product__meta">
                 <?php
-                $lot = get_post_meta($product->get_id(), 'lot', true);
-                $unique_id = get_post_meta($product->get_id(), 'unique_id', true);
+                $lot_terms = get_the_terms($product->get_id(), 'pa_lot');
+                $lot = $lot_terms && ! is_wp_error($lot_terms)
+                    ? implode(', ', wp_list_pluck($lot_terms, 'name'))
+                    : '';
+                $article = $product->get_sku();
                 ?>
                 <?php if (! empty($lot)) : ?>
                     <div class="single-product__lot"><?php echo esc_html($lot); ?></div>
                 <?php endif; ?>
-                <?php if (! empty($unique_id)) : ?>
-                    <div class="single-product__unique-id"><?php echo esc_html($unique_id); ?></div>
+                <?php if (! empty($article)) : ?>
+                    <div class="single-product__article"><?php echo esc_html($article); ?></div>
                 <?php endif; ?>
                 <!-- 
                 <span class="single-product__lot">лот</span>
